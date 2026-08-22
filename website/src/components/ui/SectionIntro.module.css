@@ -1,0 +1,58 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 45rem; /* 720 — design.md §9.2 */
+  margin-bottom: var(--space-12);
+}
+
+.centred {
+  margin-inline: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-700);
+  margin: 0;
+}
+
+/* The eyebrow rule is a fragment of the pathway motif, not a bullet. */
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--gold-500);
+  flex: none;
+}
+
+.onDark .eyebrow {
+  color: var(--yellow-100);
+}
+
+.lead {
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+  color: var(--ink-700);
+  max-width: var(--measure-lead);
+}
+
+.onDark .lead {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}

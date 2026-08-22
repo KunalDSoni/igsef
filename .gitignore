@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+website/.next/
+website/.next-demo/
+website/out/
+
+# Test output
+website/playwright-report/
+website/test-results/
+website/coverage/
+
+# Generated screenshots — regenerate with `npm run screenshots`
+website/screenshots/
+
+# Environment — NEVER commit a real value
+.env
+.env.local
+.env*.local
+
+# OS and editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*

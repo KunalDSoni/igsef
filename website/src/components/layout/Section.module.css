@@ -1,0 +1,48 @@
+.section {
+  padding-block: var(--section-y);
+  position: relative;
+}
+
+.tight {
+  padding-block: var(--section-y-tight);
+}
+
+.divided {
+  border-top: var(--border-width) solid var(--border);
+}
+
+.canvas {
+  background-color: var(--canvas);
+}
+
+.surface {
+  background-color: var(--surface);
+}
+
+.lavender {
+  background-color: var(--lavender-100);
+}
+
+.mint {
+  background-color: var(--mint-100);
+}
+
+.yellow {
+  background-color: var(--yellow-100);
+}
+
+.ink {
+  background-color: var(--ink-900);
+  color: var(--white);
+}
+
+.ink :global(h1),
+.ink :global(h2),
+.ink :global(h3),
+.ink :global(h4) {
+  color: var(--white);
+}
+
+.ink :global(a) {
+  color: var(--white);
+}

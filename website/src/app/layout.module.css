@@ -1,0 +1,14 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+/* The skip target must not show a stray outline when focused programmatically. */
+.main:focus {
+  outline: none;
+}

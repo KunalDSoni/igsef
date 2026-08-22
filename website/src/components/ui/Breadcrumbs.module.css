@@ -1,0 +1,48 @@
+.nav {
+  margin-bottom: var(--space-6);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-small);
+  color: var(--ink-700);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.item + .item::before {
+  content: "";
+  width: 0.375rem;
+  height: 0.375rem;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  flex: none;
+}
+
+.link {
+  color: var(--ink-700);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  /* Keeps the small crumb links within a comfortable target. */
+  padding-block: var(--space-2);
+}
+
+.link:hover {
+  color: var(--action-strong);
+}
+
+.current {
+  font-weight: var(--weight-semibold);
+  color: var(--ink-900);
+}

@@ -1,0 +1,105 @@
+/* Mission / vision split cards — the Kidora split-card pattern, matured. */
+.splitCards {
+  display: grid;
+  gap: var(--gap-grid);
+}
+
+@media (min-width: 48rem) {
+  .splitCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.statement {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: var(--space-16);
+}
+
+.statementLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--purple-950);
+  margin: 0;
+}
+
+.statementBody {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  line-height: var(--leading-h3);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-900);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.statementMark {
+  position: absolute;
+  right: -1rem;
+  bottom: -1.5rem;
+  width: 12rem;
+  height: auto;
+  color: var(--purple-800);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.narrative {
+  max-width: var(--container-narrow);
+}
+
+.narrativeBody {
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+  color: var(--ink-700);
+  max-width: var(--measure-lead);
+}
+
+.narrativeBody + .narrativeBody {
+  margin-top: var(--space-5);
+}
+
+.valueTitle {
+  font-size: var(--text-h4);
+  line-height: var(--leading-h4);
+  font-weight: var(--weight-bold);
+}
+
+.valueBody {
+  color: var(--ink-700);
+  margin: 0;
+}
+
+.memberRole {
+  color: var(--purple-950);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+
+.statusGrid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 64rem) {
+  .statusGrid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-12);
+  }
+}
+
+.statusActions {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.governanceNote {
+  max-width: var(--container-narrow);
+}

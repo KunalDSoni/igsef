@@ -1,0 +1,36 @@
+/*
+ * Skip link. Positioned off-screen until focused, then anchored at the top of
+ * the viewport above the sticky header so it is never obscured.
+ */
+
+.skip {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: var(--z-skip);
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
+  background-color: var(--purple-800);
+  color: var(--white);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  box-shadow: var(--shadow-2);
+  transform: translateY(calc(-100% - var(--space-6)));
+  transition: transform var(--duration-feedback) var(--ease-standard);
+}
+
+.skip:focus-visible {
+  transform: translateY(0);
+  color: var(--white);
+  outline: 3px solid var(--gold-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip {
+    transition: none;
+  }
+}

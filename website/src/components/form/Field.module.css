@@ -1,0 +1,184 @@
+/*
+ * Form controls (design.md §9.3).
+ *
+ * Labels are persistent and sit above the control; placeholders are never used
+ * as labels. Required state is stated in text. Errors pair an icon with a
+ * message, so no state depends on colour alone.
+ */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.labelRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.label {
+  font-weight: var(--weight-semibold);
+  color: var(--ink-900);
+  font-size: var(--text-body);
+}
+
+.requirement {
+  font-size: var(--text-small);
+  color: var(--ink-700);
+  font-weight: var(--weight-regular);
+}
+
+.hint {
+  font-size: var(--text-small);
+  color: var(--ink-700);
+  margin: 0;
+  max-width: var(--measure-body);
+}
+
+.control {
+  width: 100%;
+  min-height: 3rem; /* 48 */
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  border: var(--border-width-strong) solid #8d8394;
+  background-color: var(--white);
+  color: var(--ink-900);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  transition:
+    border-color var(--duration-feedback) var(--ease-standard),
+    box-shadow var(--duration-feedback) var(--ease-standard);
+}
+
+.control::placeholder {
+  color: #6c6274;
+}
+
+.control:hover:not(:disabled) {
+  border-color: var(--ink-700);
+}
+
+.control:focus-visible {
+  border-color: var(--purple-950);
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.control:disabled {
+  background-color: #f3f0f5;
+  border-color: #b3aab9;
+  color: var(--ink-700);
+  cursor: not-allowed;
+}
+
+.control[aria-invalid="true"] {
+  border-color: var(--error-700);
+  border-width: var(--border-width-focus);
+  background-color: var(--error-050);
+}
+
+textarea.control {
+  min-height: 8.75rem; /* 140 */
+  resize: vertical;
+}
+
+select.control {
+  /* Native chevron is replaced so the control matches the input geometry. */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2317131C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 6 5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-4) center;
+  background-size: 1rem;
+  padding-right: var(--space-10);
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: 0;
+  color: var(--error-700);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+}
+
+.errorIcon {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.15rem;
+}
+
+.counter {
+  font-size: var(--text-small);
+  color: var(--ink-700);
+  margin: 0;
+}
+
+.counterOver {
+  color: var(--error-700);
+  font-weight: var(--weight-semibold);
+}
+
+/* ---------------------------------------------------------------- checkbox */
+
+.checkboxField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  /* 44px effective hit area including the label. */
+  min-height: var(--tap-target);
+  padding: var(--space-2) 0;
+  cursor: pointer;
+}
+
+.checkboxRow:has(input:disabled) {
+  cursor: not-allowed;
+}
+
+.checkbox {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--purple-800);
+}
+
+.checkbox:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.checkboxLabel {
+  font-size: var(--text-body);
+  color: var(--ink-900);
+  font-weight: var(--weight-semibold);
+}
+
+.checkboxRow:has(input[aria-invalid="true"]) .checkboxLabel {
+  color: var(--error-700);
+}
+
+/* ---------------------------------------------------------------- honeypot */
+
+/*
+ * Off-screen rather than display:none — some bots skip hidden inputs. It is
+ * excluded from the tab order and hidden from assistive technology, so a person
+ * can neither see nor reach it.
+ */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

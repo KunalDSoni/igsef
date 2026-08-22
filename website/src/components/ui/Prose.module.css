@@ -1,0 +1,52 @@
+/*
+ * Long-form reading column for legal pages, update bodies and briefs.
+ * Sized to the 736px reading measure and tolerant of long content.
+ */
+
+.prose {
+  max-width: var(--measure-body);
+  color: var(--ink-700);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+}
+
+.prose > * + * {
+  margin-top: var(--space-5);
+}
+
+.prose h2 {
+  margin-top: var(--space-12);
+  font-size: var(--text-h3);
+  line-height: var(--leading-h3);
+  color: var(--ink-900);
+  scroll-margin-top: calc(var(--header-height) + var(--space-6));
+}
+
+.prose h3 {
+  margin-top: var(--space-8);
+  font-size: var(--text-h4);
+  color: var(--ink-900);
+}
+
+.prose > h2:first-child,
+.prose > h3:first-child {
+  margin-top: 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-inline-start: var(--space-6);
+}
+
+.prose li + li {
+  margin-top: var(--space-2);
+}
+
+.prose strong {
+  color: var(--ink-900);
+  font-weight: var(--weight-bold);
+}
+
+.prose a {
+  overflow-wrap: anywhere;
+}

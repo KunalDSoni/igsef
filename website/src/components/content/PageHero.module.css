@@ -1,0 +1,83 @@
+/*
+ * Compact interior page hero. A cream field with a restrained pathway motif in
+ * the corner — the Kidora hero silhouette at a calmer weight so interior pages
+ * stay readable and load fast.
+ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cream-050);
+  border-bottom: var(--border-width) solid var(--border);
+  padding-block: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+}
+
+.decor {
+  position: absolute;
+  top: -10%;
+  right: -6%;
+  width: min(34rem, 60%);
+  height: auto;
+  color: var(--purple-800);
+  opacity: 0.11;
+  pointer-events: none;
+}
+
+/* Decoration is scenery on small screens and must never crowd the words. */
+@media (max-width: 47.99rem) {
+  .decor {
+    width: 20rem;
+    top: auto;
+    bottom: -20%;
+    right: -18%;
+    opacity: 0.08;
+  }
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 46rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-700);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--gold-500);
+  flex: none;
+}
+
+.lead {
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+  color: var(--ink-700);
+  max-width: var(--measure-lead);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.meta {
+  margin-top: var(--space-2);
+}
