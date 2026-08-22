@@ -1,4 +1,4 @@
-import { cleanup, render, screen, waitFor, within } from "@testing-library/react";
+import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { EnquiryForm } from "@/components/form/EnquiryForm";
@@ -275,8 +275,12 @@ describe("EnquiryForm — unavailable mode", () => {
   it("never submits, even if the form element is submitted directly", async () => {
     const fetchSpy = mockFetch({ code: "accepted" });
     const { container } = render(<EnquiryForm mode="unavailable" />);
-    container.querySelector("form")!.requestSubmit();
-    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    /* Wrapped in `act` so the Next Link's own effects settle inside the test. */
+    await act(async () => {
+      container.querySelector("form")!.requestSubmit();
+    });
+
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 

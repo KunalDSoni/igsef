@@ -15,14 +15,14 @@ all of it.
 
 ## 1. Corporate identity — blocks the disclosures page and the footer
 
-| Needed | Owner |
-| --- | --- |
-| Certificate of Incorporation | Corporate-data approver |
-| Current official company master data (name, status, registrar, activity, registered office, directors) | Corporate-data approver |
-| Confirmation of the exact registration number, character for character, from the certificate or the official service | Corporate-data approver |
-| The exact legal form and the approved public wording for it | Corporate-data approver + legal |
-| Whether directors are to be named publicly, and internal approval if so | Corporate-data approver |
-| Approved public wording for the registered office, at the disclosure level the board agrees | Corporate-data approver + legal |
+| Needed                                                                                                               | Owner                           |
+| -------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| Certificate of Incorporation                                                                                         | Corporate-data approver         |
+| Current official company master data (name, status, registrar, activity, registered office, directors)               | Corporate-data approver         |
+| Confirmation of the exact registration number, character for character, from the certificate or the official service | Corporate-data approver         |
+| The exact legal form and the approved public wording for it                                                          | Corporate-data approver + legal |
+| Whether directors are to be named publicly, and internal approval if so                                              | Corporate-data approver         |
+| Approved public wording for the registered office, at the disclosure level the board agrees                          | Corporate-data approver + legal |
 
 Candidate values appear in the brief and in the private research notes at the
 repository root. They have secondary corroboration only. They are deliberately
@@ -42,13 +42,13 @@ footer link appears, and the "View corporate disclosures" CTA activates.
 
 ## 2. Mission, focus areas and programme status — blocks the core copy
 
-| Needed | Owner |
-| --- | --- |
+| Needed                                                                       | Owner                   |
+| ---------------------------------------------------------------------------- | ----------------------- |
 | Board approval of the mission, vision and values as drafted, or replacements | Board / programme owner |
-| Approval of the four focus-area names, or replacements | Programme owner |
-| The real status of each focus area from the controlled list | Programme owner |
-| Primary audience and geography for the first year | Board / product owner |
-| An approved brief for any focus area that should have a detail page | Programme owner |
+| Approval of the four focus-area names, or replacements                       | Programme owner         |
+| The real status of each focus area from the controlled list                  | Programme owner         |
+| Primary audience and geography for the first year                            | Board / product owner   |
+| An approved brief for any focus area that should have a detail page          | Programme owner         |
 
 The site currently shows all four focus areas as `Proposed` with no detail
 pages, and states plainly that nothing is open and no delivery has begun.
@@ -74,13 +74,13 @@ assigned.
 
 ## 4. Public contact details — blocks the contact routes
 
-| Needed | Owner |
-| --- | --- |
-| A public email address, with a named person monitoring it | Operations |
-| Whether a public phone number is published, and who answers it | Operations |
-| Whether a postal address is published, and at what level of detail | Operations + legal |
-| A grievance/privacy contact address | Legal/privacy |
-| An accessibility contact address | Accessibility reviewer |
+| Needed                                                             | Owner                  |
+| ------------------------------------------------------------------ | ---------------------- |
+| A public email address, with a named person monitoring it          | Operations             |
+| Whether a public phone number is published, and who answers it     | Operations             |
+| Whether a postal address is published, and at what level of detail | Operations + legal     |
+| A grievance/privacy contact address                                | Legal/privacy          |
+| An accessibility contact address                                   | Accessibility reviewer |
 
 Nothing is published today. The contact page says so plainly rather than
 publishing an address nobody watches, and the site contains no `mailto:` or
@@ -93,17 +93,17 @@ publishing an address nobody watches, and the site contains no `mailto:` or
 
 ## 5. Form and enquiry handling — blocks form delivery
 
-| Needed | Owner |
-| --- | --- |
-| The enquiry provider, and a signed data-processing agreement | Operations + legal |
-| The endpoint and credential, for the server environment | Technical |
-| A named owner and monitored inbox for each of the seven enquiry types | Operations |
-| An agreed response-time commitment that the owner can actually meet | Operations |
-| Retention period and deletion method for an accepted enquiry | Legal/privacy |
-| Who may read submissions, and how access is removed | Technical/security |
-| The accidental-child-data procedure, approved and tested | Legal/privacy + safeguarding |
-| Whether an automated acknowledgement is sent, and from which address | Operations |
-| SPF, DKIM and DMARC for any domain used to send acknowledgements | Technical |
+| Needed                                                                | Owner                        |
+| --------------------------------------------------------------------- | ---------------------------- |
+| The enquiry provider, and a signed data-processing agreement          | Operations + legal           |
+| The endpoint and credential, for the server environment               | Technical                    |
+| A named owner and monitored inbox for each of the seven enquiry types | Operations                   |
+| An agreed response-time commitment that the owner can actually meet   | Operations                   |
+| Retention period and deletion method for an accepted enquiry          | Legal/privacy                |
+| Who may read submissions, and how access is removed                   | Technical/security           |
+| The accidental-child-data procedure, approved and tested              | Legal/privacy + safeguarding |
+| Whether an automated acknowledgement is sent, and from which address  | Operations                   |
+| SPF, DKIM and DMARC for any domain used to send acknowledgements      | Technical                    |
 
 The form UI, validation, error states, honeypot, rate limiting and server route
 are complete and tested. Delivery is switched off and the form says so.
@@ -117,13 +117,13 @@ canonical "Discuss a partnership" call to action across the site.
 
 ## 6. Legal and privacy wording — blocks the legal pages
 
-| Needed | Owner |
-| --- | --- |
-| Approved Privacy Notice, matching the actual data flow once a provider is chosen | Legal/privacy |
-| Approved Terms of Use, including liability, governing law and jurisdiction | Legal |
-| Review of the Accessibility Statement | Accessibility reviewer |
-| Confirmation that no cookie banner is required while no optional tracker is set | Legal/privacy |
-| A child-safeguarding policy, before any work involving minors | Legal + safeguarding |
+| Needed                                                                           | Owner                  |
+| -------------------------------------------------------------------------------- | ---------------------- |
+| Approved Privacy Notice, matching the actual data flow once a provider is chosen | Legal/privacy          |
+| Approved Terms of Use, including liability, governing law and jurisdiction       | Legal                  |
+| Review of the Accessibility Statement                                            | Accessibility reviewer |
+| Confirmation that no cookie banner is required while no optional tracker is set  | Legal/privacy          |
+| A child-safeguarding policy, before any work involving minors                    | Legal + safeguarding   |
 
 The privacy and terms pages carry a visible draft notice and are excluded from
 search. They describe what the website does today rather than guessing at final
@@ -136,13 +136,13 @@ wording, and they list what counsel still has to supply.
 
 ## 7. Domain and account ownership — blocks going live
 
-| Needed | Owner |
-| --- | --- |
-| The chosen domain, registered to and controlled by the organisation | Operations |
+| Needed                                                               | Owner              |
+| -------------------------------------------------------------------- | ------------------ |
+| The chosen domain, registered to and controlled by the organisation  | Operations         |
 | Registrar access with at least two authorised administrators and MFA | Technical/security |
-| Hosting account owned by the organisation, not by a contractor | Technical/security |
-| Search Console and Bing Webmaster properties, organisation owned | Technical |
-| A confirmed canonical host, and redirects from any alternate host | Technical |
+| Hosting account owned by the organisation, not by a contractor       | Technical/security |
+| Search Console and Bing Webmaster properties, organisation owned     | Technical          |
+| A confirmed canonical host, and redirects from any alternate host    | Technical          |
 
 No domain is assumed anywhere in the code. `NEXT_PUBLIC_SITE_URL` is unset, so
 the build stays on localhost and out of search.
@@ -151,12 +151,12 @@ the build stays on localhost and out of search.
 
 ## 8. Brand and media rights — affects the visual finish
 
-| Needed | Owner |
-| --- | --- |
+| Needed                                                                           | Owner              |
+| -------------------------------------------------------------------------------- | ------------------ |
 | A decision on the logo: commission an identity, or keep the typographic wordmark | Executive + design |
-| A decision on a short name or acronym, after trademark and confusion checks | Executive |
-| Photography with model releases, if real imagery is wanted | Content + design |
-| Confirmation of the reference template's licence terms for this use | Technical + legal |
+| A decision on a short name or acronym, after trademark and confusion checks      | Executive          |
+| Photography with model releases, if real imagery is wanted                       | Content + design   |
+| Confirmation of the reference template's licence terms for this use              | Technical + legal  |
 
 The site ships with a typographic wordmark and built CSS/SVG graphics, and uses
 no photography. It does not depend on any of this being resolved; a commissioned
@@ -169,11 +169,11 @@ outstanding font licensing question.
 
 ## 9. Analytics and consent — blocks measurement
 
-| Needed | Owner |
-| --- | --- |
+| Needed                                               | Owner             |
+| ---------------------------------------------------- | ----------------- |
 | Whether analytics is used at all, and which provider | Product + privacy |
-| Consent design, if the provider requires one | Legal/privacy |
-| Retention period and dashboard owner | Analytics owner |
+| Consent design, if the provider requires one         | Legal/privacy     |
+| Retention period and dashboard owner                 | Analytics owner   |
 
 Analytics is off. The adapter forwards only the approved event dictionary and a
 runtime scrubber drops anything resembling personal data or free text, but no

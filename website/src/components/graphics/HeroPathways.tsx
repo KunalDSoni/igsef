@@ -108,33 +108,16 @@ export function HeroPathways() {
             strokeOpacity="0.34"
             strokeWidth="1.5"
           />
-          <circle cx="272" cy="608" r="5" fill="#D7FDCF" fillOpacity="0.55" />
+          {/* No node is placed on the lower-left: the hero's status note sits
+              there, and a dot showing through the panel reads as a smudge on
+              the words. */}
 
-          {/* Rounded modules — the card language of the page, echoed as scenery. */}
-          <rect
-            x="1052"
-            y="392"
-            width="212"
-            height="132"
-            rx="26"
-            fill="#EBE1FD"
-            fillOpacity="0.06"
-            stroke="#EBE1FD"
-            strokeOpacity="0.16"
-            strokeWidth="1.5"
-          />
-          <rect
-            x="1178"
-            y="486"
-            width="150"
-            height="96"
-            rx="22"
-            fill="#FCB520"
-            fillOpacity="0.05"
-            stroke="#FCB520"
-            strokeOpacity="0.2"
-            strokeWidth="1.5"
-          />
+          {/*
+            A single rounded module at the left edge echoes the card language of
+            the page. The right-hand side is left clear: the hero's own focal
+            cards sit there, and a translucent panel layered behind another
+            translucent panel reads as a rendering fault rather than depth.
+          */}
           <rect
             x="96"
             y="146"

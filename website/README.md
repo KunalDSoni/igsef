@@ -58,18 +58,18 @@ on every form. Nothing is transmitted or stored.
 
 ## Testing and verification
 
-| Command | What it does |
-| --- | --- |
-| `npm run format:check` | Prettier formatting check |
-| `npm run lint` | ESLint, including the Next.js core-web-vitals rules |
-| `npm run typecheck` | Strict TypeScript, no emit |
-| `npm test` | Unit and component tests (Vitest + Testing Library) |
-| `npm run build` | Production build |
-| `npm run check:build-output` | Scans the built output for blocked content |
-| `npm run test:e2e` | End-to-end and accessibility tests (Playwright) |
-| `npm run test:a11y` | Accessibility tests only (axe-core) |
-| `npm run verify` | Everything except the end-to-end suite, in order |
-| `npm run screenshots` | Captures every page at seven widths |
+| Command                      | What it does                                        |
+| ---------------------------- | --------------------------------------------------- |
+| `npm run format:check`       | Prettier formatting check                           |
+| `npm run lint`               | ESLint, including the Next.js core-web-vitals rules |
+| `npm run typecheck`          | Strict TypeScript, no emit                          |
+| `npm test`                   | Unit and component tests (Vitest + Testing Library) |
+| `npm run build`              | Production build                                    |
+| `npm run check:build-output` | Scans the built output for blocked content          |
+| `npm run test:e2e`           | End-to-end and accessibility tests (Playwright)     |
+| `npm run test:a11y`          | Accessibility tests only (axe-core)                 |
+| `npm run verify`             | Everything except the end-to-end suite, in order    |
+| `npm run screenshots`        | Captures every page at seven widths                 |
 
 Run the whole gate before any handoff:
 
@@ -98,9 +98,14 @@ npx playwright install chromium
   validation, honeypot and rate limiting, security headers, reflow at seven
   widths, 200% zoom, text-spacing overrides, touch targets, reduced motion, and
   the site working with CSS removed.
+- **Indexing** — both deployment stages, exercised by re-importing the metadata,
+  sitemap and robots modules under each environment: a staging build is entirely
+  `noindex` with an empty sitemap, and a production build indexes only routes
+  whose gate is open while disallowing the rest in `robots.txt` as well.
 - **Accessibility** — axe-core against every page template, the open mobile
-  menu and the form error state. Automated results are a floor, not evidence of
-  conformance; see `/accessibility` for what has and has not been tested.
+  menu, and the form's error and success states. Automated results are a floor,
+  not evidence of conformance; see `/accessibility` for what has and has not
+  been tested.
 
 ### Screenshots
 
@@ -155,16 +160,16 @@ collections required by `../Requirement.md` §12.1. The shape and the controlled
 vocabulary are deliberately the ones an editor would see in a CMS, so moving to
 a headless CMS later is a transport change rather than a remodelling exercise.
 
-| File | Collection |
-| --- | --- |
-| `types.ts` | Field types and the controlled vocabulary |
-| `copy.ts` | Page copy, transcribed from `../content.md` |
-| `focus-areas.ts` | Focus Areas / Programmes |
-| `updates.ts` | Updates / Resources |
-| `faqs.ts` | FAQs |
-| `disclosures.ts` | Corporate identity fields and documents |
-| `settings.ts` | Global settings: contacts, social links, announcement |
-| `team.ts` | Team Members and Partners (both disabled) |
+| File             | Collection                                            |
+| ---------------- | ----------------------------------------------------- |
+| `types.ts`       | Field types and the controlled vocabulary             |
+| `copy.ts`        | Page copy, transcribed from `../content.md`           |
+| `focus-areas.ts` | Focus Areas / Programmes                              |
+| `updates.ts`     | Updates / Resources                                   |
+| `faqs.ts`        | FAQs                                                  |
+| `disclosures.ts` | Corporate identity fields and documents               |
+| `settings.ts`    | Global settings: contacts, social links, announcement |
+| `team.ts`        | Team Members and Partners (both disabled)             |
 
 ### Adding a focus-area detail page
 
@@ -200,17 +205,17 @@ the editor's checklist.
 external dependency is unresolved, and each carries a comment naming that
 dependency. Flipping one is a publication decision.
 
-| Gate | What it controls | Blocked on |
-| --- | --- | --- |
-| `updates` | Updates in navigation, Home module, indexing | One approved update |
-| `corporateDisclosures` | The disclosures page, footer identity block, every link to it | Verified incorporation records |
-| `leadership` | Leadership profiles on About | Approved names, bios, photo consent |
-| `partners` | Partner names and logos | A documented relationship |
-| `publicContactDetails` | Email, phone, address, alternative contact | An approved monitored contact |
-| `legalPagesApproved` | Removes the draft notice, allows indexing | Legal review |
-| `analytics` | Any analytics dispatch | Analytics owner, consent design, retention |
-| `consentUi` | A cookie choice UI | Only if an optional tracker is added |
-| `publishedSla` | The "Discuss a partnership" CTA and response-time wording | A named owner who can meet the SLA |
+| Gate                   | What it controls                                              | Blocked on                                 |
+| ---------------------- | ------------------------------------------------------------- | ------------------------------------------ |
+| `updates`              | Updates in navigation, Home module, indexing                  | One approved update                        |
+| `corporateDisclosures` | The disclosures page, footer identity block, every link to it | Verified incorporation records             |
+| `leadership`           | Leadership profiles on About                                  | Approved names, bios, photo consent        |
+| `partners`             | Partner names and logos                                       | A documented relationship                  |
+| `publicContactDetails` | Email, phone, address, alternative contact                    | An approved monitored contact              |
+| `legalPagesApproved`   | Removes the draft notice, allows indexing                     | Legal review                               |
+| `analytics`            | Any analytics dispatch                                        | Analytics owner, consent design, retention |
+| `consentUi`            | A cookie choice UI                                            | Only if an optional tracker is added       |
+| `publishedSla`         | The "Discuss a partnership" CTA and response-time wording     | A named owner who can meet the SLA         |
 
 While `publishedSla` is false, every primary call to action resolves through
 `primaryAction()` in `src/config/cta.ts` to "Explore partnership routes" instead
@@ -228,11 +233,11 @@ information about children.
 
 It has three modes, decided on the server:
 
-| Mode | When | Behaviour |
-| --- | --- | --- |
-| `unavailable` | `ENQUIRY_ENDPOINT` unset (the shipped state) | Fields disabled, an explanation of why, nothing submitted |
-| `demo` | `ENQUIRY_TEST_MODE=true` on a non-production build | Mocked adapter, prominent demo banner |
-| `live` | `ENQUIRY_ENDPOINT` set | Posts to the configured provider |
+| Mode          | When                                               | Behaviour                                                 |
+| ------------- | -------------------------------------------------- | --------------------------------------------------------- |
+| `unavailable` | `ENQUIRY_ENDPOINT` unset (the shipped state)       | Fields disabled, an explanation of why, nothing submitted |
+| `demo`        | `ENQUIRY_TEST_MODE=true` on a non-production build | Mocked adapter, prominent demo banner                     |
+| `live`        | `ENQUIRY_ENDPOINT` set                             | Posts to the configured provider                          |
 
 `ENQUIRY_TEST_MODE` is refused when the stage is `production`, so a mocked
 success can never reach a real visitor.
