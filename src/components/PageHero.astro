@@ -1,5 +1,6 @@
 ---
 import Eyebrow from './Eyebrow.astro';
+import { url } from '../lib/url.js';
 const { eyebrow, title, lede, crumb } = Astro.props;
 ---
 <section class="page-hero">
@@ -10,6 +11,6 @@ const { eyebrow, title, lede, crumb } = Astro.props;
     {eyebrow && <Eyebrow text={eyebrow} />}
     <h1>{title}</h1>
     {lede && <p>{lede}</p>}
-    {crumb && <div class="crumbs"><a href="/">Home</a> · {crumb}</div>}
+    {crumb && <div class="crumbs"><a href={url('/')}>Home</a> · {crumb}</div>}
   </div>
 </section>

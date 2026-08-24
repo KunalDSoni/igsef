@@ -2,6 +2,7 @@
 import Eyebrow from './Eyebrow.astro';
 import { tiers } from '../data/tiers.js';
 import { img } from '../data/images.js';
+import { url } from '../lib/url.js';
 const { title = "Support a child's<br />whole year", eyebrow = 'Ways to give', padTop = true } = Astro.props;
 ---
 <section class="section section--cream" id="give" style={padTop ? '' : 'padding-top:0'}>
@@ -27,7 +28,7 @@ const { title = "Support a child's<br />whole year", eyebrow = 'Ways to give', p
               <span data-price data-month={t.monthly} data-year={t.yearly}>{t.monthly}</span>
               <small data-period>/Month</small>
             </div>
-            <a href="/donate" class={`btn btn--${t.ctaStyle}`}>
+            <a href={url('/donate')} class={`btn btn--${t.ctaStyle}`}>
               {t.cta}<span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
             </a>
             <ul class="plan__list">

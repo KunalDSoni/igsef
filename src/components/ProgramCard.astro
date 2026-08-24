@@ -1,4 +1,5 @@
 ---
+import { url } from '../lib/url.js';
 const { program } = Astro.props;
 ---
 <article class={`prog prog--${program.tone} reveal`}>
@@ -8,7 +9,7 @@ const { program } = Astro.props;
     <p>{program.excerpt}</p>
     <span class={`badge badge--${program.badge}`}>{program.ages}</span>
     <div class="prog__foot">
-      <a href={`/programs/${program.slug}`} class="link-arrow">View details <svg><use href="#i-arrow" /></svg></a>
+      <a href={url(`/programs/${program.slug}`)} class="link-arrow">View details <svg><use href="#i-arrow" /></svg></a>
     </div>
   </div>
   <div class="prog__media"><img src={program.image} alt={program.title} loading="lazy" /></div>

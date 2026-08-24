@@ -1,8 +1,9 @@
 ---
+import { url } from '../lib/url.js';
 const { post } = Astro.props;
 ---
 <article class="bcard">
-  <a href={`/blog/${post.slug}`}>
+  <a href={url(`/blog/${post.slug}`)}>
     <img src={post.image} alt="" loading="lazy" />
     <div class="bcard__body">
       <div class="bcard__meta">{post.author} · {post.date}</div>

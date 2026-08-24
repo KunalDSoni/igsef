@@ -1,19 +1,20 @@
 ---
 import { nav, allPages, site } from '../data/site.js';
 import Button from './Button.astro';
+import { url } from '../lib/url.js';
 // "overlay" sits transparent over a dark hero; "solid" is for every other page.
 const { variant = 'solid' } = Astro.props;
 ---
 <header class={`header ${variant === 'solid' ? 'header--solid' : ''}`} id="header" data-variant={variant}>
   <div class="wrap header__inner">
-    <a class="logo" href="/"><svg><use href="#i-logo" /></svg> {site.name}</a>
+    <a class="logo" href={url('/')}><svg><use href="#i-logo" /></svg> {site.name}</a>
 
     <nav class="nav">
-      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      {nav.map((item) => <a href={url(item.href)}>{item.label}</a>)}
       <span class="nav__group">
-        <a href="/programs" class="nav__more">All Pages <svg><use href="#i-chev" /></svg></a>
+        <a href={url('/programs')} class="nav__more">All Pages <svg><use href="#i-chev" /></svg></a>
         <span class="nav__panel">
-          {allPages.map((item) => <a href={item.href}>{item.label}</a>)}
+          {allPages.map((item) => <a href={url(item.href)}>{item.label}</a>)}
         </span>
       </span>
     </nav>
@@ -27,8 +28,8 @@ const { variant = 'solid' } = Astro.props;
 
   <div class="drawer" id="drawer" hidden>
     <div class="wrap drawer__inner">
-      {[...nav, ...allPages].map((item) => <a href={item.href}>{item.label}</a>)}
-      <a href="/donate" class="drawer__cta">Donate</a>
+      {[...nav, ...allPages].map((item) => <a href={url(item.href)}>{item.label}</a>)}
+      <a href={url('/donate')} class="drawer__cta">Donate</a>
     </div>
   </div>
 </header>
