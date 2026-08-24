@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import { site } from '../data/site.js';
+---
+<Base title="Contact" description="Reach the Indo-Global Skills & Edu Foundation team about enrolment, volunteering, or partnerships.">
+  <PageHero
+    eyebrow="Contact"
+    title="Talk to us"
+    lede="Enrolment, volunteering, partnerships, or a question about where the money goes — this reaches the whole team."
+    crumb="Contact"
+  />
+
+  <section class="section section--white">
+    <div class="wrap contact">
+      <div class="reveal">
+        <Eyebrow text="Find us" />
+        <h2>Kalina, Mumbai</h2>
+        <div class="contact__facts">
+          <div class="cfact">
+            <span class="cfact__icon"><svg><use href="#i-pin" /></svg></span>
+            <span><b>Head office</b><span>{site.address}</span></span>
+          </div>
+          <div class="cfact">
+            <span class="cfact__icon"><svg><use href="#i-mail" /></svg></span>
+            <span><b>Email</b><span>{site.email}</span></span>
+          </div>
+          <div class="cfact">
+            <span class="cfact__icon"><svg><use href="#i-phone" /></svg></span>
+            <span><b>Phone</b><span>{site.phone}</span></span>
+          </div>
+          <div class="cfact">
+            <span class="cfact__icon"><svg><use href="#i-globe" /></svg></span>
+            <span><b>Centres</b><span>38 across Mumbai and Thane. Visits by appointment.</span></span>
+          </div>
+        </div>
+      </div>
+
+      <form class="form reveal" id="contactForm">
+        <div class="form__row">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+        </div>
+        <label>I am writing about
+          <select name="topic">
+            <option>Enrolling a child</option>
+            <option>Volunteering</option>
+            <option>Donating or CSR</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Message<textarea name="message" required></textarea></label>
+        <button class="btn btn--purple" type="submit" style="justify-self:start">
+          Send message<span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
+        </button>
+        <p class="form__note" id="formNote">
+          This form is not wired to a backend yet — connect it to your form handler before launch.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('contactForm')?.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const note = document.getElementById('formNote');
+      if (note) {
+        note.textContent = 'Not sent — this form still needs a backend connected.';
+        note.style.color = 'var(--purple)';
+      }
+    });
+  </script>
+</Base>

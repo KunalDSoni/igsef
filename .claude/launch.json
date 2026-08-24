@@ -4,8 +4,8 @@
     {
       "name": "igsef-web",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "website", "run", "dev"],
-      "port": 3000
+      "runtimeArgs": ["run", "dev", "--", "--port", "4890"],
+      "port": 4890
     }
   ]
 }

@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTA from '../../components/CTA.astro';
+import { posts } from '../../data/posts.js';
+---
+<Base title="Blog" description="Notes from our classrooms on early learning, play, and what actually works.">
+  <PageHero
+    eyebrow="Our blogs"
+    title="Insights for early learning and growth"
+    lede="Notes from our educators on what works in a classroom, and what we got wrong first."
+    crumb="Blog"
+  />
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="blog__grid reveal">
+        {posts.map((p) => <BlogCard post={p} />)}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</Base>

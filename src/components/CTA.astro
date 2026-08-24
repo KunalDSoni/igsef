@@ -1,0 +1,21 @@
+---
+import Button from './Button.astro';
+import { img } from '../data/images.js';
+const {
+  title = 'Join our learning community today',
+  text = "Support a child's growth with a nurturing environment designed for learning, creativity, and confidence.",
+  cta = 'Sponsor a child',
+  href = '/donate',
+} = Astro.props;
+const faces = [img.portraitA, img.portraitB, img.portraitC, img.childSmiling];
+---
+<section class="section section--white" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      {faces.map((f) => <div class="cta__face"><img src={f} alt="" loading="lazy" /></div>)}
+      <h2>{title}</h2>
+      <p>{text}</p>
+      <Button href={href} variant="purple">{cta}</Button>
+    </div>
+  </div>
+</section>

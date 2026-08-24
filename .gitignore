@@ -1,18 +1,9 @@
 # Dependencies
 node_modules/
 
-# Next.js build output
-website/.next/
-website/.next-demo/
-website/out/
-
-# Test output
-website/playwright-report/
-website/test-results/
-website/coverage/
-
-# Generated screenshots — regenerate with `npm run screenshots`
-website/screenshots/
+# Astro build output
+dist/
+.astro/
 
 # Environment — NEVER commit a real value
 .env

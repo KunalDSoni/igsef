@@ -1,0 +1,6 @@
+---
+const { href = '#', variant = 'purple', class: cls = '' } = Astro.props;
+---
+<a href={href} class={`btn btn--${variant} ${cls}`}>
+  <slot /><span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
+</a>

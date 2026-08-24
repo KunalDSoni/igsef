@@ -1,0 +1,26 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import { testimonials } from '../data/testimonials.js';
+---
+<section class="section section--cream">
+  <div class="wrap reveal" style="margin-bottom:44px">
+    <Eyebrow text="Testimonial" />
+    <h2>Stories from<br />happy parents</h2>
+  </div>
+  <div class="wrap">
+    <div class="tst__rail">
+      {testimonials.map((t) => (
+        <article class="tcard">
+          <img src={t.photo} alt={t.name} loading="lazy" />
+          <div class="tcard__body">
+            <div class="stars">
+              {[0,1,2,3,4].map(() => <svg><use href="#i-star" /></svg>)}
+            </div>
+            <q>{t.quote}</q>
+            <div class="tcard__who"><b>{t.name}</b><span>{t.role}</span></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

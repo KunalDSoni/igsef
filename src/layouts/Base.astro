@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icons from '../components/Icons.astro';
+import { site } from '../data/site.js';
+
+const {
+  title,
+  description = site.blurb,
+  headerVariant = 'solid',
+} = Astro.props;
+
+const pageTitle = title ? `${title} — ${site.fullName}` : `${site.fullName} — ${site.tagline}`;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{pageTitle}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Nunito+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <Icons />
+  <Header variant={headerVariant} />
+  <main><slot /></main>
+  <Footer />
+
+  <script>
+    // --- sticky header -----------------------------------------------------
+    const header = document.getElementById('header');
+    if (header && header.dataset.variant === 'overlay') {
+      const onScroll = () => header.classList.toggle('is-stuck', window.scrollY > 40);
+      onScroll();
+      addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    // --- mobile drawer -----------------------------------------------------
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    burger?.addEventListener('click', () => {
+      const open = drawer.hidden;
+      drawer.hidden = !open;
+      burger.setAttribute('aria-expanded', String(open));
+      header.classList.toggle('is-stuck', open);
+    });
+
+    // --- scroll reveal -----------------------------------------------------
+    const targets = document.querySelectorAll('.reveal');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach((el) => el.classList.add('is-in'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      targets.forEach((el) => io.observe(el));
+    }
+
+    // --- monthly / yearly toggle -------------------------------------------
+    const toggle = document.getElementById('cycleToggle');
+    toggle?.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('button');
+      if (!btn) return;
+      toggle.querySelectorAll('button').forEach((b) => b.classList.toggle('is-on', b === btn));
+      const yearly = btn.dataset.cycle === 'year';
+      document.querySelectorAll('[data-price]').forEach((p) => {
+        p.textContent = yearly ? p.dataset.year : p.dataset.month;
+      });
+      document.querySelectorAll('[data-period]').forEach((p) => {
+        p.textContent = yearly ? '/Year' : '/Month';
+      });
+    });
+
+    // --- newsletter (no backend yet — acknowledge without pretending) -------
+    const sub = document.getElementById('subscribe');
+    sub?.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const msg = document.getElementById('subMsg');
+      if (msg) msg.textContent = 'Thanks — we’ll be in touch.';
+      sub.querySelector('input').value = '';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+---
+const { text = 'Where growth begins', repeat = 4 } = Astro.props;
+const items = Array.from({ length: repeat });
+---
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {[0, 1].map(() => (
+      <div class="marquee__item">
+        {items.map(() => (<><span>{text}</span><svg><use href="#i-ast" /></svg></>))}
+      </div>
+    ))}
+  </div>
+</div>
