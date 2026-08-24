@@ -1,14 +1,17 @@
 // Single source of truth for the organisation's identity.
 // Change these values to rebrand the entire site.
 export const site = {
-  name: 'Ujjwal',
-  fullName: 'Ujjwal Foundation',
+  name: 'IGSEF',
+  fullName: 'Indo-Global Skills & Edu Foundation',
   tagline: 'Building bright young minds',
   blurb: 'We provide a safe and nurturing environment where children learn, play, and grow with confidence every day.',
-  email: 'hello@ujjwalfoundation.org',
+  email: 'hello@indoglobalskills.org',
   phone: '+91 22 4000 1234',
   address: '14 Kalina Road, Santacruz East, Mumbai 400029',
-  regNumber: 'Reg. No. MH/2016/0148372 · 80G & 12A certified',
+  // Registration status is genuinely pending verification (see main branch's
+  // Requirement.md §3.1) — do not publish a CIN or 80G/12A claim here until
+  // an authorised owner confirms it against the MCA record.
+  regNumber: 'Section 8 non-profit · registration details available on request',
 };
 
 export const nav = [

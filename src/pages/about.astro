@@ -8,13 +8,13 @@ import { stats } from '../data/site.js';
 import { img } from '../data/images.js';
 
 const milestones = [
-  { year: '2016', text: 'Started with one rented room in Kalina and nineteen children.' },
-  { year: '2019', text: 'Opened our fifth centre and hired the first educators trained in-house.' },
-  { year: '2022', text: 'Launched the bridge programme for children aged nine to twelve.' },
-  { year: '2026', text: '38 centres, 2,400 children, and a 96% daily attendance rate.' },
+  { label: 'Getting started', text: 'Started with one rented room in Kalina and nineteen children.' },
+  { label: 'Growing',         text: 'Opened our fifth centre and hired the first educators trained in-house.' },
+  { label: 'Widening scope',  text: 'Launched the bridge programme for children aged nine to twelve.' },
+  { label: 'Today',           text: '38 centres, 2,400 children, and a 96% daily attendance rate.' },
 ];
 ---
-<Base title="About" description="Why Ujjwal Foundation exists, how we work, and what we have learned running free classrooms since 2016.">
+<Base title="About" description="Why Indo-Global Skills & Edu Foundation exists, how we work, and what we have learned running free classrooms.">
   <PageHero
     eyebrow="About us"
     title="A classroom should not depend on what a family can pay"
@@ -29,8 +29,8 @@ const milestones = [
         <Eyebrow text="Our story" />
         <h2>We started with<br />nineteen children</h2>
         <div class="prose" style="margin-top:20px">
-          <p>Ujjwal began in 2016 in a rented room in Kalina, because a group of parents could not find anywhere to send their four-year-olds.</p>
-          <p>Ten years on, the model has not changed much. We open small centres inside the neighbourhoods families already live in, keep class sizes under twelve, and hire educators from those same communities. What changed is the number of children — from nineteen to more than two thousand.</p>
+          <p>The foundation began in a rented room in Kalina, because a group of parents could not find anywhere to send their four-year-olds.</p>
+          <p>Since then, the model has not changed much. We open small centres inside the neighbourhoods families already live in, keep class sizes under twelve, and hire educators from those same communities. What changed is the number of children — from nineteen to more than two thousand.</p>
           <p>We charge nothing. Not a registration fee, not a materials fee, not a uniform deposit. The moment a family has to weigh school against groceries, attendance drops, and the child who stops coming rarely comes back.</p>
         </div>
       </div>
@@ -51,11 +51,11 @@ const milestones = [
     <div class="wrap">
       <div class="reveal" style="margin-bottom:44px">
         <Eyebrow text="How we got here" />
-        <h2>Ten years, one method</h2>
+        <h2>One method, start to now</h2>
       </div>
       <div class="steps reveal">
-        {milestones.map((m) => (
-          <div class="step"><b>{m.year.slice(2)}</b><h4>{m.year}</h4><p>{m.text}</p></div>
+        {milestones.map((m, i) => (
+          <div class="step"><b>{i + 1}</b><h4>{m.label}</h4><p>{m.text}</p></div>
         ))}
       </div>
     </div>
