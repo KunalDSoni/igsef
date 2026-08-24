@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProgramCard from '../../components/ProgramCard.astro';
+import CTA from '../../components/CTA.astro';
+import { programs } from '../../data/programs.js';
+---
+<Base title="Programs" description="Three age-banded programmes covering children from three to twelve, all free of cost.">
+  <PageHero
+    eyebrow="Our programs"
+    title="Programs for growing minds"
+    lede="Three age bands, each built around what children that age actually need. Every one of them is free."
+    crumb="Programs"
+  />
+  <section class="section section--cream">
+    <div class="wrap">
+      {programs.map((p) => <ProgramCard program={p} />)}
+    </div>
+  </section>
+  <CTA title="Enrolment is open year-round" cta="Start an application" href="/admissions" />
+</Base>

@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import GivingTiers from '../components/GivingTiers.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site.js';
+
+const spend = [
+  { pct: '72%', label: 'Classrooms', text: 'Educator salaries, materials, and rent for the centres.' },
+  { pct: '18%', label: 'Meals & health', text: 'One hot meal a day and annual health checks per child.' },
+  { pct: '10%', label: 'Running the org', text: 'Admin, audit, and the small team that keeps it going.' },
+];
+---
+<Base title="Ways to give" description="Fund a classroom seat. Every rupee is receipted and 80G eligible.">
+  <PageHero
+    eyebrow="Ways to give"
+    title="Fund a seat, not a slogan"
+    lede="A gift here pays for a specific child's year — teaching, meals, books, uniform. We publish where the money goes."
+    crumb="Ways to give"
+  />
+
+  <GivingTiers title="Support a child's<br />whole year" eyebrow="Choose an amount" />
+
+  <section class="section section--white" style="padding-top:0">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:40px">
+        <Eyebrow text="Transparency" />
+        <h2>Where your money goes</h2>
+      </div>
+      <div class="steps reveal" style="grid-template-columns:repeat(3,1fr)">
+        {spend.map((s) => (
+          <div class="step">
+            <b>{s.pct}</b>
+            <h4>{s.label}</h4>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:26px;font-size:14px">{site.regNumber}. Audited statements are available on request at <a href={`mailto:${site.email}`} style="border-bottom:1px solid var(--line)">{site.email}</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--cream" style="padding-top:0">
+    <div class="wrap">
+      <div class="faq reveal">
+      <Eyebrow text="Questions" />
+      <h2 style="margin-bottom:20px">Before you give</h2>
+      <details open>
+        <summary>Is my donation tax deductible?</summary>
+        <p>Yes. We are 80G and 12A certified, and a receipt is issued automatically for every gift.</p>
+      </details>
+      <details>
+        <summary>Can I choose which child I support?</summary>
+        <p>Guardian donors are matched with a child and receive letters and progress updates through the year. We do not share identifying details or photographs without a family's written consent.</p>
+      </details>
+      <details>
+        <summary>Can I stop a monthly gift?</summary>
+        <p>At any time, with no notice period. Email us or use the link at the bottom of any receipt.</p>
+      </details>
+      <details>
+        <summary>Do you accept corporate CSR funding?</summary>
+        <p>We do, and we can provide the compliance documentation most CSR teams need. Write to us and we will send the current pack.</p>
+      </details>
+      </div>
+    </div>
+  </section>
+
+  <CTA title="Not ready to give? Volunteer instead" text="We need reading partners, weekend art teachers, and people who can fix things." cta="Talk to us" href="/contact" />
+</Base>

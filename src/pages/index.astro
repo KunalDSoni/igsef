@@ -1,0 +1,193 @@
+---
+import Base from '../layouts/Base.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
+import Marquee from '../components/Marquee.astro';
+import Swoosh from '../components/Swoosh.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import Testimonials from '../components/Testimonials.astro';
+import GivingTiers from '../components/GivingTiers.astro';
+import CTA from '../components/CTA.astro';
+import { stats } from '../data/site.js';
+import { programs } from '../data/programs.js';
+import { posts } from '../data/posts.js';
+import { img } from '../data/images.js';
+
+const pillars = [
+  { tone: 'mint',  icon: 'i-heart', title: 'Child first focus',     text: "Every classroom is designed around the child's pace, interests, and comfort, helping them feel safe and truly understood." },
+  { tone: 'lav',   icon: 'i-book',  title: 'Learning through play', text: 'We turn everyday moments into meaningful learning through guided play, encouraging curiosity and joyful exploration.' },
+  { tone: 'peach', icon: 'i-globe', title: 'Rooted in community',   text: 'Parents, teachers, and neighbours build each centre together, so learning continues long after the school day ends.' },
+];
+
+const features = [
+  { title: 'Play based',          text: 'Children learn through interactive play, engaging activities, and exploration, turning every lesson into a joy.' },
+  { title: 'Safe space',          text: 'A secure, caring space designed to ensure every child feels comfortable, protected, and confident while learning.' },
+  { title: 'Expert teachers',     text: 'Our dedicated educators guide each child with patience and care, supporting growth through personal attention.' },
+  { title: 'Creative activities', text: 'From art and music to storytelling and crafts, children explore their imagination while developing confidence.' },
+];
+---
+<Base headerVariant="overlay">
+  <section class="hero">
+    <div class="hero__bg">
+      <img src={img.heroClassroom} alt="An educator talking with a young child in a classroom" />
+    </div>
+    <div class="wrap hero__inner">
+      <h1>Building bright <span style="position:relative;display:inline-block">young minds<svg
+          style="position:absolute;left:-4%;top:8%;width:108%;height:96%;pointer-events:none"
+          viewBox="0 0 300 70" fill="none" aria-hidden="true">
+          <path d="M150 6C60 6 8 20 8 36c0 15 62 28 142 28s142-13 142-28C292 21 240 8 160 6"
+                stroke="#FCB520" stroke-width="4" stroke-linecap="round" /></svg></span></h1>
+      <p class="hero__sub">A nurturing space where children learn, play, and grow with confidence — through a blend of creative activities and guided learning. Free of cost, for every child.</p>
+      <Button href="/donate" variant="white">Sponsor a child</Button>
+    </div>
+  </section>
+
+  <Marquee text="Where growth begins" />
+
+  <!-- about -->
+  <section class="section section--cream" id="about">
+    <div class="wrap">
+      <div class="about__grid reveal">
+        <Eyebrow text="About us" />
+        <p class="about__statement">A warm space for growing minds filled with care, nature, and discovery, where play becomes learning
+          <span class="about__faces">
+            <span style="background:var(--mint)"><svg style="color:var(--purple)"><use href="#i-heart" /></svg></span>
+            <span style="background:var(--purple)"><svg style="color:#fff"><use href="#i-book" /></svg></span>
+            <span style="background:var(--amber)"><svg style="color:var(--purple)"><use href="#i-globe" /></svg></span>
+          </span>
+        </p>
+      </div>
+
+      <div class="stats reveal">
+        {stats.map((s) => (<div class="stat"><b>{s.value}</b><span>{s.label}</span></div>))}
+      </div>
+
+      <div class="about__cards reveal">
+        <div class="acard acard--mint">
+          <div class="acard__icon"><svg><use href="#i-user" /></svg></div>
+          <div>
+            <h4>2500+ happy children</h4>
+            <p>30% more enrolments each year, with 95% of families reporting stronger early learning at home.</p>
+          </div>
+          <svg class="acard__wave" viewBox="0 0 200 200" fill="none"><path d="M-20 150C40 90 80 170 140 110s60-90 110-60" stroke="#fff" stroke-width="14" stroke-linecap="round"/></svg>
+        </div>
+        <div class="acard acard--photo"><img src={img.childSmiling} alt="A child smiling" loading="lazy" /></div>
+        <div class="acard acard--lav">
+          <div class="acard__icon"><svg><use href="#i-chart" /></svg></div>
+          <div>
+            <h4>85% learning progress</h4>
+            <p>Measured growth through engaging lessons, creative play, and consistent skill development.</p>
+          </div>
+          <svg class="acard__wave" viewBox="0 0 200 200" fill="none"><path d="M-20 150C40 90 80 170 140 110s60-90 110-60" stroke="#fff" stroke-width="14" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- why choose us -->
+  <section class="section section--white">
+    <div class="wrap why reveal">
+      <div class="why__photo"><img src={img.educatorChild} alt="An educator reading with a child" loading="lazy" /></div>
+      <div>
+        <Eyebrow text="Why choose us" />
+        <h2>What makes us<br />the right choice</h2>
+        <p class="lede">We create a nurturing and inspiring space where children feel safe, explore freely, build confidence, and grow through joyful everyday learning experiences.</p>
+        <div class="why__feats">
+          <div class="feat"><h4>Caring space</h4><p>A safe and supportive place where children feel valued.</p></div>
+          <svg class="feat__sep"><use href="#i-ast" /></svg>
+          <div class="feat"><h4>Fun learning</h4><p>Engaging activities that make children look forward to class.</p></div>
+        </div>
+        <div class="why__feats">
+          <div class="feat"><h4>No fees, ever</h4><p>Every seat, book, and meal is fully funded by donors.</p></div>
+          <svg class="feat__sep"><use href="#i-ast" /></svg>
+          <div class="feat"><h4>Trained teachers</h4><p>Educators hired and trained from the same communities.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- philosophy -->
+  <section class="section section--white" style="padding-top:0">
+    <div class="wrap philo reveal">
+      <div>
+        <h2>Guided by care<br />and creativity</h2>
+        <p>We nurture young minds through thoughtful care and creative learning experiences, helping every child grow with confidence, curiosity, and a strong sense of independence.</p>
+      </div>
+      <div class="philo__rail">
+        {pillars.map((p) => (
+          <article class={`pcard pcard--${p.tone}`}>
+            <div class="pcard__icon"><svg><use href={`#${p.icon}`} /></svg></div>
+            <h4>{p.title}</h4>
+            <p>{p.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- showcase -->
+  <section class="showcase">
+    <img src={img.groupPlay} alt="Children learning together" loading="lazy" />
+    <div class="showcase__in">
+      <Eyebrow text="Presentation" />
+      <h2>Discover our<br />learning space</h2>
+    </div>
+  </section>
+
+  <Marquee text="Every child deserves a classroom" repeat={3} />
+
+  <!-- programs -->
+  <section class="section section--cream" id="programs">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <Eyebrow text="Our programs" />
+          <h2>Programs for<br />growing <Swoosh text="minds" /></h2>
+        </div>
+        <Button href="/programs" variant="purple">View all programs</Button>
+      </div>
+      {programs.map((p) => <ProgramCard program={p} />)}
+    </div>
+  </section>
+
+  <!-- features -->
+  <section class="section section--white">
+    <div class="wrap feats reveal">
+      <div>
+        <Eyebrow text="Features" />
+        <h2>Little moments<br />that shine</h2>
+        <p style="margin:18px 0 28px;font-size:15px;max-width:44ch">A closer look at what makes our learning environment special, where every activity is designed to inspire curiosity, creativity, and confidence in young minds.</p>
+        <Button href="/donate" variant="purple">Sponsor a child</Button>
+        <div class="feats__photo"><img src={img.childClay} alt="A child playing with clay" loading="lazy" /></div>
+      </div>
+      <div class="feats__grid">
+        {features.map((f) => (
+          <div class="fcard">
+            <svg><use href="#i-ast" /></svg>
+            <h4>{f.title}</h4>
+            <p>{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+  <GivingTiers padTop={false} />
+
+  <!-- blog -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="blog__head reveal">
+        <Eyebrow text="Our blogs" />
+        <h2>Insights for early<br />learning and growth</h2>
+      </div>
+      <div class="blog__grid reveal">
+        {posts.map((p) => <BlogCard post={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</Base>

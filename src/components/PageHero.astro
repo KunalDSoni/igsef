@@ -1,0 +1,15 @@
+---
+import Eyebrow from './Eyebrow.astro';
+const { eyebrow, title, lede, crumb } = Astro.props;
+---
+<section class="page-hero">
+  <svg class="page-hero__blob" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M-10 140C50 80 90 160 150 100s60-90 110-60" stroke="#fff" stroke-width="16" stroke-linecap="round" />
+  </svg>
+  <div class="wrap">
+    {eyebrow && <Eyebrow text={eyebrow} />}
+    <h1>{title}</h1>
+    {lede && <p>{lede}</p>}
+    {crumb && <div class="crumbs"><a href="/">Home</a> · {crumb}</div>}
+  </div>
+</section>

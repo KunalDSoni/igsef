@@ -1,0 +1,42 @@
+---
+import { nav, allPages, site } from '../data/site.js';
+import Button from './Button.astro';
+// "overlay" sits transparent over a dark hero; "solid" is for every other page.
+const { variant = 'solid' } = Astro.props;
+---
+<header class={`header ${variant === 'solid' ? 'header--solid' : ''}`} id="header" data-variant={variant}>
+  <div class="wrap header__inner">
+    <a class="logo" href="/"><svg><use href="#i-logo" /></svg> {site.name}</a>
+
+    <nav class="nav">
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      <span class="nav__group">
+        <a href="/programs" class="nav__more">All Pages <svg><use href="#i-chev" /></svg></a>
+        <span class="nav__panel">
+          {allPages.map((item) => <a href={item.href}>{item.label}</a>)}
+        </span>
+      </span>
+    </nav>
+
+    <Button href="/donate" variant="white">Donate</Button>
+
+    <button class="header__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+  </div>
+
+  <div class="drawer" id="drawer" hidden>
+    <div class="wrap drawer__inner">
+      {[...nav, ...allPages].map((item) => <a href={item.href}>{item.label}</a>)}
+      <a href="/donate" class="drawer__cta">Donate</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .drawer { background: var(--white); border-top: 1px solid var(--line); padding: 18px 0 26px; }
+  .drawer__inner { display: grid; gap: 2px; }
+  .drawer a { padding: 12px 4px; font-size: 15px; font-weight: 700; color: var(--ink); border-bottom: 1px solid var(--line); }
+  .drawer__cta { margin-top: 14px; background: var(--purple); color: var(--white) !important; text-align: center; border-radius: var(--r-pill); border: 0 !important; }
+  @media (min-width: 721px) { .drawer { display: none; } }
+</style>

@@ -1,0 +1,39 @@
+---
+import { site, nav, allPages, socials } from '../data/site.js';
+const links = [...nav, ...allPages];
+const half = Math.ceil(links.length / 2);
+---
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="/"><svg><use href="#i-logo" /></svg> {site.name}</a>
+        <p>{site.blurb}</p>
+        <form class="sub" id="subscribe">
+          <input type="email" placeholder="Enter your email" aria-label="Email address" required />
+          <button class="btn btn--white" type="submit">
+            Subscribe <span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
+          </button>
+          <p class="sub__msg" id="subMsg" role="status"></p>
+        </form>
+      </div>
+
+      <div class="socials">
+        {socials.map((s) => (
+          <a href={s.href} aria-label={s.label}><svg><use href={`#${s.icon}`} /></svg></a>
+        ))}
+      </div>
+
+      <div class="footer__links">
+        <div class="footer__col">
+          {links.slice(0, half).map((l) => <a href={l.href}>{l.label}</a>)}
+        </div>
+        <div class="footer__col">
+          {links.slice(half).map((l) => <a href={l.href}>{l.label}</a>)}
+        </div>
+      </div>
+    </div>
+    <div class="footer__bar">© {new Date().getFullYear()} {site.fullName} · {site.regNumber}</div>
+  </div>
+</footer>
+

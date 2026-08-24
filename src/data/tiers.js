@@ -1,0 +1,35 @@
+export const tiers = [
+  {
+    name: 'Friend',
+    tone: 'mint',
+    blurb: 'Covers books, meals, and materials for one child through the school year.',
+    monthly: '₹500.00',
+    yearly: '₹5,400.00',
+    cta: 'Give monthly',
+    ctaStyle: 'purple',
+    includes: [
+      'Books and learning materials',
+      'One hot meal every school day',
+      'Art and craft supplies',
+      'Termly progress updates',
+      '80G tax receipt',
+    ],
+  },
+  {
+    name: 'Guardian',
+    tone: 'peach',
+    featured: true,
+    blurb: 'Funds a full seat — teaching, meals, uniform, and health checks — for one child.',
+    monthly: '₹2,500.00',
+    yearly: '₹27,000.00',
+    cta: 'Become a guardian',
+    ctaStyle: 'white',
+    includes: [
+      'A funded classroom seat',
+      'Uniform and school kit',
+      'Meals and annual health checks',
+      'Letters from the child you support',
+      'Invitation to centre open days',
+    ],
+  },
+];

@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ujjwal Foundation — Building bright young minds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Nunito+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- reusable icons -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.2 8.1L22 12l-7.8 3.9L12 24l-2.2-8.1L2 12l7.8-3.9z"/></symbol>
+  <symbol id="i-ast" viewBox="0 0 24 24" fill="currentColor"><path d="M11 1h2v22h-2z"/><path d="M1 11h22v2H1z"/><path d="M3.9 2.5l17 17-1.4 1.4-17-17z"/><path d="M20.9 3.9l-17 17-1.4-1.4 17-17z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1.2 14.6l-4.2-4.2 1.5-1.5 2.7 2.7 5.6-5.6 1.5 1.5z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.6l3.2 6.5 7.2 1-5.2 5.1 1.2 7.2L12 18l-6.4 3.4 1.2-7.2L1.6 9.1l7.2-1z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.7-9 6v2h18v-2c0-3.3-4-6-9-6z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20h4V10H3zm7 0h4V4h-4zm7 0h4v-7h-4z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5.1-8-10.4A4.7 4.7 0 0112 8a4.7 4.7 0 018 2.6C20 15.9 12 21 12 21z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h7v18H4zm9 0h7v18h-7z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2c1.4 0 3 2.6 3.4 6H8.6C9 6.6 10.6 4 12 4zM4.3 10h2.3a20 20 0 000 4H4.3a8 8 0 010-4zm0 6h2.6c.5 2.3 1.4 4 2.3 4a8 8 0 01-4.9-4zm4.3-2a18 18 0 010-4h6.8a18 18 0 010 4zm5.8 6c.9 0 1.8-1.7 2.3-4h2.6a8 8 0 01-4.9 4zm3-6a20 20 0 000-4h2.3a8 8 0 010 4z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-1 .2-1.5 1.6-1.5H17V2h-2.6C11.2 2 10 3.7 10 6.4V9H8v3.5h2V22h4v-9.5h2.7l.3-3.5z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-6.6 7.5L21.7 21h-6l-4.7-6-5.4 6H2.6l7-8L2.3 3h6.2l4.2 5.5zm-1 16h1.6L7.6 4.7H5.9z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M5.4 3.5a2 2 0 11-.1 4 2 2 0 01.1-4zM3.6 9h3.6v11.4H3.6zM10 9h3.4v1.6c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.4 4.4 5.6v6.1h-3.6v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.5H10z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 7.3a2.7 2.7 0 00-1.9-1.9C18.9 5 12 5 12 5s-6.9 0-8.6.4a2.7 2.7 0 00-1.9 1.9C1 9 1 12 1 12s0 3 .5 4.7a2.7 2.7 0 001.9 1.9C5.1 19 12 19 12 19s6.9 0 8.6-.4a2.7 2.7 0 001.9-1.9C23 15 23 12 23 12s0-3-.5-4.7zM9.8 15.3V8.7l5.7 3.3z"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 7.2L22 6l-4.6 6L22 18l-7.4-1.2L12 24l-2.6-7.2L2 18l4.6-6L2 6l7.4 1.2z"/></symbol>
+</svg>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap header__inner">
+    <a class="logo" href="#"><svg><use href="#i-logo"/></svg> Ujjwal</a>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#" class="nav__more">All Pages <svg><use href="#i-chev"/></svg></a>
+    </nav>
+    <a href="#give" class="btn btn--white">Donate <span class="btn__dot"><svg><use href="#i-arrow"/></svg></span></a>
+    <button class="header__burger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="https://framerusercontent.com/images/i2ECgxjZP2t8RjEmI8skh28jRbQ.png" alt="A child building with coloured blocks">
+  </div>
+  <div class="wrap hero__inner">
+    <h1>Building bright <span style="position:relative;display:inline-block">young minds
+      <svg style="position:absolute;left:-4%;top:8%;width:108%;height:96%;pointer-events:none" viewBox="0 0 300 70" fill="none" aria-hidden="true">
+        <path d="M150 6C60 6 8 20 8 36c0 15 62 28 142 28s142-13 142-28C292 21 240 8 160 6" stroke="#FCB520" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </span></h1>
+    <p class="hero__sub">A nurturing space where children learn, play, and grow with confidence — through a blend of creative activities and guided learning. Free of cost, for every child.</p>
+    <a href="#give" class="btn btn--white">Sponsor a child <span class="btn__dot"><svg><use href="#i-arrow"/></svg></span></a>
+  </div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__item"><span>Where growth begins</span><svg><use href="#i-ast"/></svg><span>Where growth begins</span><svg><use href="#i-ast"/></svg><span>Where growth begins</span><svg><use href="#i-ast"/></svg><span>Where growth begins</span><svg><use href="#i-ast"/></svg></div>
+    <div class="marquee__item"><span>Where growth begins</span><svg><use href="#i-ast"/></svg><span>Where growth begins</span><svg><use href="#i-ast"/></svg><span>Where growth begins</span><svg><use href="#i-ast"/></svg><span>Where growth begins</span><svg><use href="#i-ast"/></svg></div>
+  </div>
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section section--cream" id="about">
+  <div class="wrap">
+    <div class="about__grid reveal">
+      <span class="eyebrow"><svg><use href="#i-spark"/></svg> About us</span>
+      <p class="about__statement">A warm space for growing minds filled with care, nature, and discovery, where play becomes learning
+        <span class="about__faces">
+          <span style="background:var(--mint)"><svg style="color:var(--purple)"><use href="#i-heart"/></svg></span>
+          <span style="background:var(--purple)"><svg style="color:#fff"><use href="#i-book"/></svg></span>
+          <span style="background:var(--amber)"><svg style="color:var(--purple)"><use href="#i-globe"/></svg></span>
+        </span>
+      </p>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><b>2,400+</b><span>Children in our classrooms</span></div>
+      <div class="stat"><b>38</b><span>Learning centres running</span></div>
+      <div class="stat"><b>96%</b><span>Daily attendance rate</span></div>
+      <div class="stat"><b>120+</b><span>Trained community educators</span></div>
+    </div>
+
+    <div class="about__cards reveal">
+      <div class="acard acard--mint">
+        <div class="acard__icon"><svg><use href="#i-user"/></svg></div>
+        <div>
+          <h4>2500+ happy children</h4>
+          <p>30% more enrolments each year, with 95% of families reporting stronger early learning at home.</p>
+        </div>
+        <svg class="acard__wave" viewBox="0 0 200 200" fill="none"><path d="M-20 150C40 90 80 170 140 110s60-90 110-60" stroke="#fff" stroke-width="14" stroke-linecap="round"/></svg>
+      </div>
+      <div class="acard acard--photo">
+        <img src="https://framerusercontent.com/images/8A6VG0UxsqK6y9s0yqD44cduhs.png" alt="A smiling child">
+      </div>
+      <div class="acard acard--lav">
+        <div class="acard__icon"><svg><use href="#i-chart"/></svg></div>
+        <div>
+          <h4>85% learning progress</h4>
+          <p>Measured growth through engaging lessons, creative play, and consistent skill development.</p>
+        </div>
+        <svg class="acard__wave" viewBox="0 0 200 200" fill="none"><path d="M-20 150C40 90 80 170 140 110s60-90 110-60" stroke="#fff" stroke-width="14" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY CHOOSE US ===================== -->
+<section class="section section--white">
+  <div class="wrap why reveal">
+    <div class="why__photo"><img src="https://framerusercontent.com/images/odA3T14Xa8lqynZFZ036AcZRc.png" alt="An educator reading with a child"></div>
+    <div>
+      <span class="eyebrow"><svg><use href="#i-spark"/></svg> Why choose us</span>
+      <h2>What makes us<br>the right choice</h2>
+      <p class="lede">We create a nurturing and inspiring space where children feel safe, explore freely, build confidence, and grow through joyful everyday learning experiences.</p>
+      <div class="why__feats">
+        <div class="feat"><h4>Caring space</h4><p>A safe and supportive place where children feel valued.</p></div>
+        <svg class="feat__sep"><use href="#i-ast"/></svg>
+        <div class="feat"><h4>Fun learning</h4><p>Engaging activities that make children look forward to class.</p></div>
+      </div>
+      <div class="why__feats">
+        <div class="feat"><h4>No fees, ever</h4><p>Every seat, book, and meal is fully funded by donors.</p></div>
+        <svg class="feat__sep"><use href="#i-ast"/></svg>
+        <div class="feat"><h4>Trained teachers</h4><p>Educators hired and trained from the same communities.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PHILOSOPHY ===================== -->
+<section class="section section--white" style="padding-top:0">
+  <div class="wrap philo reveal">
+    <div>
+      <h2>Guided by care<br>and creativity</h2>
+      <p>We nurture young minds through thoughtful care and creative learning experiences, helping every child grow with confidence, curiosity, and a strong sense of independence.</p>
+    </div>
+    <div class="philo__rail">
+      <article class="pcard pcard--mint">
+        <div class="pcard__icon"><svg><use href="#i-heart"/></svg></div>
+        <h4>Child first focus</h4>
+        <p>Every classroom is designed around the child's pace, interests, and comfort, helping them feel safe and truly understood.</p>
+      </article>
+      <article class="pcard pcard--lav">
+        <div class="pcard__icon"><svg><use href="#i-book"/></svg></div>
+        <h4>Learning through play</h4>
+        <p>We turn everyday moments into meaningful learning through guided play, encouraging curiosity and joyful exploration.</p>
+      </article>
+      <article class="pcard pcard--peach">
+        <div class="pcard__icon"><svg><use href="#i-globe"/></svg></div>
+        <h4>Rooted in community</h4>
+        <p>Parents, teachers, and neighbours build each centre together, so learning continues long after the school day ends.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SHOWCASE ===================== -->
+<section class="showcase">
+  <img src="https://framerusercontent.com/images/Sfm9js53gBOL3V13gpQtyyxQPf8.png" alt="Children learning together">
+  <div class="showcase__in">
+    <span class="eyebrow"><svg><use href="#i-spark"/></svg> Presentation</span>
+    <h2>Discover our<br>learning space</h2>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__item"><span>Every child deserves a classroom</span><svg><use href="#i-ast"/></svg><span>Every child deserves a classroom</span><svg><use href="#i-ast"/></svg><span>Every child deserves a classroom</span><svg><use href="#i-ast"/></svg></div>
+    <div class="marquee__item"><span>Every child deserves a classroom</span><svg><use href="#i-ast"/></svg><span>Every child deserves a classroom</span><svg><use href="#i-ast"/></svg><span>Every child deserves a classroom</span><svg><use href="#i-ast"/></svg></div>
+  </div>
+</div>
+
+<!-- ===================== PROGRAMS ===================== -->
+<section class="section section--cream" id="programs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow"><svg><use href="#i-spark"/></svg> Our programs</span>
+        <h2>Programs for<br>growing <span style="position:relative;display:inline-block">minds
+          <svg style="position:absolute;left:-8%;top:4%;width:116%;height:100%;pointer-events:none" viewBox="0 0 200 70" fill="none" aria-hidden="true">
+            <path d="M100 5C42 5 8 18 8 34c0 15 42 27 96 27s90-12 90-27C194 20 158 7 108 5" stroke="#FCB520" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </span></h2>
+      </div>
+      <a href="#" class="btn btn--purple">View all programs <span class="btn__dot"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+
+    <article class="prog prog--mint reveal">
+      <div class="prog__body">
+        <div class="prog__num">01</div>
+        <h3>Little explorer program</h3>
+        <p>A playful early learning program where children discover letters, numbers, colours, and shapes through hands-on activities, storytelling, and guided play in a fun, supportive environment.</p>
+        <span class="badge badge--teal">Ages 3–5</span>
+        <div class="prog__foot"><a href="#" class="link-arrow">View details <svg><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="prog__media"><img src="https://framerusercontent.com/images/yZKDsRUleMx3BoVzta3YgXn9l5A.png" alt="A teacher with a young child"></div>
+    </article>
+
+    <article class="prog prog--lav reveal">
+      <div class="prog__body">
+        <div class="prog__num">02</div>
+        <h3>Creative minds program</h3>
+        <p>Focused on art, music, and imagination, this program helps children express themselves through drawing, crafting, and creative play while building confidence and emotional awareness.</p>
+        <span class="badge badge--purple">Ages 6–8</span>
+        <div class="prog__foot"><a href="#" class="link-arrow">View details <svg><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="prog__media"><img src="https://framerusercontent.com/images/i2ECgxjZP2t8RjEmI8skh28jRbQ.png" alt="Children in a creative session"></div>
+    </article>
+
+    <article class="prog prog--peach reveal">
+      <div class="prog__body">
+        <div class="prog__num">03</div>
+        <h3>Growth initiative</h3>
+        <p>Designed to build social and communication skills, this program encourages teamwork, sharing, and positive interaction through group activities, role play, and everyday learning experiences.</p>
+        <span class="badge badge--amber">Ages 9–12</span>
+        <div class="prog__foot"><a href="#" class="link-arrow">View details <svg><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="prog__media"><img src="https://framerusercontent.com/images/Sfm9js53gBOL3V13gpQtyyxQPf8.png" alt="Children building together"></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="section section--white">
+  <div class="wrap feats reveal">
+    <div>
+      <span class="eyebrow"><svg><use href="#i-spark"/></svg> Features</span>
+      <h2>Little moments<br>that shine</h2>
+      <p style="margin:18px 0 28px;font-size:15px;max-width:44ch">A closer look at what makes our learning environment special, where every activity is designed to inspire curiosity, creativity, and confidence in young minds.</p>
+      <a href="#give" class="btn btn--purple">Sponsor a child <span class="btn__dot"><svg><use href="#i-arrow"/></svg></span></a>
+      <div class="feats__photo"><img src="https://framerusercontent.com/images/HP75PcUa7PEb7GFR0GTGqdZCCs.png" alt="A child playing with clay"></div>
+    </div>
+    <div class="feats__grid">
+      <div class="fcard"><svg><use href="#i-ast"/></svg><h4>Play based</h4><p>Children learn through interactive play, engaging activities, and exploration, turning every lesson into a joy.</p></div>
+      <div class="fcard"><svg><use href="#i-ast"/></svg><h4>Safe space</h4><p>A secure, caring space designed to ensure every child feels comfortable, protected, and confident while learning.</p></div>
+      <div class="fcard"><svg><use href="#i-ast"/></svg><h4>Expert teachers</h4><p>Our dedicated educators guide each child with patience and care, supporting growth through personal attention.</p></div>
+      <div class="fcard"><svg><use href="#i-ast"/></svg><h4>Creative activities</h4><p>From art and music to storytelling and crafts, children explore their imagination while developing confidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section section--cream">
+  <div class="wrap reveal" style="margin-bottom:44px">
+    <span class="eyebrow"><svg><use href="#i-spark"/></svg> Testimonial</span>
+    <h2>Stories from<br>happy parents</h2>
+  </div>
+  <div class="wrap">
+    <div class="tst__rail">
+      <article class="tcard">
+        <img src="https://framerusercontent.com/images/CNLXwHcAp3f4tfJYFmFhMZkp6U.png" alt="Daniel Thompson">
+        <div class="tcard__body">
+          <div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <q>We're amazed at how much our son enjoys learning here. He looks forward to going every morning and comes home excited to share what he's learned. The activities are fun, creative, and thoughtfully planned.</q>
+          <div class="tcard__who"><b>Daniel Thompson</b><span>Parent, Sector 12 centre</span></div>
+        </div>
+      </article>
+      <article class="tcard">
+        <img src="https://framerusercontent.com/images/YdZxvlPuyBwG5qqgyBQOHyFxRP4.png" alt="Emily Carter">
+        <div class="tcard__body">
+          <div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <q>Our child has become more confident and curious every day since joining. The teachers are incredibly supportive and truly understand how to engage young minds. We've noticed a big improvement in both learning and social skills.</q>
+          <div class="tcard__who"><b>Emily Carter</b><span>Parent, Riverside centre</span></div>
+        </div>
+      </article>
+      <article class="tcard">
+        <img src="https://framerusercontent.com/images/q6OyoKyBDvEl3sXUKXdtHXDyg.png" alt="Priya Nair">
+        <div class="tcard__body">
+          <div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <q>I never thought my daughter would get this kind of schooling without fees. She reads to me now every evening. The centre feels like an extension of our family.</q>
+          <div class="tcard__who"><b>Priya Nair</b><span>Parent, Hill Road centre</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GIVING ===================== -->
+<section class="section section--cream" id="give" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow"><svg><use href="#i-spark"/></svg> Ways to give</span>
+        <h2>Support a child's<br>whole year</h2>
+      </div>
+      <div class="toggle">
+        <button class="is-on" data-cycle="month">Monthly</button>
+        <button data-cycle="year">Yearly</button>
+      </div>
+    </div>
+    <div class="plans reveal">
+      <div class="plan plan--mint">
+        <h4>Friend</h4>
+        <p>Covers books, meals, and materials for one child through the school year.</p>
+        <div class="plan__price"><span data-price data-month="₹500.00" data-year="₹5,400.00">₹500.00</span><small data-period>/Month</small></div>
+        <a href="#" class="btn btn--purple">Give monthly <span class="btn__dot"><svg><use href="#i-arrow"/></svg></span></a>
+        <ul class="plan__list">
+          <strong>What your gift covers</strong>
+          <li><svg><use href="#i-check"/></svg> Books and learning materials</li>
+          <li><svg><use href="#i-check"/></svg> One hot meal every school day</li>
+          <li><svg><use href="#i-check"/></svg> Art and craft supplies</li>
+          <li><svg><use href="#i-check"/></svg> Termly progress updates</li>
+          <li><svg><use href="#i-check"/></svg> 80G tax receipt</li>
+        </ul>
+      </div>
+      <div class="plan plan--peach">
+        <div>
+          <h4>Guardian</h4>
+          <p>Funds a full seat — teaching, meals, uniform, and health checks — for one child.</p>
+          <div class="plan__price"><span data-price data-month="₹2,500.00" data-year="₹27,000.00">₹2,500.00</span><small data-period>/Month</small></div>
+          <a href="#" class="btn btn--white">Become a guardian <span class="btn__dot"><svg><use href="#i-arrow"/></svg></span></a>
+          <ul class="plan__list">
+            <strong>What your gift covers</strong>
+            <li><svg><use href="#i-check"/></svg> A funded classroom seat</li>
+            <li><svg><use href="#i-check"/></svg> Uniform and school kit</li>
+            <li><svg><use href="#i-check"/></svg> Meals and annual health checks</li>
+            <li><svg><use href="#i-check"/></svg> Letters from the child you support</li>
+            <li><svg><use href="#i-check"/></svg> Invitation to centre open days</li>
+          </ul>
+        </div>
+        <div class="plan__media"><img src="https://framerusercontent.com/images/odA3T14Xa8lqynZFZ036AcZRc.png" alt="A classroom corner"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BLOG ===================== -->
+<section class="section section--white">
+  <div class="wrap">
+    <div class="blog__head reveal">
+      <span class="eyebrow"><svg><use href="#i-spark"/></svg> Our blogs</span>
+      <h2>Insights for early<br>learning and growth</h2>
+    </div>
+    <div class="blog__grid reveal">
+      <article class="bcard">
+        <img src="https://framerusercontent.com/images/yZKDsRUleMx3BoVzta3YgXn9l5A.png" alt="">
+        <div class="bcard__body">
+          <div class="bcard__meta">Sophie Taylor · February 22, 2026</div>
+          <h4>Creative games that make learning fun for kids</h4>
+        </div>
+      </article>
+      <article class="bcard">
+        <img src="https://framerusercontent.com/images/i2ECgxjZP2t8RjEmI8skh28jRbQ.png" alt="">
+        <div class="bcard__body">
+          <div class="bcard__meta">Olivia Brown · February 27, 2026</div>
+          <h4>Hands-on projects to build creativity and confidence</h4>
+        </div>
+      </article>
+      <article class="bcard">
+        <img src="https://framerusercontent.com/images/Sfm9js53gBOL3V13gpQtyyxQPf8.png" alt="">
+        <div class="bcard__body">
+          <div class="bcard__meta">Emma Wilson · March 11, 2026</div>
+          <h4>How art and play support your child's development</h4>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="section section--white" style="padding-top:0" id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="cta__face"><img src="https://framerusercontent.com/images/CNLXwHcAp3f4tfJYFmFhMZkp6U.png" alt=""></div>
+      <div class="cta__face"><img src="https://framerusercontent.com/images/YdZxvlPuyBwG5qqgyBQOHyFxRP4.png" alt=""></div>
+      <div class="cta__face"><img src="https://framerusercontent.com/images/q6OyoKyBDvEl3sXUKXdtHXDyg.png" alt=""></div>
+      <div class="cta__face"><img src="https://framerusercontent.com/images/8A6VG0UxsqK6y9s0yqD44cduhs.png" alt=""></div>
+      <h2>Join our learning community today</h2>
+      <p>Support a child's growth with a nurturing environment designed for learning, creativity, and confidence.</p>
+      <a href="#give" class="btn btn--purple">Sponsor a child <span class="btn__dot"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="#"><svg><use href="#i-logo"/></svg> Ujjwal</a>
+        <p>We provide a safe and nurturing environment where children learn, play, and grow with confidence every day.</p>
+        <form class="sub" onsubmit="return false">
+          <input type="email" placeholder="Enter your email" aria-label="Email">
+          <button class="btn btn--white" type="submit">Subscribe <span class="btn__dot"><svg><use href="#i-arrow"/></svg></span></button>
+        </form>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+        <a href="#" aria-label="X"><svg><use href="#i-x"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>
+      </div>
+      <div class="footer__links">
+        <a href="#">Home</a><a href="#">Blogs</a>
+        <a href="#about">About</a><a href="#">Blog Details</a>
+        <a href="#programs">Programs</a><a href="#">Teachers</a>
+        <a href="#">Program Details</a><a href="#give">Ways to give</a>
+        <a href="#contact">Contact</a><a href="#">Admission</a>
+        <a href="#">Volunteer</a><a href="#">404</a>
+      </div>
+    </div>
+    <div class="footer__bar">Design preview · Ujjwal Foundation · placeholder content for review</div>
+  </div>
+</footer>
+
+<script>
+  // sticky header
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('is-stuck', window.scrollY > 40);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // monthly / yearly toggle
+  const toggle = document.querySelector('.toggle');
+  toggle.addEventListener('click', (ev) => {
+    const btn = ev.target.closest('button'); if (!btn) return;
+    toggle.querySelectorAll('button').forEach(b => b.classList.toggle('is-on', b === btn));
+    const yearly = btn.dataset.cycle === 'year';
+    document.querySelectorAll('[data-price]').forEach(p => p.textContent = yearly ? p.dataset.year : p.dataset.month);
+    document.querySelectorAll('[data-period]').forEach(p => p.textContent = yearly ? '/Year' : '/Month');
+  });
+</script>
+</body>
+</html>
