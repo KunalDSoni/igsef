@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+
+// Deliberately empty. This route exists as a working template so the first
+// approved update can be published without building a page from scratch.
+// It stays out of `nav` in src/data/site.js until this array has an entry.
+const updates = [];
+---
+<Base
+  title="Updates"
+  description="News and published material from Indo-Global Skills & Edu Foundation."
+>
+  <PageHero
+    title="Updates"
+    lede="Programme news, published material, and anything we have learned worth passing on."
+    crumb="Updates"
+  />
+
+  <section class="section section--white">
+    <div class="wrap" style="max-width:760px">
+      <div class="reveal">
+        <h2>Recent updates</h2>
+      </div>
+
+      {updates.length === 0 ? (
+        <div class="empty reveal" style="margin-top:32px">
+          <h3>Nothing published yet</h3>
+          <p style="max-width:460px; margin:0 auto 24px">
+            We would rather leave this empty than fill it with a launch announcement.
+            The first update will go here when there is a programme to report on.
+          </p>
+          <Button href="/focus-areas" variant="indigo">See what we are planning</Button>
+        </div>
+      ) : (
+        <p>Listing template — render the update cards here.</p>
+      )}
+    </div>
+  </section>
+</Base>

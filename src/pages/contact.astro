@@ -2,73 +2,57 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
 import { site } from '../data/site.js';
+
+const known = site.contact.filter((c) => c.value !== null);
+const pending = site.contact.filter((c) => c.value === null);
 ---
-<Base title="Contact" description="Reach the Indo-Global Skills & Edu Foundation team about enrolment, volunteering, or partnerships.">
+<Base
+  title="Contact"
+  description="How to reach Indo-Global Skills & Edu Foundation about partnerships, programmes, or organisational questions."
+>
   <PageHero
     eyebrow="Contact"
-    title="Talk to us"
-    lede="Enrolment, volunteering, partnerships, or a question about where the money goes — this reaches the whole team."
+    title="Reach the team"
+    lede="Partnership enquiries move fastest through the enquiry form, which routes straight to the people who can answer."
     crumb="Contact"
   />
 
   <section class="section section--white">
-    <div class="wrap contact">
+    <div class="wrap" style="max-width:760px">
       <div class="reveal">
-        <Eyebrow text="Find us" />
-        <h2>Kalina, Mumbai</h2>
-        <div class="contact__facts">
-          <div class="cfact">
-            <span class="cfact__icon"><svg><use href="#i-pin" /></svg></span>
-            <span><b>Head office</b><span>{site.address}</span></span>
-          </div>
-          <div class="cfact">
-            <span class="cfact__icon"><svg><use href="#i-mail" /></svg></span>
-            <span><b>Email</b><span>{site.email}</span></span>
-          </div>
-          <div class="cfact">
-            <span class="cfact__icon"><svg><use href="#i-phone" /></svg></span>
-            <span><b>Phone</b><span>{site.phone}</span></span>
-          </div>
-          <div class="cfact">
-            <span class="cfact__icon"><svg><use href="#i-globe" /></svg></span>
-            <span><b>Centres</b><span>38 across Mumbai and Thane. Visits by appointment.</span></span>
-          </div>
-        </div>
+        <Eyebrow text="Best route" />
+        <h2>Start with an enquiry</h2>
+        <p style="margin:18px 0 28px">
+          Whether you are an institution, an employer, a funder, or someone who wants to teach,
+          the enquiry form asks for what we need to route your message correctly and reply properly.
+        </p>
+        <Button href="/partner" variant="indigo">Go to the enquiry form</Button>
       </div>
 
-      <form class="form reveal" id="contactForm">
-        <div class="form__row">
-          <label>Name<input type="text" name="name" required /></label>
-          <label>Email<input type="email" name="email" required /></label>
+      {known.length > 0 && (
+        <div class="contact__facts reveal" style="margin-top:56px">
+          {known.map((c) => (
+            <div class="cfact">
+              <span class="cfact__icon"><svg><use href={`#${c.icon}`} /></svg></span>
+              <span><b>{c.label}</b><span>{c.value}</span></span>
+            </div>
+          ))}
         </div>
-        <label>I am writing about
-          <select name="topic">
-            <option>Enrolling a child</option>
-            <option>Volunteering</option>
-            <option>Donating or CSR</option>
-            <option>Something else</option>
-          </select>
-        </label>
-        <label>Message<textarea name="message" required></textarea></label>
-        <button class="btn btn--indigo" type="submit" style="justify-self:start">
-          Send message<span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
-        </button>
-        <p class="form__note" id="formNote">
-          This form is not wired to a backend yet — connect it to your form handler before launch.
-        </p>
-      </form>
+      )}
+
+      {pending.length > 0 && (
+        <div class="empty reveal" style="margin-top:48px; text-align:left">
+          <h3>Direct contact details are being finalised</h3>
+          <p>
+            We are not publishing {new Intl.ListFormat('en-GB', { style: 'long', type: 'conjunction' })
+              .format(pending.map((c) => c.label.toLowerCase()))} until
+            they are confirmed and monitored. Publishing a channel nobody is watching wastes your time.
+            The enquiry form is checked.
+          </p>
+        </div>
+      )}
     </div>
   </section>
-
-  <script>
-    document.getElementById('contactForm')?.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      const note = document.getElementById('formNote');
-      if (note) {
-        note.textContent = 'Not sent — this form still needs a backend connected.';
-        note.style.color = 'var(--indigo)';
-      }
-    });
-  </script>
 </Base>
