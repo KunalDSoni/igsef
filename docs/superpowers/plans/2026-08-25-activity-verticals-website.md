@@ -500,14 +500,26 @@ export const nav = [
 // Replace each '#' with a real profile URL before launch, or delete the entry.
 // A social icon linking to '#' is a dead control and must not ship.
 export const socials = [];
+
+// ---------------------------------------------------------------------------
+// DEPRECATED — deleted in Task 10.
+// Header.astro, Footer.astro, index.astro, and about.astro still import these
+// until Tasks 4, 5, and 7 rewrite them. They stay here only so the repo builds
+// at every step. Nothing new may import them, and the figures in `stats` are
+// invented — they must never reach a page that survives this rebuild.
+// ---------------------------------------------------------------------------
+export const allPages = [];
+export const stats = [];
 ```
+
+Emptying `stats` rather than deleting it is deliberate: `index.astro` and `about.astro` map over it, so an empty array renders nothing while keeping the import valid. The fabricated figures are gone from this commit onward.
 
 - [ ] **Step 6: Run the tests to verify they pass**
 
 Run: `npm test`
 Expected: PASS — all `content-guard` and `data` tests green.
 
-Do not run `npm run build` here. Removing `allPages` and `stats` from `site.js` breaks `Header.astro`, `Footer.astro`, `index.astro`, and `about.astro`, which still import them. The build stays broken from this point until Task 10 and that is expected — the tests are the gate for Tasks 2 and 3.
+Then confirm the repo still builds: `npm run build`. It must succeed. The deprecated empty `allPages` and `stats` exports exist precisely so it does — every task in this plan leaves the repo in a buildable state.
 
 - [ ] **Step 7: Commit**
 
@@ -1115,7 +1127,7 @@ In `src/layouts/Base.astro`, delete the `--- monthly / yearly toggle ---` block 
 - [ ] **Step 8: Verify the build and tests**
 
 Run: `npm test && npm run build`
-Expected: tests PASS. The build will FAIL on the pages that still import deleted tokens or the old header CTA variant — that is expected at this point, and Tasks 5 through 10 clear it. Record the failing page list; it should contain only `index`, `about`, `programs`, `teachers`, `admissions`, `donate`, and `blog`.
+Expected: both PASS. The stale pages (`index`, `about`, `programs`, `teachers`, `admissions`, `donate`, `blog`) still build — they are rewritten or deleted in Tasks 5 through 10. If the build fails, a page is referencing a CSS class or button variant renamed in Task 2; fix that reference rather than reinstating the old token.
 
 - [ ] **Step 9: Commit**
 
@@ -1258,12 +1270,12 @@ The header sits over this hero, so pass no `headerVariant` — the default `soli
 - [ ] **Step 3: Build and inspect**
 
 Run: `npm run build`
-Expected: `dist/index.html` builds. Other pages may still fail; that is expected until Task 10.
+Expected: the full build succeeds, including `dist/index.html`.
 
 Then check the compiled home page against the guard:
 
-Run: `node scripts/content-guard.mjs dist`
-Expected: no violations reported for `dist/index.html`.
+Run: `node scripts/content-guard.mjs dist/index.html 2>&1 | grep -c 'dist/index.html' || true`
+Expected: `0` — the home page itself contributes no violations. The command still reports violations from the stale routes (`dist/programs`, `dist/donate`, `dist/teachers`); those are cleared in Task 10.
 
 - [ ] **Step 4: Look at it**
 
@@ -1961,7 +1973,17 @@ git rm src/data/programs.js src/data/teachers.js src/data/testimonials.js src/da
 git rm src/components/GivingTiers.astro src/components/ProgramCard.astro src/components/Testimonials.astro src/components/Marquee.astro src/components/Swoosh.astro src/components/BlogCard.astro
 ```
 
-- [ ] **Step 3: Remove the orphaned CSS**
+- [ ] **Step 3: Remove the deprecated exports**
+
+The empty `allPages` and `stats` exports in `src/data/site.js` existed only to keep the repo buildable while pages were rewritten. Nothing imports them now. Delete the whole `DEPRECATED` block, then confirm:
+
+```bash
+grep -rn "allPages\|stats" src/ || echo "clean"
+```
+
+Expected: `clean`
+
+- [ ] **Step 4: Remove the orphaned CSS**
 
 Delete these rule blocks from `src/styles/global.css`, identified by their section comments: `/* ---------- marquee ---------- */`, `/* ---------- programs ---------- */`, `/* ---------- testimonials ---------- */`, `/* ---------- giving ---------- */`, `/* ---------- blog ---------- */`. Also delete: the `.team`, `.tmember`, `.tmember__photo`, and `.tmember__role` rules; the `.sub` and `.sub__msg` newsletter rules in the footer block; and the `.nav__group`, `.nav__panel`, and `.nav__more` rules, orphaned when Task 4 removed the "All Pages" dropdown.
 
@@ -1976,7 +1998,7 @@ done
 
 Expected: every group prints `clean`.
 
-- [ ] **Step 4: Verify the build is complete and clean**
+- [ ] **Step 5: Verify the build is complete and clean**
 
 Run: `npm run build && ls dist`
 Expected: `index.html`, `404.html`, and directories `about`, `focus-areas`, `partner`, `contact`, `updates`. No `programs`, `blog`, `donate`, `teachers`, or `admissions`.
@@ -1986,12 +2008,12 @@ Expected: `Content guard passed — no forbidden claims in dist/.`
 
 If the guard still reports violations, fix the offending page copy. Do not weaken a rule in `scripts/content-guard.mjs` to make the build pass.
 
-- [ ] **Step 5: Verify no template asset survives**
+- [ ] **Step 6: Verify no template asset survives**
 
 Run: `grep -rn "framerusercontent" src/ dist/ || echo "clean"`
 Expected: `clean`
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
 git add -A
