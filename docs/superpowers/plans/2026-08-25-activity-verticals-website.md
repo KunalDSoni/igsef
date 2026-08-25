@@ -588,10 +588,20 @@ test('vertical copy publishes no revenue strategy', () => {
   assert.ok(!/success fee|membership fee|management fee/i.test(blob));
 });
 
+test('the status vocabulary is exactly the eight permitted values', () => {
+  assert.deepEqual(STATUSES, [
+    'Proposed', 'In development', 'Pilot', 'Open',
+    'In delivery', 'Completed', 'Paused', 'Archived',
+  ]);
+});
+
 test('vertical copy makes no prohibited claim', () => {
   const blob = JSON.stringify(verticals);
   assert.ok(!/\b(80\s?-?G|12\s?-?A[AB]?|CSR-?1|FCRA)\b/i.test(blob));
   assert.ok(!/section\s*8/i.test(blob));
+  assert.ok(!/U\d{5}[A-Z]{2}\d{4}[A-Z]{3}\d{6}/i.test(blob), 'registration number must not appear');
+  assert.ok(!/\b\d{1,3}(,\d{3})+\+?\s+(learners?|students?|beneficiaries|children)/i.test(blob), 'beneficiary counts must not appear');
+  assert.ok(!/\b\d{1,3}%\s*(placement|completion|success|attendance)/i.test(blob), 'outcome rates must not appear');
 });
 
 test('every vertical names a lead who exists', () => {
@@ -634,9 +644,14 @@ Create `src/data/verticals.js`:
 // here. Each vertical instead carries an `engagement` line describing the
 // delivery model in terms suitable for a public page.
 //
-// Every vertical ships with status 'Proposed'. The organisation was registered
-// in August 2026 and nothing is operating yet. Change a status only when the
+// Every vertical ships with status 'Proposed'. The organisation is newly
+// registered and nothing is operating yet. Change a status only when the
 // programme owner confirms the work has actually started.
+//
+// Do not restate the incorporation date here. It is known only from a
+// third-party registry scrape; research-notes.md lists it as a candidate input
+// requiring confirmation against the Certificate of Incorporation, and this
+// repository is public.
 
 export const STATUSES = Object.freeze([
   'Proposed',
@@ -709,7 +724,7 @@ export const verticals = [
       'Most institutions want to teach AI and have no realistic route to doing it — no curriculum, no equipment, and no one on staff who has built a model. This vertical supplies all three.',
     activities: [
       'For schools — basic coding, logic building, and AI-awareness programmes',
-      'For colleges — machine learning, data science, and ethics-in-AI modules',
+      'For colleges — advanced machine learning, data science, and ethics-in-AI modules',
       'AI Innovation Labs established inside partner institutions',
     ],
     audiences: [
@@ -789,11 +804,11 @@ export const verticals = [
       'Rural schools and colleges',
       'Scholarship applicants and recipients',
     ],
-    // Deliberately explicit: the statutory registrations required to act as a
-    // corporate social responsibility implementing agency in India are not yet
-    // in place. Saying so is better than a partner discovering it mid-contract.
+    // States the general legal requirement, which is true and checkable, and
+    // commits to disclosure — without asserting anything about this
+    // organisation's own registration status, which we have no source for.
     engagement:
-      'Delivered as scoped projects for corporate partners. The statutory registrations required to act as an implementing agency are being completed, and we confirm our current standing in writing before any project is contracted.',
+      'Delivered as scoped projects for corporate partners. Indian corporate social responsibility rules require an implementing agency to hold specific statutory registrations; we set out our current standing in writing before any project is contracted.',
     leadKey: 'cmd',
   },
 ];
