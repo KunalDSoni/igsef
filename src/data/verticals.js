@@ -160,9 +160,9 @@ export const verticals = [
       'Rural schools and colleges',
       'Scholarship applicants and recipients',
     ],
-    // Deliberately explicit: the statutory registrations required to act as a
-    // corporate social responsibility implementing agency in India are not yet
-    // in place. Saying so is better than a partner discovering it mid-contract.
+    // States the general legal requirement, which is true and checkable, and
+    // commits to disclosure — without asserting anything about this
+    // organisation's own registration status, which we have no source for.
     engagement:
       'Delivered as scoped projects for corporate partners. Indian corporate social responsibility rules require an implementing agency to hold specific statutory registrations; we set out our current standing in writing before any project is contracted.',
     leadKey: 'cmd',
