@@ -5,8 +5,8 @@
 // here. Each vertical instead carries an `engagement` line describing the
 // delivery model in terms suitable for a public page.
 //
-// Every vertical ships with status 'Proposed'. The organisation was registered
-// in August 2026 and nothing is operating yet. Change a status only when the
+// Every vertical ships with status 'Proposed'. The organisation is newly
+// registered and nothing is operating yet. Change a status only when the
 // programme owner confirms the work has actually started.
 
 export const STATUSES = Object.freeze([
@@ -80,7 +80,7 @@ export const verticals = [
       'Most institutions want to teach AI and have no realistic route to doing it — no curriculum, no equipment, and no one on staff who has built a model. This vertical supplies all three.',
     activities: [
       'For schools — basic coding, logic building, and AI-awareness programmes',
-      'For colleges — machine learning, data science, and ethics-in-AI modules',
+      'For colleges — advanced machine learning, data science, and ethics-in-AI modules',
       'AI Innovation Labs established inside partner institutions',
     ],
     audiences: [
@@ -164,7 +164,7 @@ export const verticals = [
     // corporate social responsibility implementing agency in India are not yet
     // in place. Saying so is better than a partner discovering it mid-contract.
     engagement:
-      'Delivered as scoped projects for corporate partners. The statutory registrations required to act as an implementing agency are being completed, and we confirm our current standing in writing before any project is contracted.',
+      'Delivered as scoped projects for corporate partners. Indian corporate social responsibility rules require an implementing agency to hold specific statutory registrations; we set out our current standing in writing before any project is contracted.',
     leadKey: 'cmd',
   },
 ];

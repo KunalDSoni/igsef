@@ -79,6 +79,13 @@ test('every vertical uses a permitted status and ships as Proposed', () => {
   }
 });
 
+test('the status vocabulary is exactly the eight permitted values', () => {
+  assert.deepEqual(STATUSES, [
+    'Proposed', 'In development', 'Pilot', 'Open',
+    'In delivery', 'Completed', 'Paused', 'Archived',
+  ]);
+});
+
 test('vertical copy publishes no revenue strategy', () => {
   const blob = JSON.stringify(verticals);
   assert.ok(!/\brevenue\b/i.test(blob), 'internal revenue framing leaked into public copy');
@@ -89,6 +96,9 @@ test('vertical copy makes no prohibited claim', () => {
   const blob = JSON.stringify(verticals);
   assert.ok(!/\b(80\s?-?G|12\s?-?A[AB]?|CSR-?1|FCRA)\b/i.test(blob));
   assert.ok(!/section\s*8/i.test(blob));
+  assert.ok(!/U\d{5}[A-Z]{2}\d{4}[A-Z]{3}\d{6}/i.test(blob), 'registration number must not appear');
+  assert.ok(!/\b\d{1,3}(,\d{3})+\+?\s+(learners?|students?|beneficiaries|children)/i.test(blob), 'beneficiary counts must not appear');
+  assert.ok(!/\b\d{1,3}%\s*(placement|completion|success|attendance)/i.test(blob), 'outcome rates must not appear');
 });
 
 test('every vertical names a lead who exists', () => {
