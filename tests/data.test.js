@@ -2,6 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { site, nav, positioning } from '../src/data/site.js';
+import { verticals, STATUSES } from '../src/data/verticals.js';
+import { leadership } from '../src/data/leadership.js';
 
 const css = readFileSync(new URL('../src/styles/global.css', import.meta.url), 'utf8');
 
@@ -51,5 +53,62 @@ test('positioning lines exist and avoid superlatives', () => {
   for (const key of ['proposition', 'mission', 'vision']) {
     assert.ok(typeof positioning[key] === 'string' && positioning[key].length > 20);
     assert.ok(!/\b(leading|largest|best|official)\b/i.test(positioning[key]));
+  }
+});
+
+test('there are six verticals with unique slugs', () => {
+  assert.equal(verticals.length, 6);
+  assert.equal(new Set(verticals.map((v) => v.slug)).size, 6);
+});
+
+test('every vertical is fully populated', () => {
+  for (const v of verticals) {
+    for (const key of ['slug', 'number', 'title', 'status', 'tone', 'summary', 'intro', 'engagement', 'leadKey']) {
+      assert.ok(typeof v[key] === 'string' && v[key].length > 0, `${v.slug} missing ${key}`);
+    }
+    assert.ok(Array.isArray(v.activities) && v.activities.length >= 2, `${v.slug} needs activities`);
+    assert.ok(Array.isArray(v.audiences) && v.audiences.length >= 2, `${v.slug} needs audiences`);
+    assert.ok(['indigo', 'teal', 'saffron'].includes(v.tone), `${v.slug} has an unknown tone`);
+  }
+});
+
+test('every vertical uses a permitted status and ships as Proposed', () => {
+  for (const v of verticals) {
+    assert.ok(STATUSES.includes(v.status), `${v.slug} has status "${v.status}"`);
+    assert.equal(v.status, 'Proposed', `${v.slug} must ship as Proposed until it is operating`);
+  }
+});
+
+test('vertical copy publishes no revenue strategy', () => {
+  const blob = JSON.stringify(verticals);
+  assert.ok(!/\brevenue\b/i.test(blob), 'internal revenue framing leaked into public copy');
+  assert.ok(!/success fee|membership fee|management fee/i.test(blob));
+});
+
+test('vertical copy makes no prohibited claim', () => {
+  const blob = JSON.stringify(verticals);
+  assert.ok(!/\b(80\s?-?G|12\s?-?A[AB]?|CSR-?1|FCRA)\b/i.test(blob));
+  assert.ok(!/section\s*8/i.test(blob));
+});
+
+test('every vertical names a lead who exists', () => {
+  const keys = new Set(leadership.map((l) => l.key));
+  for (const v of verticals) assert.ok(keys.has(v.leadKey), `${v.slug} names unknown lead ${v.leadKey}`);
+});
+
+test('leadership entries cross-reference real verticals', () => {
+  const slugs = new Set(verticals.map((v) => v.slug));
+  for (const l of leadership) {
+    assert.ok(typeof l.name === 'string' && l.name.length > 0);
+    assert.ok(typeof l.role === 'string' && l.role.length > 0);
+    assert.ok(l.verticalSlugs.length > 0);
+    for (const s of l.verticalSlugs) assert.ok(slugs.has(s), `${l.key} names unknown vertical ${s}`);
+  }
+});
+
+test('leadership carries no invented biography or photo', () => {
+  for (const l of leadership) {
+    assert.ok(!('photo' in l), `${l.key} must not carry a photo until one is supplied`);
+    assert.ok(!('bio' in l), `${l.key} must not carry a biography until one is approved`);
   }
 });
