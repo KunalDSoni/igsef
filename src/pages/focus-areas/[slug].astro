@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import Button from '../../components/Button.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import CTA from '../../components/CTA.astro';
+import { verticals } from '../../data/verticals.js';
+import { leadership } from '../../data/leadership.js';
+
+export function getStaticPaths() {
+  return verticals.map((vertical) => ({ params: { slug: vertical.slug }, props: { vertical } }));
+}
+
+const { vertical } = Astro.props;
+const lead = leadership.find((l) => l.key === vertical.leadKey);
+---
+<Base title={vertical.title} description={vertical.summary}>
+  <PageHero
+    eyebrow="Focus area"
+    title={vertical.title}
+    lede={vertical.intro}
+    crumb={`Focus areas · ${vertical.title}`}
+  />
+
+  <section class="section section--white">
+    <div class="wrap vdetail reveal">
+      <div>
+        <Eyebrow text="What this involves" />
+        <h2 class="vdetail__heading">What this involves</h2>
+        <ul class="act-list">
+          {vertical.activities.map((a) => (
+            <li><svg><use href="#i-check" /></svg><span>{a}</span></li>
+          ))}
+        </ul>
+
+        <div style="margin-top:40px">
+          <Eyebrow text="How it is delivered" />
+          <p style="font-size:17px">{vertical.engagement}</p>
+        </div>
+      </div>
+
+      <aside class="vdetail__aside">
+        <div>
+          <h2>Current status</h2>
+          <div style="margin-top:10px"><StatusBadge status={vertical.status} /></div>
+        </div>
+        <div>
+          <h2>Who this is for</h2>
+          <ul>{vertical.audiences.map((a) => <li>{a}</li>)}</ul>
+        </div>
+        {lead && (
+          <div>
+            <h2>Led by</h2>
+            <p style="margin-top:8px; color:var(--ink); font-weight:700">{lead.name}</p>
+            <p style="font-size:14px">{lead.role}</p>
+          </div>
+        )}
+        <Button href="/partner" variant="indigo">Enquire about this area</Button>
+      </aside>
+    </div>
+  </section>
+
+  <CTA
+    title={`Interested in ${vertical.title.toLowerCase()}?`}
+    text="Tell us what you are working toward and who you serve. We will reply with what we can realistically do and by when."
+  />
+</Base>

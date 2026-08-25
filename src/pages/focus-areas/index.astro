@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import VerticalCard from '../../components/VerticalCard.astro';
+import CTA from '../../components/CTA.astro';
+import { verticals } from '../../data/verticals.js';
+---
+<Base
+  title="Focus areas"
+  description="The six areas of work Indo-Global Skills & Edu Foundation is set up to deliver, across international pathways, training, technology education, incubation, placements, and corporate social responsibility."
+>
+  <PageHero
+    eyebrow="Focus areas"
+    title="Six areas of work"
+    lede="Each area has its own audience, its own delivery model, and its own status. We publish that status rather than implying everything is already running."
+    crumb="Focus areas"
+  />
+
+  <section class="section section--canvas" id="status">
+    <div class="wrap">
+      <div class="reveal" style="max-width:720px; margin-bottom:40px">
+        <p>
+          All six areas currently carry the status <strong>Proposed</strong>: designed and
+          resourced to begin, with no delivery under way yet. When an area moves to pilot
+          or open enrolment, the label on its card changes and the detail page says what
+          is actually available.
+        </p>
+      </div>
+      <div class="vgrid">
+        {verticals.map((v) => <VerticalCard vertical={v} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="Which of these fits what you are trying to do?"
+    text="Tell us the outcome you are working toward and we will say plainly whether we are the right people for it."
+  />
+</Base>

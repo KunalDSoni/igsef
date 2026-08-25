@@ -487,9 +487,13 @@ p  { margin: 0; color: var(--grey); }
   padding: 28px; border-radius: var(--r-card);
   background: var(--tint-indigo); display: grid; gap: 22px;
 }
-.vdetail__aside h4 { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--indigo); }
+.vdetail__aside h2 { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--indigo); }
 .vdetail__aside ul { margin: 8px 0 0; padding-left: 18px; color: var(--grey); font-size: 15px; }
 .vdetail__aside li { margin-bottom: 7px; }
+/* Main-column heading pairing with the aside's h2s — sized to sit alongside
+   .prose h3 (30px) and .empty h3 (26px) rather than the global clamp(32–56px)
+   h2, which is set for hero-scale section titles. */
+.vdetail__heading { font-size: 28px; font-weight: 700; line-height: 1.2; margin: 0; }
 .act-list { display: grid; gap: 16px; margin-top: 26px; padding: 0; list-style: none; }
 .act-list li {
   display: grid; grid-template-columns: 26px 1fr; gap: 14px;
