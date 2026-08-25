@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "node --test tests/",
-    "guard": "node scripts/content-guard.mjs dist"
+    "guard": "node scripts/content-guard.mjs dist",
+    "verify": "npm test && npm run build && npm run guard"
   },
   "dependencies": {
     "astro": "^5.18.2"
