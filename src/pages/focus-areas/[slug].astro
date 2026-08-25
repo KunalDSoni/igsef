@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import Eyebrow from '../../components/Eyebrow.astro';
 import Button from '../../components/Button.astro';
 import StatusBadge from '../../components/StatusBadge.astro';
 import CTA from '../../components/CTA.astro';
@@ -26,7 +25,6 @@ const lead = leadership.find((l) => l.key === vertical.leadKey);
   <section class="section section--white">
     <div class="wrap vdetail reveal">
       <div>
-        <Eyebrow text="What this involves" />
         <h2 class="vdetail__heading">What this involves</h2>
         <ul class="act-list">
           {vertical.activities.map((a) => (
@@ -35,7 +33,7 @@ const lead = leadership.find((l) => l.key === vertical.leadKey);
         </ul>
 
         <div style="margin-top:40px">
-          <Eyebrow text="How it is delivered" />
+          <h2 class="vdetail__heading">How it is delivered</h2>
           <p style="font-size:17px">{vertical.engagement}</p>
         </div>
       </div>
