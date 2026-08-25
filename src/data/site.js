@@ -1,47 +1,54 @@
 // Single source of truth for the organisation's identity.
-// Change these values to rebrand the entire site.
+//
+// Corporate facts (CIN, incorporation date, legal form, registered office) are
+// deliberately absent. They are known only from a third-party registry scrape
+// and must not be published until an authorised owner confirms them against the
+// Certificate of Incorporation and current MCA master data. See research-notes.md.
 export const site = {
-  name: 'IGSEF',
+  name: 'Indo-Global',
   fullName: 'Indo-Global Skills & Edu Foundation',
-  tagline: 'Building bright young minds',
-  blurb: 'We provide a safe and nurturing environment where children learn, play, and grow with confidence every day.',
-  email: 'hello@indoglobalskills.org',
-  phone: '+91 22 4000 1234',
-  address: '14 Kalina Road, Santacruz East, Mumbai 400029',
-  // Registration status is genuinely pending verification (see main branch's
-  // Requirement.md §3.1) — do not publish a CIN or 80G/12A claim here until
-  // an authorised owner confirms it against the MCA record.
-  regNumber: 'Section 8 non-profit · registration details available on request',
+  tagline: 'Learning, skills, and opportunity',
+  blurb:
+    'We build practical pathways between learning, skills, institutions, and opportunity — working with colleges, employers, and communities across India and beyond.',
+
+  // Each entry declares a value even when we do not have one yet. A null value
+  // renders as a route to the enquiry form, never as an invented detail.
+  contact: [
+    { label: 'Email',   icon: 'i-mail',  value: null, status: 'pending' },
+    { label: 'Phone',   icon: 'i-phone', value: null, status: 'pending' },
+    { label: 'Office',  icon: 'i-pin',   value: null, status: 'pending' },
+  ],
+
+  // Deliberately makes no claim about legal form or tax status.
+  regNote: 'A non-profit company registered in Maharashtra, India. Registration details available on request.',
+};
+
+export const positioning = {
+  proposition: 'Building practical pathways between learning, skills, institutions, and opportunity.',
+  mission:
+    'To co-create practical, inclusive learning pathways with learners, educators, institutions, employers, and communities.',
+  vision:
+    'A future in which every learner can access relevant education, build useful capabilities, and pursue meaningful opportunity.',
 };
 
 export const nav = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Home',         href: '/' },
+  { label: 'About',        href: '/about' },
+  { label: 'Focus areas',  href: '/focus-areas' },
+  { label: 'Partner with us', href: '/partner' },
+  { label: 'Contact',      href: '/contact' },
 ];
 
-// Grouped into the "All Pages" dropdown, mirroring the reference template.
-export const allPages = [
-  { label: 'Programs', href: '/programs' },
-  { label: 'Program Details', href: '/programs/little-explorer' },
-  { label: 'Teachers', href: '/teachers' },
-  { label: 'Admissions', href: '/admissions' },
-  { label: 'Ways to give', href: '/donate' },
-  { label: 'Blogs', href: '/blog' },
-  { label: 'Blog Details', href: '/blog/creative-games-that-make-learning-fun' },
-  { label: '404', href: '/404' },
-];
+// Replace each '#' with a real profile URL before launch, or delete the entry.
+// A social icon linking to '#' is a dead control and must not ship.
+export const socials = [];
 
-export const socials = [
-  { label: 'Facebook', href: '#', icon: 'i-fb' },
-  { label: 'X', href: '#', icon: 'i-x' },
-  { label: 'LinkedIn', href: '#', icon: 'i-in' },
-  { label: 'YouTube', href: '#', icon: 'i-yt' },
-];
-
-export const stats = [
-  { value: '2,400+', label: 'Children in our classrooms' },
-  { value: '38',     label: 'Learning centres running' },
-  { value: '96%',    label: 'Daily attendance rate' },
-  { value: '120+',   label: 'Trained community educators' },
-];
+// ---------------------------------------------------------------------------
+// DEPRECATED — deleted in Task 10.
+// Header.astro, Footer.astro, index.astro, and about.astro still import these
+// until Tasks 4, 5, and 7 rewrite them. They stay here only so the repo builds
+// at every step. Nothing new may import them, and the figures in `stats` are
+// invented — they must never reach a page that survives this rebuild.
+// ---------------------------------------------------------------------------
+export const allPages = [];
+export const stats = [];

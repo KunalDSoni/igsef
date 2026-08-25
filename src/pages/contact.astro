@@ -51,7 +51,7 @@ import { site } from '../data/site.js';
           </select>
         </label>
         <label>Message<textarea name="message" required></textarea></label>
-        <button class="btn btn--purple" type="submit" style="justify-self:start">
+        <button class="btn btn--indigo" type="submit" style="justify-self:start">
           Send message<span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
         </button>
         <p class="form__note" id="formNote">
@@ -67,7 +67,7 @@ import { site } from '../data/site.js';
       const note = document.getElementById('formNote');
       if (note) {
         note.textContent = 'Not sent — this form still needs a backend connected.';
-        note.style.color = 'var(--purple)';
+        note.style.color = 'var(--indigo)';
       }
     });
   </script>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1550" height="540" viewBox="70 70 1550 540" role="img" aria-labelledby="title desc">
+  <title id="title">Indo-Global Skills &amp; Edu Foundation logo</title>
+  <desc id="desc">A global learning pathway mark in indigo, teal, and saffron beside the foundation name.</desc>
+  <g transform="translate(118 168)">
+    <!-- Open globe: access, international reach, and a shared learning journey. -->
+    <path d="M101 274C76 230 65 178 73 124C87 28 171-42 270-42C328-42 382-18 421 23"
+          fill="none" stroke="#173B70" stroke-width="20" stroke-linecap="round"/>
+    <path d="M442 53C466 100 474 155 463 207C445 294 372 359 281 370C222 377 166 359 125 323"
+          fill="none" stroke="#138A8A" stroke-width="20" stroke-linecap="round"/>
+
+    <!-- A restrained skill network inside the globe. -->
+    <path d="M174 110L255 71L339 134M255 71L280 207M174 110L212 222L280 207"
+          fill="none" stroke="#A8D5D3" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="174" cy="110" r="17" fill="#138A8A"/>
+    <circle cx="255" cy="71" r="17" fill="#173B70"/>
+    <circle cx="339" cy="134" r="17" fill="#138A8A"/>
+    <circle cx="212" cy="222" r="17" fill="#173B70"/>
+    <circle cx="280" cy="207" r="17" fill="#138A8A"/>
+
+    <!-- The lower arc resolves into an upward path, ending in a spark of opportunity. -->
+    <path d="M128 323C172 284 215 258 264 246C314 234 355 202 389 153"
+          fill="none" stroke="#173B70" stroke-width="18" stroke-linecap="round"/>
+    <path d="M410 102L421 130L450 141L422 152L411 181L400 153L371 142L399 131Z" fill="#E69A2E"/>
+  </g>
+
+  <g font-family="Avenir Next, Avenir, Inter, Helvetica Neue, Arial, sans-serif">
+    <text x="650" y="387" fill="#173B70" font-size="114" font-weight="800" letter-spacing="3">INDO-GLOBAL</text>
+    <rect x="655" y="432" width="218" height="12" rx="6" fill="#E69A2E"/>
+    <text x="650" y="527" fill="#18222F" font-size="50" font-weight="600" letter-spacing="2.8">SKILLS &amp; EDU FOUNDATION</text>
+  </g>
+</svg>
