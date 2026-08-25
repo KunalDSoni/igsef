@@ -29,6 +29,7 @@ test('site identity carries no invented contact details', () => {
 
 test('unconfirmed contact entries are marked pending, not faked', () => {
   assert.ok(Array.isArray(site.contact));
+  assert.ok(site.contact.length > 0, 'site.contact must not be empty');
   for (const entry of site.contact) {
     assert.ok(typeof entry.label === 'string' && entry.label.length > 0);
     assert.ok('value' in entry, `${entry.label} must declare a value, even if null`);
