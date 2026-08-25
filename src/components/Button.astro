@@ -1,6 +1,6 @@
 ---
 import { url } from '../lib/url.js';
-const { href = '#', variant = 'purple', class: cls = '' } = Astro.props;
+const { href = '#', variant = 'indigo', class: cls = '' } = Astro.props;
 ---
 <a href={url(href)} class={`btn btn--${variant} ${cls}`}>
   <slot /><span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
