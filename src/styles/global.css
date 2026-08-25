@@ -530,3 +530,24 @@ p  { margin: 0; color: var(--grey); }
   display: block; font-family: var(--display); font-size: 14px;
   letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px;
 }
+
+/* ---------- plain hero (replaces the full-bleed photographic hero) ---------- */
+.hero--plain {
+  min-height: 0; padding: 190px 0 96px; align-items: center;
+  background: linear-gradient(180deg, var(--tint-indigo) 0%, var(--canvas) 100%);
+}
+.hero--plain .hero__inner { max-width: 900px; }
+.hero--plain h1 { color: var(--ink); }
+.hero--plain .hero__sub { color: var(--grey); max-width: 620px; margin: 22px 0 32px; font-size: 18px; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* ---------- mission / vision pair ---------- */
+.mission { display: grid; gap: 48px; grid-template-columns: 1fr 1fr; }
+.mission__text {
+  font-family: var(--display); font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 600; line-height: 1.35; color: var(--ink);
+}
+@media (max-width: 900px) {
+  .mission { grid-template-columns: 1fr; gap: 34px; }
+  .hero--plain { padding: 150px 0 72px; }
+}
