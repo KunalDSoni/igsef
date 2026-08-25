@@ -2,91 +2,145 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Eyebrow from '../components/Eyebrow.astro';
-import Marquee from '../components/Marquee.astro';
 import CTA from '../components/CTA.astro';
-import { stats } from '../data/site.js';
-import { img } from '../data/images.js';
+import { positioning, site } from '../data/site.js';
+import { leadership } from '../data/leadership.js';
+import { verticals } from '../data/verticals.js';
+import { url } from '../lib/url.js';
 
-const milestones = [
-  { label: 'Getting started', text: 'Started with one rented room in Kalina and nineteen children.' },
-  { label: 'Growing',         text: 'Opened our fifth centre and hired the first educators trained in-house.' },
-  { label: 'Widening scope',  text: 'Launched the bridge programme for children aged nine to twelve.' },
-  { label: 'Today',           text: '38 centres, 2,400 children, and a 96% daily attendance rate.' },
+const values = [
+  {
+    tone: 'teal',
+    icon: 'i-check',
+    title: 'Verified before visible',
+    text: 'Every factual claim on this site has a source and an owner. Where we do not yet have the document, we say so instead of rounding up.',
+  },
+  {
+    tone: 'indigo',
+    icon: 'i-globe',
+    title: 'Built with institutions',
+    text: 'We are not trying to replace colleges, training providers, or employers. Our work runs through them.',
+  },
+  {
+    tone: 'saffron',
+    icon: 'i-chart',
+    title: 'Judged on what follows',
+    text: 'The measure of a programme is what a participant can do afterwards, and whether it changed their options.',
+  },
 ];
+
+const titleFor = (slug) => verticals.find((v) => v.slug === slug)?.title ?? slug;
 ---
-<Base title="About" description="Why Indo-Global Skills & Edu Foundation exists, how we work, and what we have learned running free classrooms.">
+<Base
+  title="About"
+  description="Indo-Global Skills & Edu Foundation is a non-profit company working on skills, education, and the routes between them. This is who we are and what stage we are at."
+>
   <PageHero
     eyebrow="About us"
-    title="A classroom should not depend on what a family can pay"
-    lede="We run free early-learning centres in neighbourhoods where the nearest affordable school is too far, too full, or too expensive."
+    title="A new organisation, being honest about it"
+    lede="We were registered in 2026 to work on the gap between what people learn and the opportunities they can actually reach. Nothing on this site claims to be running before it is."
     crumb="About"
   />
 
   <section class="section section--white">
-    <div class="wrap why reveal">
-      <div class="why__photo"><img src={img.educatorChild} alt="An educator reading with a child" loading="lazy" /></div>
-      <div>
-        <Eyebrow text="Our story" />
-        <h2>We started with<br />nineteen children</h2>
+    <div class="wrap" style="max-width:820px">
+      <div class="reveal">
+        <Eyebrow text="Why we exist" />
+        <h2>The gap we are built to close</h2>
         <div class="prose" style="margin-top:20px">
-          <p>The foundation began in a rented room in Kalina, because a group of parents could not find anywhere to send their four-year-olds.</p>
-          <p>Since then, the model has not changed much. We open small centres inside the neighbourhoods families already live in, keep class sizes under twelve, and hire educators from those same communities. What changed is the number of children — from nineteen to more than two thousand.</p>
-          <p>We charge nothing. Not a registration fee, not a materials fee, not a uniform deposit. The moment a family has to weigh school against groceries, attendance drops, and the child who stops coming rarely comes back.</p>
+          <p>
+            India produces more graduates each year than almost anywhere on earth, and employers
+            still describe the same shortfall: people who know a subject without knowing the job.
+            The gap is not talent. It is the absence of a route between one and the other.
+          </p>
+          <p>
+            Indo-Global Skills & Edu Foundation was set up to build those routes — between school
+            and college, between college and work, between an Indian institution and an
+            international one, and between a student project and something that can be funded.
+          </p>
+          <p>
+            We are a young organisation. We have a defined plan across six areas of work,
+            leadership with long records in education and industry, and no delivery history yet.
+            That last point matters, and we would rather state it than let a website imply otherwise.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section section--canvas">
-    <div class="wrap">
-      <div class="stats reveal">
-        {stats.map((s) => (<div class="stat"><b>{s.value}</b><span>{s.label}</span></div>))}
+    <div class="wrap mission reveal">
+      <h2 style="grid-column:1 / -1; margin-bottom:8px">Purpose and direction</h2>
+      <div>
+        <Eyebrow text="Mission" />
+        <p class="mission__text">{positioning.mission}</p>
+      </div>
+      <div>
+        <Eyebrow text="Vision" />
+        <p class="mission__text">{positioning.vision}</p>
       </div>
     </div>
   </section>
 
-  <Marquee text="Where growth begins" />
-
   <section class="section section--white">
     <div class="wrap">
       <div class="reveal" style="margin-bottom:44px">
-        <Eyebrow text="How we got here" />
-        <h2>One method, start to now</h2>
+        <Eyebrow text="What we hold to" />
+        <h2>Three commitments</h2>
       </div>
-      <div class="steps reveal">
-        {milestones.map((m, i) => (
-          <div class="step"><b>{i + 1}</b><h4>{m.label}</h4><p>{m.text}</p></div>
+      <div class="philo__rail reveal">
+        {values.map((v) => (
+          <article class={`pcard pcard--${v.tone}`}>
+            <div class="pcard__icon"><svg><use href={`#${v.icon}`} /></svg></div>
+            <h3>{v.title}</h3>
+            <p>{v.text}</p>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section section--canvas">
-    <div class="wrap philo reveal">
-      <div>
-        <Eyebrow text="What we believe" />
-        <h2>Guided by care<br />and creativity</h2>
-        <p>Three commitments shape every decision we make, from how we hire to how we spend.</p>
+  <section class="section section--canvas" id="leadership">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:40px; max-width:680px">
+        <Eyebrow text="Leadership" />
+        <h2>Who leads the work</h2>
+        <p style="margin-top:16px">Each area of work sits with a named person rather than the organisation in general.</p>
       </div>
-      <div class="philo__rail">
-        <article class="pcard pcard--teal">
-          <div class="pcard__icon"><svg><use href="#i-heart" /></svg></div>
-          <h4>Free means free</h4>
-          <p>No fees of any kind, including the hidden ones. Uniforms, books, and meals are all covered.</p>
-        </article>
-        <article class="pcard pcard--indigo">
-          <div class="pcard__icon"><svg><use href="#i-book" /></svg></div>
-          <h4>Small classrooms</h4>
-          <p>Never more than twelve children per educator. It is expensive, and it is the reason the work holds.</p>
-        </article>
-        <article class="pcard pcard--saffron">
-          <div class="pcard__icon"><svg><use href="#i-globe" /></svg></div>
-          <h4>Hire from the street</h4>
-          <p>Most of our educators grew up in the neighbourhoods they teach in, and trained through our own programme.</p>
-        </article>
+      <div class="leaders reveal">
+        {leadership.map((l) => (
+          <article class="leader">
+            <h3>{l.name}</h3>
+            <div class="leader__role">{l.role}</div>
+            <p>{l.remit}</p>
+            <div class="leader__areas">
+              {l.verticalSlugs.map((s) => (
+                <a href={url(`/focus-areas/${s}`)}>{titleFor(s)}</a>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <CTA title="Help us open the next centre" cta="Ways to give" />
+  <section class="section section--white" style="padding-top:0">
+    <div class="wrap" style="max-width:820px">
+      <div class="reveal">
+        <Eyebrow text="Accountability" />
+        <h2 style="margin-bottom:18px">What we will not do</h2>
+        <div class="prose">
+          <p>
+            We do not publish beneficiary numbers, placement rates, or partner names we cannot
+            evidence. We do not describe a proposed programme as an operating one. We do not
+            claim affiliation with any similarly named institution, college, or summit — no such
+            relationship exists.
+          </p>
+          <p>{site.regNote}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
 </Base>
