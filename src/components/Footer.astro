@@ -1,8 +1,7 @@
 ---
-import { site, nav, allPages, socials } from '../data/site.js';
+import { site, nav, socials } from '../data/site.js';
+import { verticals } from '../data/verticals.js';
 import { url } from '../lib/url.js';
-const links = [...nav, ...allPages];
-const half = Math.ceil(links.length / 2);
 ---
 <footer class="footer">
   <div class="wrap">
@@ -10,31 +9,27 @@ const half = Math.ceil(links.length / 2);
       <div>
         <a class="logo" href={url('/')}><svg><use href="#i-logo" /></svg> {site.name}</a>
         <p>{site.blurb}</p>
-        <form class="sub" id="subscribe">
-          <input type="email" placeholder="Enter your email" aria-label="Email address" required />
-          <button class="btn btn--white" type="submit">
-            Subscribe <span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
-          </button>
-          <p class="sub__msg" id="subMsg" role="status"></p>
-        </form>
       </div>
 
-      <div class="socials">
-        {socials.map((s) => (
-          <a href={s.href} aria-label={s.label}><svg><use href={`#${s.icon}`} /></svg></a>
-        ))}
-      </div>
+      {socials.length > 0 && (
+        <div class="socials">
+          {socials.map((s) => (
+            <a href={s.href} aria-label={s.label}><svg><use href={`#${s.icon}`} /></svg></a>
+          ))}
+        </div>
+      )}
 
       <div class="footer__links">
         <div class="footer__col">
-          {links.slice(0, half).map((l) => <a href={url(l.href)}>{l.label}</a>)}
+          <strong>Organisation</strong>
+          {nav.map((l) => <a href={url(l.href)}>{l.label}</a>)}
         </div>
         <div class="footer__col">
-          {links.slice(half).map((l) => <a href={url(l.href)}>{l.label}</a>)}
+          <strong>Focus areas</strong>
+          {verticals.map((v) => <a href={url(`/focus-areas/${v.slug}`)}>{v.title}</a>)}
         </div>
       </div>
     </div>
     <div class="footer__bar">© {new Date().getFullYear()} {site.fullName} · {site.regNote}</div>
   </div>
 </footer>
-

@@ -1,5 +1,5 @@
 ---
-import { nav, allPages, site } from '../data/site.js';
+import { nav, site } from '../data/site.js';
 import Button from './Button.astro';
 import { url } from '../lib/url.js';
 // "overlay" sits transparent over a dark hero; "solid" is for every other page.
@@ -9,17 +9,11 @@ const { variant = 'solid' } = Astro.props;
   <div class="wrap header__inner">
     <a class="logo" href={url('/')}><svg><use href="#i-logo" /></svg> {site.name}</a>
 
-    <nav class="nav">
-      {nav.map((item) => <a href={url(item.href)}>{item.label}</a>)}
-      <span class="nav__group">
-        <a href={url('/programs')} class="nav__more">All Pages <svg><use href="#i-chev" /></svg></a>
-        <span class="nav__panel">
-          {allPages.map((item) => <a href={url(item.href)}>{item.label}</a>)}
-        </span>
-      </span>
+    <nav class="nav" aria-label="Primary">
+      {nav.filter((item) => item.href !== '/partner').map((item) => <a href={url(item.href)}>{item.label}</a>)}
     </nav>
 
-    <Button href="/donate" variant="white">Donate</Button>
+    <Button href="/partner" variant="indigo">Discuss a partnership</Button>
 
     <button class="header__burger" id="burger" aria-label="Open menu" aria-expanded="false">
       <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
@@ -28,8 +22,8 @@ const { variant = 'solid' } = Astro.props;
 
   <div class="drawer" id="drawer" hidden>
     <div class="wrap drawer__inner">
-      {[...nav, ...allPages].map((item) => <a href={url(item.href)}>{item.label}</a>)}
-      <a href={url('/donate')} class="drawer__cta">Donate</a>
+      {nav.map((item) => <a href={url(item.href)}>{item.label}</a>)}
+      <a href={url('/partner')} class="drawer__cta">Discuss a partnership</a>
     </div>
   </div>
 </header>

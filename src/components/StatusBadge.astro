@@ -1,0 +1,11 @@
+---
+// Renders one of the eight permitted programme statuses. Anything else is a
+// content error and should be loud rather than silently styled.
+import { STATUSES } from '../data/verticals.js';
+const { status } = Astro.props;
+if (!STATUSES.includes(status)) {
+  throw new Error(`Unknown programme status "${status}". Permitted: ${STATUSES.join(', ')}.`);
+}
+const slug = status.toLowerCase().replace(/\s+/g, '-');
+---
+<span class={`status status--${slug}`}>{status}</span>

@@ -67,30 +67,6 @@ const pageTitle = title ? `${title} — ${site.fullName}` : `${site.fullName} �
       }, { threshold: 0.12 });
       targets.forEach((el) => io.observe(el));
     }
-
-    // --- monthly / yearly toggle -------------------------------------------
-    const toggle = document.getElementById('cycleToggle');
-    toggle?.addEventListener('click', (ev) => {
-      const btn = ev.target.closest('button');
-      if (!btn) return;
-      toggle.querySelectorAll('button').forEach((b) => b.classList.toggle('is-on', b === btn));
-      const yearly = btn.dataset.cycle === 'year';
-      document.querySelectorAll('[data-price]').forEach((p) => {
-        p.textContent = yearly ? p.dataset.year : p.dataset.month;
-      });
-      document.querySelectorAll('[data-period]').forEach((p) => {
-        p.textContent = yearly ? '/Year' : '/Month';
-      });
-    });
-
-    // --- newsletter (no backend yet — acknowledge without pretending) -------
-    const sub = document.getElementById('subscribe');
-    sub?.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      const msg = document.getElementById('subMsg');
-      if (msg) msg.textContent = 'Thanks — we’ll be in touch.';
-      sub.querySelector('input').value = '';
-    });
   </script>
 </body>
 </html>
