@@ -42,13 +42,3 @@ export const nav = [
 // Replace each '#' with a real profile URL before launch, or delete the entry.
 // A social icon linking to '#' is a dead control and must not ship.
 export const socials = [];
-
-// ---------------------------------------------------------------------------
-// DEPRECATED — deleted in Task 10.
-// Header.astro, Footer.astro, index.astro, and about.astro still import these
-// until Tasks 4, 5, and 7 rewrite them. They stay here only so the repo builds
-// at every step. Nothing new may import them, and the figures in `stats` are
-// invented — they must never reach a page that survives this rebuild.
-// ---------------------------------------------------------------------------
-export const allPages = [];
-export const stats = [];
