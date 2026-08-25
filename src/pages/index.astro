@@ -61,7 +61,7 @@ const approach = [
       </div>
       <div class="steps reveal" style="margin-top:40px">
         {approach.map((a, i) => (
-          <div class="step"><b>{i + 1}</b><h4>{a.title}</h4><p>{a.text}</p></div>
+          <div class="step"><b>{i + 1}</b><h3>{a.title}</h3><p>{a.text}</p></div>
         ))}
       </div>
     </div>
@@ -69,6 +69,7 @@ const approach = [
 
   <section class="section section--white">
     <div class="wrap mission reveal">
+      <h2 style="grid-column:1 / -1; margin-bottom:8px">Purpose and direction</h2>
       <div>
         <Eyebrow text="Mission" />
         <p class="mission__text">{positioning.mission}</p>

@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import { verticals } from '../data/verticals.js';
+
+const routes = [
+  {
+    title: 'Schools, colleges, and training institutes',
+    text: 'Curriculum support, AI labs on campus, international affiliations, and placement infrastructure.',
+  },
+  {
+    title: 'Employers and industry bodies',
+    text: 'Entry-level hiring pipelines, team upskilling, mentoring, and input into what gets taught.',
+  },
+  {
+    title: 'Corporate social responsibility and philanthropy',
+    text: 'Education programmes with a defined beneficiary, a defined outcome, and a record of both.',
+  },
+  {
+    title: 'Educators, trainers, and mentors',
+    text: 'Teaching and mentoring roles as each area of work moves from proposed to active.',
+  },
+];
+---
+<Base
+  title="Partner with us"
+  description="Start a conversation with Indo-Global Skills & Edu Foundation about training, campus programmes, hiring pathways, or corporate social responsibility projects."
+>
+  <PageHero
+    eyebrow="Partner with us"
+    title="Tell us what you are trying to do"
+    lede="We would rather hear the outcome you are working toward than pitch you a package. If we are not the right people for it, we will say so."
+    crumb="Partner with us"
+  />
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:44px; max-width:680px">
+        <Eyebrow text="Who we work with" />
+        <h2>Four kinds of conversation</h2>
+      </div>
+      <div class="steps reveal">
+        {routes.map((r, i) => (
+          <div class="step"><b>{i + 1}</b><h3>{r.title}</h3><p>{r.text}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--canvas" id="enquiry">
+    <div class="wrap contact">
+      <div class="reveal">
+        <Eyebrow text="What happens next" />
+        <h2>Three steps</h2>
+        <div class="prose" style="margin-top:20px">
+          <p><strong>1. You send this form.</strong> Tell us your organisation and the outcome you want. Two sentences is enough.</p>
+          <p><strong>2. We reply within two working days.</strong> A person, not an autoresponder, with an honest read on fit.</p>
+          <p><strong>3. We scope it together.</strong> If it fits, we put timelines and responsibilities in writing before anything starts.</p>
+        </div>
+      </div>
+
+      <form class="form reveal" id="partnerForm" novalidate>
+        <div class="form__row">
+          <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+          <label>Organisation<input type="text" name="organisation" autocomplete="organization" required /></label>
+        </div>
+        <div class="form__row">
+          <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+          <label>Role<input type="text" name="role" autocomplete="organization-title" /></label>
+        </div>
+        <label>Area of interest
+          <select name="area">
+            <option value="">Not sure yet</option>
+            {verticals.map((v) => <option value={v.slug}>{v.title}</option>)}
+          </select>
+        </label>
+        <label>What are you trying to achieve?<textarea name="message" rows="5" required></textarea></label>
+        <p class="form__consent">
+          We use what you send here only to reply to your enquiry. We do not add you to a
+          mailing list and we do not share it with anyone else. This form is for adults
+          aged 18 and over — please do not send us anyone else’s personal details.
+        </p>
+        <button class="btn btn--indigo" type="submit" style="justify-self:start">
+          Send enquiry<span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
+        </button>
+        <p class="form__note" id="partnerNote" role="status">
+          This form has no backend connected yet, so it cannot deliver your message.
+          Connect it to a form handler before launch.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // No backend yet. Say so plainly rather than clearing the form and
+    // implying a message was delivered.
+    document.getElementById('partnerForm')?.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const note = document.getElementById('partnerNote');
+      if (note) {
+        note.textContent =
+          'Not sent — this form still needs a backend connected. Nothing you typed has been transmitted or stored.';
+        note.style.color = 'var(--indigo)';
+        note.style.fontWeight = '700';
+      }
+    });
+  </script>
+</Base>
