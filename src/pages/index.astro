@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Button from '../components/Button.astro';
 import Marquee from '../components/Marquee.astro';
-import Swoosh from '../components/Swoosh.astro';
 import ProgramCard from '../components/ProgramCard.astro';
 import CTA from '../components/CTA.astro';
 import { verticals } from '../data/verticals.js';
@@ -53,7 +52,7 @@ const operating = [
     </div>
     <div class="wrap hero__inner">
       <Eyebrow text="Indo-Global Skills & Edu Foundation" />
-      <h1>Building practical <Swoosh text="pathways" /> between learning, skills, institutions, and opportunity.</h1>
+      <h1>Building practical <span class="hero__accent">pathways</span> between learning, skills, institutions, and opportunity.</h1>
       <p class="hero__sub">{site.blurb}</p>
       <div class="hero__actions">
         <Button href="/partner" variant="white">Discuss a partnership</Button>
