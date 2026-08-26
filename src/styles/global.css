@@ -469,7 +469,7 @@ p  { margin: 0; color: var(--grey); }
 .tmember__avatar { aspect-ratio: 16/9; display: grid; place-items: center; background: var(--tint-indigo); }
 .tmember__avatar span { font-family: var(--display); font-weight: 800; font-size: 48px; color: var(--indigo); }
 .tmember__body { padding: 22px; }
-.tmember h4 { font-size: 21px; }
+.tmember h3 { font-size: 21px; }
 .tmember__role { font-size: 13px; color: var(--indigo); font-weight: 800; letter-spacing: .04em; margin: 5px 0 12px; }
 .tmember p { font-size: 14px; }
 
