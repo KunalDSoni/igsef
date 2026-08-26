@@ -150,7 +150,12 @@ p  { margin: 0; color: var(--grey); }
 .reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
-/* ---------- responsive ---------- */
+/* ---------- responsive ----------
+   NOTE: the actual mobile-collapse rules for page-specific classes (.about__grid,
+   .why, .feats, .team, etc.) live at the end of this file, AFTER those classes'
+   base declarations. CSS cascade order matters for equal-specificity rules -
+   a media-query override declared before a later unconditional rule of the same
+   specificity loses to it, so those overrides must come last. */
 @media (max-width: 1080px) {
   .footer__grid { grid-template-columns: 1fr 1fr; }
 }
@@ -162,14 +167,6 @@ p  { margin: 0; color: var(--grey); }
   .sec-head { flex-direction: column; align-items: flex-start; gap: 22px; }
   .footer__grid { grid-template-columns: 1fr; }
   .socials { justify-content: flex-start; }
-  .about__cards { grid-template-columns: 1fr; }
-  .feats__grid { grid-template-columns: 1fr; }
-  .feats { grid-template-columns: 1fr; }
-  .why { grid-template-columns: 1fr; }
-  .about__grid { grid-template-columns: 1fr; }
-  .why__feats { grid-template-columns: 1fr; }
-  .why__feats .feat__sep { display: none; }
-  .team { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
@@ -398,6 +395,9 @@ p  { margin: 0; color: var(--grey); }
 .feats__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .fcard { background: var(--tint-saffron); border-radius: var(--r-card); padding: 28px; }
 .fcard:nth-child(2), .fcard:nth-child(4) { margin-top: 56px; }
+@media (max-width: 720px) {
+  .fcard:nth-child(2), .fcard:nth-child(4) { margin-top: 0; }
+}
 .fcard svg { width: 30px; height: 30px; color: var(--saffron); margin-bottom: 54px; }
 .fcard h3 { font-size: 20px; margin-bottom: 8px; }
 .fcard p { font-size: 13.5px; }
@@ -442,3 +442,29 @@ p  { margin: 0; color: var(--grey); }
 .faq summary::after { content: "+"; font-size: 24px; color: var(--indigo); line-height: 1; }
 .faq details[open] summary::after { content: "–"; }
 .faq p { margin-top: 14px; font-size: 15px; }
+
+/* ---------- responsive: page-specific grids ----------
+   Placed here, after every base rule above, so these overrides actually win
+   the cascade instead of being re-clobbered by a later unconditional rule. */
+@media (max-width: 720px) {
+  .about__cards { grid-template-columns: 1fr; }
+  .feats__grid { grid-template-columns: 1fr; }
+  .feats { grid-template-columns: 1fr; }
+  .why { grid-template-columns: 1fr; }
+  .about__grid { grid-template-columns: 1fr; gap: 26px; }
+  .why__feats { grid-template-columns: 1fr; }
+  .why__feats .feat__sep { display: none; }
+  .team { grid-template-columns: 1fr; }
+  .philo__rail { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+}
+
+/* ---------- small phones ---------- */
+@media (max-width: 480px) {
+  .hero { min-height: 0; padding: 140px 0 64px; }
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { justify-content: center; }
+  .cta { padding: 56px 22px; }
+  .pcard { width: 260px; }
+  .nf { padding: 120px 0 70px; }
+  .faq summary { font-size: 17px; }
+}

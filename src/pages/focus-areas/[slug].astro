@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import Button from '../../components/Button.astro';
-import StatusBadge from '../../components/StatusBadge.astro';
 import CTA from '../../components/CTA.astro';
 import { verticals } from '../../data/verticals.js';
 import { leadership } from '../../data/leadership.js';
@@ -41,10 +40,6 @@ const lead = leadership.find((l) => l.key === vertical.leadKey);
       <div class="vdetail__graphic" aria-hidden="true"></div>
 
       <aside class="vdetail__aside">
-        <div>
-          <h2>Current status</h2>
-          <div style="margin-top:10px"><StatusBadge status={vertical.status} /></div>
-        </div>
         <div>
           <h2>Who this is for</h2>
           <ul>{vertical.audiences.map((a) => <li>{a}</li>)}</ul>

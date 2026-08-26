@@ -1,6 +1,5 @@
 ---
 import { url } from '../lib/url.js';
-import StatusBadge from './StatusBadge.astro';
 const { vertical } = Astro.props;
 
 // Generic, illustrative photography — not a claim about this org's own campus or people.
@@ -20,7 +19,6 @@ const image = IMAGES[vertical.slug];
     <h3>{vertical.title}</h3>
     <p>{vertical.summary}</p>
     <div class="prog__foot">
-      <StatusBadge status={vertical.status} />
       <a href={url(`/focus-areas/${vertical.slug}`)} class="link-arrow">View details <svg><use href="#i-arrow" /></svg></a>
     </div>
   </div>
