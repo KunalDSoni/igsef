@@ -23,7 +23,7 @@ const lead = leadership.find((l) => l.key === vertical.leadKey);
   />
 
   <section class="section section--white">
-    <div class="wrap vdetail reveal">
+    <div class="wrap vdetail vdetail--rich reveal">
       <div>
         <h2 class="vdetail__heading">What this involves</h2>
         <ul class="act-list">
@@ -37,6 +37,8 @@ const lead = leadership.find((l) => l.key === vertical.leadKey);
           <p style="font-size:17px">{vertical.engagement}</p>
         </div>
       </div>
+
+      <div class="vdetail__graphic" aria-hidden="true"></div>
 
       <aside class="vdetail__aside">
         <div>
@@ -60,7 +62,7 @@ const lead = leadership.find((l) => l.key === vertical.leadKey);
   </section>
 
   <CTA
-    title={`Interested in ${vertical.title.toLowerCase()}?`}
+    title="Interested in this area of work?"
     text="Tell us what you are working toward and who you serve. We will reply with what we can realistically do and by when."
   />
 </Base>
