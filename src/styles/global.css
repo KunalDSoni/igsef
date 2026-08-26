@@ -313,17 +313,9 @@ p  { margin: 0; color: var(--grey); }
 .hero { position: relative; min-height: 620px; display: flex; align-items: center; padding: 170px 0 90px; overflow: hidden; }
 .hero__bg { position: absolute; inset: 0; }
 .hero__bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero__bg-graphic {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(19,138,138,.55), transparent 55%),
-    radial-gradient(circle at 85% 75%, rgba(230,154,46,.35), transparent 50%),
-    linear-gradient(160deg, rgba(23,59,112,.72) 0%, rgba(14,37,73,.82) 100%);
-}
-/* rgba(14,37,73,...) mirrors --indigo-deep (#0E2549); kept literal since this project has no
-   browserslist/target config to confirm color-mix() support. */
+.hero__bg-graphic { position: absolute; inset: 0; background: rgba(14,37,73,.45); }
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,37,73,.12), rgba(14,37,73,.5)); }
-.hero__inner { position: relative; z-index: 2; width: 100%; color: var(--white); }
+.hero__inner { position: relative; z-index: 2; width: 100%; color: var(--white); text-shadow: 0 2px 12px rgba(0,0,0,.45); }
 .hero h1 { color: var(--white); }
 .hero__sub { color: rgba(255,255,255,.88); max-width: 46ch; margin: 20px 0 30px; font-size: 15px; }
 .hero .swoosh,
@@ -355,12 +347,6 @@ p  { margin: 0; color: var(--grey); }
 .why { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
 .why__photo { position: relative; border-radius: var(--r-card); overflow: hidden; aspect-ratio: 5/6; }
 .why__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.why__graphic {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(19,138,138,.22), transparent 60%),
-    radial-gradient(circle at 75% 70%, rgba(230,154,46,.18), transparent 55%);
-}
 .why p.lede { margin: 18px 0 0; font-size: 15px; max-width: 52ch; }
 .why__feats { display: grid; grid-template-columns: 1fr auto 1fr; gap: 26px; margin-top: 40px; padding-top: 34px; border-top: 1px solid var(--line); }
 .why__feats + .why__feats { margin-top: 26px; padding-top: 28px; }
@@ -371,14 +357,8 @@ p  { margin: 0; color: var(--grey); }
 /* ---- showcase: full-bleed abstract band, no photo ---- */
 .showcase { position: relative; min-height: 420px; display: grid; place-items: center; text-align: center; overflow: hidden; }
 .showcase__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.showcase__graphic {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(230,154,46,.35), transparent 55%),
-    radial-gradient(circle at 80% 70%, rgba(19,138,138,.45), transparent 55%),
-    linear-gradient(160deg, rgba(23,59,112,.72) 0%, rgba(14,37,73,.82) 100%);
-}
-.showcase__in { position: relative; z-index: 2; color: var(--white); }
+.showcase__graphic { position: absolute; inset: 0; background: rgba(14,37,73,.45); }
+.showcase__in { position: relative; z-index: 2; color: var(--white); text-shadow: 0 2px 12px rgba(0,0,0,.45); }
 .showcase__in h2 { color: var(--white); max-width: 16ch; margin-inline: auto; }
 .showcase .eyebrow { color: rgba(255,255,255,.85); }
 
@@ -386,12 +366,6 @@ p  { margin: 0; color: var(--grey); }
 .feats { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
 .feats__photo { position: relative; border-radius: var(--r-card); overflow: hidden; margin-top: 44px; aspect-ratio: 16/11; }
 .feats__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.feats__graphic {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at 25% 25%, rgba(19,138,138,.2), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(230,154,46,.16), transparent 55%);
-}
 .feats__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .fcard { background: var(--tint-saffron); border-radius: var(--r-card); padding: 28px; }
 .fcard:nth-child(2), .fcard:nth-child(4) { margin-top: 56px; }
