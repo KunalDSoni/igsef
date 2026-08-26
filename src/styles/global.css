@@ -184,8 +184,6 @@ p  { margin: 0; color: var(--grey); }
 .page-hero { background: var(--tint-saffron); padding: 168px 0 76px; position: relative; overflow: hidden; }
 .page-hero h1 { max-width: 16ch; }
 .page-hero p { margin-top: 18px; max-width: 56ch; font-size: 16px; }
-.crumbs { font-size: 13px; color: var(--grey); margin-top: 20px; }
-.crumbs a { border-bottom: 1px solid var(--line); }
 .page-hero__blob { position: absolute; right: -80px; top: -60px; width: 380px; opacity: .5; pointer-events: none; }
 
 /* generic prose for article bodies */

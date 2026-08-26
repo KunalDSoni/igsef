@@ -1,7 +1,6 @@
 ---
 import Eyebrow from './Eyebrow.astro';
-import { url } from '../lib/url.js';
-const { eyebrow, title, lede, crumb } = Astro.props;
+const { eyebrow, title, lede } = Astro.props;
 ---
 <section class="page-hero">
   <svg class="page-hero__blob" viewBox="0 0 200 200" fill="none" aria-hidden="true">
@@ -11,6 +10,5 @@ const { eyebrow, title, lede, crumb } = Astro.props;
     {eyebrow && <Eyebrow text={eyebrow} />}
     <h1>{title}</h1>
     {lede && <p>{lede}</p>}
-    {crumb && <div class="crumbs"><a href={url('/')}>Home</a> · {crumb}</div>}
   </div>
 </section>
