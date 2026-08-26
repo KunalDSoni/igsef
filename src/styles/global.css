@@ -173,6 +173,12 @@ p  { margin: 0; color: var(--grey); }
   .socials { justify-content: flex-start; }
   .about__cards { grid-template-columns: 1fr; }
   .feats__grid { grid-template-columns: 1fr; }
+  .feats { grid-template-columns: 1fr; }
+  .why { grid-template-columns: 1fr; }
+  .about__grid { grid-template-columns: 1fr; }
+  .why__feats { grid-template-columns: 1fr; }
+  .why__feats .feat__sep { display: none; }
+  .team { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
@@ -250,25 +256,6 @@ p  { margin: 0; color: var(--grey); }
 .status--open, .status--in-delivery     { background: var(--tint-teal); color: var(--teal-deep); }
 .status--paused, .status--archived      { background: #EDEFF2; color: var(--grey); }
 
-/* ---------- vertical cards ---------- */
-.vgrid { display: grid; gap: 22px; grid-template-columns: repeat(3, 1fr); }
-.vcard {
-  display: flex; flex-direction: column; gap: 14px;
-  padding: 32px; border-radius: var(--r-card);
-  background: var(--white); border: 1px solid var(--line);
-  border-top: 5px solid var(--indigo);
-}
-.vcard--teal    { border-top-color: var(--teal); }
-.vcard--saffron { border-top-color: var(--saffron); }
-.vcard__head { display: flex; align-items: center; justify-content: space-between; }
-.vcard__num {
-  font-family: var(--display); font-size: 15px; font-weight: 800;
-  color: var(--indigo); opacity: .75;
-}
-.vcard h3 { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.25; }
-.vcard p { font-size: 15px; }
-.vcard .link-arrow { margin-top: auto; align-self: flex-start; }
-
 /* ---------- vertical detail ---------- */
 .vdetail { display: grid; gap: 48px; grid-template-columns: 1.4fr 1fr; align-items: start; }
 .vdetail__aside {
@@ -309,7 +296,6 @@ p  { margin: 0; color: var(--grey); }
 .empty h3 { font-size: 26px; margin-bottom: 10px; }
 
 @media (max-width: 900px) {
-  .vgrid { grid-template-columns: 1fr; }
   .vdetail { grid-template-columns: 1fr; gap: 32px; }
 }
 
@@ -318,14 +304,6 @@ p  { margin: 0; color: var(--grey); }
   letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px;
 }
 
-/* ---------- plain hero (replaces the full-bleed photographic hero) ---------- */
-.hero--plain {
-  min-height: 0; padding: 190px 0 96px; align-items: center;
-  background: linear-gradient(180deg, var(--tint-indigo) 0%, var(--canvas) 100%);
-}
-.hero--plain .hero__inner { max-width: 900px; }
-.hero--plain h1 { color: var(--ink); }
-.hero--plain .hero__sub { color: var(--grey); max-width: 620px; margin: 22px 0 32px; font-size: 18px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
 /* ---------- mission / vision pair ---------- */
@@ -336,7 +314,6 @@ p  { margin: 0; color: var(--grey); }
 }
 @media (max-width: 900px) {
   .mission { grid-template-columns: 1fr; gap: 34px; }
-  .hero--plain { padding: 150px 0 72px; }
 }
 
 .form__consent {
@@ -373,10 +350,6 @@ p  { margin: 0; color: var(--grey); }
 /* ---- about: statement + three-tone card row ---- */
 .about__grid { display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start; }
 .about__statement { font-family: var(--display); font-size: clamp(26px,3.4vw,44px); font-weight: 600; line-height: 1.28; }
-.about__faces { display: inline-flex; vertical-align: middle; margin-left: 10px; }
-.about__faces span { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-left: -10px; border: 3px solid var(--white); }
-.about__faces span:first-child { margin-left: 0; }
-.about__faces svg { width: 16px; height: 16px; }
 
 .about__cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 60px; }
 .acard { border-radius: var(--r-card); padding: 30px; min-height: 260px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
@@ -387,8 +360,6 @@ p  { margin: 0; color: var(--grey); }
 .acard__icon svg { width: 20px; height: 20px; color: var(--indigo); }
 .acard h3 { font-size: 21px; margin-bottom: 8px; }
 .acard p { font-size: 14px; }
-.acard__wave { position: absolute; right: -30px; bottom: -40px; width: 220px; opacity: .3; pointer-events: none; z-index: 0; }
-.acard > *:not(.acard__wave) { position: relative; z-index: 1; }
 
 /* ---- why: two-column split with abstract graphic instead of photo ---- */
 .why { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }

@@ -36,6 +36,13 @@ const features = [
   { title: 'Named leadership', text: 'Each area of work sits with a named person, not the organisation in general.' },
   { title: 'No delivery claims yet', text: 'Nothing here says a programme is running before it is. Status labels are real, not aspirational.' },
 ];
+
+const operating = [
+  { title: 'A conversation before a proposal', text: 'We ask what outcome you are working toward first. A scoped plan, with timelines and responsibilities in writing, only follows once that is clear.' },
+  { title: 'Status changes when delivery does', text: 'All six focus areas are labelled Proposed today. A label moves to pilot or open enrolment the day real delivery starts — not before, and not to look further along than we are.' },
+  { title: '"No delivery yet" is specific, not vague', text: 'It means no learner is enrolled and no programme is running under any focus area right now. It does not mean nothing is scoped, resourced, or ready to start.' },
+  { title: 'A reply within two working days', text: 'Every enquiry gets a response from a person, with an honest read on fit — including a direct no, and a pointer elsewhere, when we are not the right people for it.' },
+];
 ---
 <Base headerVariant="overlay" description={site.blurb}>
   <section class="hero">
@@ -128,7 +135,7 @@ const features = [
         <div class="feats__photo"><div class="feats__graphic" aria-hidden="true"></div></div>
       </div>
       <div class="feats__grid">
-        {features.map((f) => (
+        {operating.map((f) => (
           <div class="fcard">
             <svg><use href="#i-ast" /></svg>
             <h3>{f.title}</h3>
