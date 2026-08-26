@@ -1,12 +1,12 @@
 ---
-const { text = 'Where growth begins', repeat = 4 } = Astro.props;
-const items = Array.from({ length: repeat });
+const { items, text = 'Where growth begins', repeat = 4 } = Astro.props;
+const phrases = items && items.length > 0 ? items : Array.from({ length: repeat }, () => text);
 ---
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
     {[0, 1].map(() => (
       <div class="marquee__item">
-        {items.map(() => (<><span>{text}</span><svg><use href="#i-ast" /></svg></>))}
+        {phrases.map((phrase) => (<><span>{phrase}</span><svg><use href="#i-ast" /></svg></>))}
       </div>
     ))}
   </div>
