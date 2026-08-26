@@ -2,7 +2,9 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Eyebrow from '../components/Eyebrow.astro';
-import { verticals } from '../data/verticals.js';
+import { site } from '../data/site.js';
+
+const known = site.contact.filter((c) => c.value !== null);
 
 const routes = [
   {
@@ -75,61 +77,26 @@ const routes = [
   </section>
 
   <section class="section section--canvas" id="enquiry">
-    <div class="wrap contact">
+    <div class="wrap" style="max-width:680px">
       <div class="reveal">
-        <Eyebrow text="What happens next" />
-        <h2>Three steps</h2>
-        <div class="prose" style="margin-top:20px">
-          <p><strong>1. You send this form.</strong> Tell us your organisation and the outcome you want. Two sentences is enough.</p>
-          <p><strong>2. We reply within two working days.</strong> A person, not an autoresponder, with an honest read on fit.</p>
-          <p><strong>3. We scope it together.</strong> If it fits, we put timelines and responsibilities in writing before anything starts.</p>
-        </div>
+        <Eyebrow text="Get in touch" />
+        <h2>Contact us</h2>
+        <p style="margin:18px 0 28px">
+          Tell us your organisation and the outcome you want in a couple of sentences.
+          We reply within two working days with an honest read on fit.
+        </p>
       </div>
 
-      <form class="form reveal" id="partnerForm" novalidate>
-        <div class="form__row">
-          <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
-          <label>Organisation<input type="text" name="organisation" autocomplete="organization" required /></label>
+      {known.length > 0 && (
+        <div class="contact__facts reveal">
+          {known.map((c) => (
+            <div class="cfact">
+              <span class="cfact__icon"><svg><use href={`#${c.icon}`} /></svg></span>
+              <span><b>{c.label}</b><span>{c.value}</span></span>
+            </div>
+          ))}
         </div>
-        <div class="form__row">
-          <label>Email<input type="email" name="email" autocomplete="email" required /></label>
-          <label>Role<input type="text" name="role" autocomplete="organization-title" /></label>
-        </div>
-        <label>Area of interest
-          <select name="area">
-            <option value="">Not sure yet</option>
-            {verticals.map((v) => <option value={v.slug}>{v.title}</option>)}
-          </select>
-        </label>
-        <label>What are you trying to achieve?<textarea name="message" rows="5" required></textarea></label>
-        <p class="form__consent">
-          We use what you send here only to reply to your enquiry. We do not add you to a
-          mailing list and we do not share it with anyone else. This form is for adults
-          aged 18 and over — please do not send us anyone else’s personal details.
-        </p>
-        <button class="btn btn--indigo" type="submit" style="justify-self:start">
-          Send enquiry<span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
-        </button>
-        <p class="form__note" id="partnerNote" role="status">
-          This form has no backend connected yet, so it cannot deliver your message.
-          Connect it to a form handler before launch.
-        </p>
-      </form>
+      )}
     </div>
   </section>
-
-  <script>
-    // No backend yet. Say so plainly rather than clearing the form and
-    // implying a message was delivered.
-    document.getElementById('partnerForm')?.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      const note = document.getElementById('partnerNote');
-      if (note) {
-        note.textContent =
-          'Not sent — this form still needs a backend connected. Nothing you typed has been transmitted or stored.';
-        note.style.color = 'var(--indigo)';
-        note.style.fontWeight = '700';
-      }
-    });
-  </script>
 </Base>

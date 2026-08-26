@@ -15,19 +15,19 @@ const pending = site.contact.filter((c) => c.value === null);
   <PageHero
     eyebrow="Contact"
     title="Reach the team"
-    lede="Partnership enquiries move fastest through the enquiry form, which routes straight to the people who can answer."
+    lede="Reach us directly by email or phone below, or start a partnership conversation."
   />
 
   <section class="section section--white">
     <div class="wrap" style="max-width:760px">
       <div class="reveal">
         <Eyebrow text="Best route" />
-        <h2>Start with an enquiry</h2>
+        <h2>Get in touch</h2>
         <p style="margin:18px 0 28px">
           Whether you are an institution, an employer, a funder, or someone who wants to teach,
-          the enquiry form asks for what we need to route your message correctly and reply properly.
+          reach us directly below, or read more about partnering with us.
         </p>
-        <Button href="/partner" variant="indigo">Go to the enquiry form</Button>
+        <Button href="/partner" variant="indigo">Discuss a partnership</Button>
       </div>
 
       {known.length > 0 && (
@@ -48,7 +48,7 @@ const pending = site.contact.filter((c) => c.value === null);
             We are not publishing {new Intl.ListFormat('en-GB', { style: 'long', type: 'conjunction' })
               .format(pending.map((c) => c.label.toLowerCase()))} until
             they are confirmed and monitored. Publishing a channel nobody is watching wastes your time.
-            The enquiry form is checked.
+            The email and phone above are checked.
           </p>
         </div>
       )}
