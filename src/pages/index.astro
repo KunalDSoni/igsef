@@ -8,6 +8,7 @@ import ProgramCard from '../components/ProgramCard.astro';
 import CTA from '../components/CTA.astro';
 import { verticals } from '../data/verticals.js';
 import { positioning, site } from '../data/site.js';
+import { url } from '../lib/url.js';
 
 const approach = [
   {
@@ -46,7 +47,10 @@ const operating = [
 ---
 <Base headerVariant="overlay" description={site.blurb}>
   <section class="hero">
-    <div class="hero__bg"><div class="hero__bg-graphic" aria-hidden="true"></div></div>
+    <div class="hero__bg">
+      <img src={url('/images/hero.jpg')} alt="" class="hero__bg-img" />
+      <div class="hero__bg-graphic" aria-hidden="true"></div>
+    </div>
     <div class="wrap hero__inner">
       <Eyebrow text="Indo-Global Skills & Edu Foundation" />
       <h1>Building practical <Swoosh text="pathways" /> between learning, skills, institutions, and opportunity.</h1>
@@ -83,7 +87,10 @@ const operating = [
 
   <section class="section section--canvas">
     <div class="wrap why reveal">
-      <div class="why__photo"><div class="why__graphic" aria-hidden="true"></div></div>
+      <div class="why__photo">
+        <img src={url('/images/why.jpg')} alt="" class="why__img" />
+        <div class="why__graphic" aria-hidden="true"></div>
+      </div>
       <div>
         <Eyebrow text="Why work with us" />
         <h2>What makes the<br />approach different</h2>
@@ -103,6 +110,7 @@ const operating = [
   </section>
 
   <section class="showcase">
+    <img src={url('/images/showcase.jpg')} alt="" class="showcase__img" />
     <div class="showcase__graphic" aria-hidden="true"></div>
     <div class="showcase__in">
       <Eyebrow text="How we work" />
@@ -132,7 +140,10 @@ const operating = [
         <h2>A closer look at<br />how we operate</h2>
         <p style="margin:18px 0 28px;font-size:15px;max-width:44ch">If you run an institution, hire at entry level, or direct social spending toward education, we would like to hear what you are trying to do.</p>
         <Button href="/partner" variant="indigo">Discuss a partnership</Button>
-        <div class="feats__photo"><div class="feats__graphic" aria-hidden="true"></div></div>
+        <div class="feats__photo">
+          <img src={url('/images/feats.jpg')} alt="" class="feats__img" />
+          <div class="feats__graphic" aria-hidden="true"></div>
+        </div>
       </div>
       <div class="feats__grid">
         {operating.map((f) => (

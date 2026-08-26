@@ -2,6 +2,17 @@
 import { url } from '../lib/url.js';
 import StatusBadge from './StatusBadge.astro';
 const { vertical } = Astro.props;
+
+// Generic, illustrative photography — not a claim about this org's own campus or people.
+const IMAGES = {
+  'international-academic-pathway': 'vertical-international-pathway.jpg',
+  'corporate-and-industry-training': 'vertical-corporate-training.jpg',
+  'ai-and-emerging-tech-education': 'vertical-ai-tech.jpg',
+  'innovation-and-incubation': 'vertical-innovation.jpg',
+  'industry-academia-integration': 'vertical-industry-academia.jpg',
+  'strategic-csr-and-social-impact': 'vertical-csr.jpg',
+};
+const image = IMAGES[vertical.slug];
 ---
 <article class={`prog prog--${vertical.tone} reveal`}>
   <div class="prog__body">
@@ -13,5 +24,8 @@ const { vertical } = Astro.props;
       <a href={url(`/focus-areas/${vertical.slug}`)} class="link-arrow">View details <svg><use href="#i-arrow" /></svg></a>
     </div>
   </div>
-  <div class="prog__media"><div class="prog__graphic" aria-hidden="true"></div></div>
+  <div class="prog__media">
+    {image && <img src={url(`/images/${image}`)} alt="" class="prog__img" />}
+    <div class="prog__graphic" aria-hidden="true"></div>
+  </div>
 </article>
