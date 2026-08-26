@@ -295,16 +295,6 @@ p  { margin: 0; color: var(--grey); }
 .act-list svg { width: 22px; height: 22px; color: var(--teal-deep); margin-top: 2px; }
 
 /* ---------- leadership ---------- */
-.leaders { display: grid; gap: 22px; grid-template-columns: repeat(2, 1fr); }
-.leader {
-  padding: 30px; border-radius: var(--r-card);
-  background: var(--white); border: 1px solid var(--line);
-}
-.leader h3 { font-size: 24px; }
-.leader__role {
-  font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--teal-deep); margin: 6px 0 14px;
-}
 .leader__areas { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
 .leader__areas a {
   font-size: 13px; font-weight: 700; padding: 6px 12px;
@@ -319,7 +309,7 @@ p  { margin: 0; color: var(--grey); }
 .empty h3 { font-size: 26px; margin-bottom: 10px; }
 
 @media (max-width: 900px) {
-  .vgrid, .leaders { grid-template-columns: 1fr; }
+  .vgrid { grid-template-columns: 1fr; }
   .vdetail { grid-template-columns: 1fr; gap: 32px; }
 }
 
