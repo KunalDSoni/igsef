@@ -46,7 +46,7 @@ test('registration line makes no status claim', () => {
 
 test('navigation points at the real routes', () => {
   const hrefs = nav.map((n) => n.href);
-  assert.deepEqual(hrefs, ['/', '/about', '/focus-areas', '/partner', '/contact']);
+  assert.deepEqual(hrefs, ['/', '/about', '/work', '/partner', '/contact']);
 });
 
 test('positioning lines exist and avoid superlatives', () => {

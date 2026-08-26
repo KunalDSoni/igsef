@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
 import { site } from '../data/site.js';
 
 const known = site.contact.filter((c) => c.value !== null);
@@ -66,7 +67,7 @@ const routes = [
         </details>
         <details>
           <summary>Is there a cost to a first conversation?</summary>
-          <p>No. Sending the enquiry form below costs nothing and commits you to nothing. If we scope work together afterwards, costs and responsibilities are put in writing before anything starts.</p>
+          <p>No. Getting in touch costs nothing and commits you to nothing. If we scope work together afterwards, costs and responsibilities are put in writing before anything starts.</p>
         </details>
         <details>
           <summary>What if we are not the right fit?</summary>
@@ -85,18 +86,20 @@ const routes = [
           Tell us your organisation and the outcome you want in a couple of sentences.
           We reply within two working days with an honest read on fit.
         </p>
-      </div>
 
-      {known.length > 0 && (
-        <div class="contact__facts reveal">
-          {known.map((c) => (
-            <div class="cfact">
-              <span class="cfact__icon"><svg><use href={`#${c.icon}`} /></svg></span>
-              <span><b>{c.label}</b><span>{c.value}</span></span>
-            </div>
-          ))}
-        </div>
-      )}
+        {known.length > 0 ? (
+          <div class="contact__facts">
+            {known.map((c) => (
+              <div class="cfact">
+                <span class="cfact__icon"><svg><use href={`#${c.icon}`} /></svg></span>
+                <span><b>{c.label}</b><span>{c.value}</span></span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Button href="/contact" variant="indigo">See how to reach us</Button>
+        )}
+      </div>
     </div>
   </section>
 </Base>

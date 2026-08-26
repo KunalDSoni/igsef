@@ -13,11 +13,9 @@ export const site = {
 
   // Each entry declares a value even when we do not have one yet. A null value
   // renders as a route to the enquiry form, never as an invented detail.
-  // TODO: Email and Phone below are placeholders — replace with the real
-  // channels before launch.
   contact: [
-    { label: 'Email',   icon: 'i-mail',  value: 'hello@indoglobalskills.org', status: 'placeholder' },
-    { label: 'Phone',   icon: 'i-phone', value: '+91 98765 43210', status: 'placeholder' },
+    { label: 'Email',   icon: 'i-mail',  value: null, status: 'pending' },
+    { label: 'Phone',   icon: 'i-phone', value: null, status: 'pending' },
     { label: 'Office',  icon: 'i-pin',   value: null, status: 'pending' },
   ],
 
