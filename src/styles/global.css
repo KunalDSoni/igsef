@@ -360,9 +360,8 @@ p  { margin: 0; color: var(--grey); }
 .why__graphic {
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 30% 30%, rgba(19,138,138,.5), transparent 60%),
-    radial-gradient(circle at 75% 70%, rgba(230,154,46,.4), transparent 55%),
-    rgba(231,236,245,.3);
+    radial-gradient(circle at 30% 30%, rgba(19,138,138,.22), transparent 60%),
+    radial-gradient(circle at 75% 70%, rgba(230,154,46,.18), transparent 55%);
 }
 .why p.lede { margin: 18px 0 0; font-size: 15px; max-width: 52ch; }
 .why__feats { display: grid; grid-template-columns: 1fr auto 1fr; gap: 26px; margin-top: 40px; padding-top: 34px; border-top: 1px solid var(--line); }
@@ -392,9 +391,8 @@ p  { margin: 0; color: var(--grey); }
 .feats__graphic {
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 25% 25%, rgba(19,138,138,.45), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(230,154,46,.35), transparent 55%),
-    rgba(232,244,243,.3);
+    radial-gradient(circle at 25% 25%, rgba(19,138,138,.2), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(230,154,46,.16), transparent 55%);
 }
 .feats__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .fcard { background: var(--tint-saffron); border-radius: var(--r-card); padding: 28px; }
@@ -418,11 +416,11 @@ p  { margin: 0; color: var(--grey); }
 .prog__graphic {
   position: relative; width: 100%; height: 100%; min-height: 280px; border-radius: var(--r-card);
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 55%),
-    rgba(23,59,112,.55);
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.2), transparent 55%),
+    rgba(23,59,112,.22);
 }
-.prog--teal .prog__graphic { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 55%), rgba(14,107,107,.55); }
-.prog--saffron .prog__graphic { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 55%), rgba(230,154,46,.55); }
+.prog--teal .prog__graphic { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.2), transparent 55%), rgba(14,107,107,.22); }
+.prog--saffron .prog__graphic { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.2), transparent 55%), rgba(230,154,46,.22); }
 @media (max-width: 720px) { .prog { grid-template-columns: 1fr; } .prog__media { padding: 0 22px 22px; } }
 
 /* ---- team: leadership grid with icon-avatar instead of photo ---- */
