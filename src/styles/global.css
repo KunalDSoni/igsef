@@ -182,6 +182,7 @@ p  { margin: 0; color: var(--grey); }
 
 /* page hero */
 .page-hero { background: var(--tint-saffron); padding: 168px 0 76px; position: relative; overflow: hidden; }
+.page-hero .wrap { position: relative; z-index: 1; }
 .page-hero h1 { max-width: 16ch; }
 .page-hero p { margin-top: 18px; max-width: 56ch; font-size: 16px; }
 .page-hero__blob { position: absolute; right: -80px; top: -60px; width: 380px; opacity: .9; pointer-events: none; }
@@ -229,6 +230,7 @@ p  { margin: 0; color: var(--grey); }
 }
 @media (max-width: 720px) {
   .page-hero { padding: 132px 0 56px; }
+  .page-hero__blob { width: 220px; right: -60px; top: -30px; opacity: .7; }
   .steps, .form__row { grid-template-columns: 1fr; }
 }
 
