@@ -11,7 +11,7 @@ const initial = leader.name.replace(/^Dr\.\s*/, '').trim().charAt(0);
     <p>{leader.remit}</p>
     <div class="leader__areas">
       {leader.verticalSlugs.map((s) => (
-        <a href={url(`/focus-areas/${s}`)}>{titleFor(s)}</a>
+        <a href={url(`/work/${s}`)}>{titleFor(s)}</a>
       ))}
     </div>
   </div>

@@ -34,7 +34,7 @@ export const positioning = {
 export const nav = [
   { label: 'Home',         href: '/' },
   { label: 'About',        href: '/about' },
-  { label: 'Focus areas',  href: '/focus-areas' },
+  { label: 'Work',         href: '/work' },
   { label: 'Partner with us', href: '/partner' },
   { label: 'Contact',      href: '/contact' },
 ];
