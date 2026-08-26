@@ -8,6 +8,7 @@
   /* palette — derived from the organisation's logo */
   --canvas:       #FBFAF7;  /* warm off-white page ground */
   --indigo:       #173B70;  /* primary: actions, headings on light */
+  --indigo-deep:  #0E2549;  /* darker indigo for gradient depth */
   --teal:         #138A8A;  /* secondary: large text 24px+ and graphics only */
   --teal-deep:    #0E6B6B;  /* secondary at body text sizes (6.2:1 on white) */
   --mist:         #A8D5D3;  /* pale teal from the logo's network lines */
@@ -354,8 +355,10 @@ p  { margin: 0; color: var(--grey); }
   background:
     radial-gradient(circle at 15% 20%, rgba(19,138,138,.55), transparent 55%),
     radial-gradient(circle at 85% 75%, rgba(230,154,46,.35), transparent 50%),
-    linear-gradient(160deg, #173B70 0%, #0E2549 100%);
+    linear-gradient(160deg, var(--indigo) 0%, var(--indigo-deep) 100%);
 }
+/* rgba(14,37,73,...) mirrors --indigo-deep (#0E2549); kept literal since this project has no
+   browserslist/target config to confirm color-mix() support. */
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,37,73,.25), rgba(14,37,73,.65)); }
 .hero__inner { position: relative; z-index: 2; width: 100%; color: var(--white); }
 .hero h1 { color: var(--white); }
@@ -414,7 +417,7 @@ p  { margin: 0; color: var(--grey); }
   background:
     radial-gradient(circle at 20% 30%, rgba(230,154,46,.35), transparent 55%),
     radial-gradient(circle at 80% 70%, rgba(19,138,138,.45), transparent 55%),
-    linear-gradient(160deg, #173B70 0%, #0E2549 100%);
+    linear-gradient(160deg, var(--indigo) 0%, var(--indigo-deep) 100%);
 }
 .showcase__in { position: relative; z-index: 2; color: var(--white); }
 .showcase__in h2 { color: var(--white); max-width: 16ch; margin-inline: auto; }
