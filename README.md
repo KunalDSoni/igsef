@@ -1,5 +1,7 @@
 # Indo-Global Skills & Edu Foundation — website
 
+Live site: [kunaldsoni.github.io/igsef](https://kunaldsoni.github.io/igsef/)
+
 A static site for Indo-Global Skills & Edu Foundation, built with [Astro](https://astro.build).
 It presents the organisation's six activity verticals, its leadership, and a single
 partnership enquiry route.
