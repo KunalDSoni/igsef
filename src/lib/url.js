@@ -1,5 +1,5 @@
 // Prefixes an internal path with the site's base path (empty in dev, "/igsef"
-// in production — see astro.config.mjs). Leaves external URLs, mailto:, and
+// in production - see astro.config.mjs). Leaves external URLs, mailto:, and
 // bare anchors untouched. Use this on every hardcoded internal href/src so
 // links keep working when the site moves off the /igsef subpath.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
