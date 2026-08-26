@@ -171,6 +171,8 @@ p  { margin: 0; color: var(--grey); }
   .sec-head { flex-direction: column; align-items: flex-start; gap: 22px; }
   .footer__grid { grid-template-columns: 1fr; }
   .socials { justify-content: flex-start; }
+  .about__cards { grid-template-columns: 1fr; }
+  .feats__grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
@@ -388,7 +390,7 @@ p  { margin: 0; color: var(--grey); }
 .acard--saffron { background: var(--tint-saffron); }
 .acard__icon { width: 46px; height: 46px; border-radius: 50%; background: var(--white); display: grid; place-items: center; }
 .acard__icon svg { width: 20px; height: 20px; color: var(--indigo); }
-.acard h4 { font-size: 21px; margin-bottom: 8px; }
+.acard h3 { font-size: 21px; margin-bottom: 8px; }
 .acard p { font-size: 14px; }
 .acard__wave { position: absolute; right: -30px; bottom: -40px; width: 220px; opacity: .3; pointer-events: none; z-index: 0; }
 .acard > *:not(.acard__wave) { position: relative; z-index: 1; }
@@ -406,7 +408,7 @@ p  { margin: 0; color: var(--grey); }
 .why p.lede { margin: 18px 0 0; font-size: 15px; max-width: 52ch; }
 .why__feats { display: grid; grid-template-columns: 1fr auto 1fr; gap: 26px; margin-top: 40px; padding-top: 34px; border-top: 1px solid var(--line); }
 .why__feats + .why__feats { margin-top: 26px; padding-top: 28px; }
-.feat h4 { font-size: 22px; margin-bottom: 6px; }
+.feat h3 { font-size: 22px; margin-bottom: 6px; }
 .feat p { font-size: 14px; }
 .feat__sep { width: 22px; color: var(--teal); align-self: center; }
 
@@ -437,7 +439,7 @@ p  { margin: 0; color: var(--grey); }
 .fcard { background: var(--tint-saffron); border-radius: var(--r-card); padding: 28px; }
 .fcard:nth-child(2), .fcard:nth-child(4) { margin-top: 56px; }
 .fcard svg { width: 30px; height: 30px; color: var(--saffron); margin-bottom: 54px; }
-.fcard h4 { font-size: 20px; margin-bottom: 8px; }
+.fcard h3 { font-size: 20px; margin-bottom: 8px; }
 .fcard p { font-size: 13.5px; }
 
 /* ---- prog: rich two-column card (used for the six focus areas) ---- */

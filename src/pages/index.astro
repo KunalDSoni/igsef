@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Button from '../components/Button.astro';
+import Marquee from '../components/Marquee.astro';
+import Swoosh from '../components/Swoosh.astro';
 import ProgramCard from '../components/ProgramCard.astro';
 import CTA from '../components/CTA.astro';
 import { verticals } from '../data/verticals.js';
@@ -9,65 +11,135 @@ import { positioning, site } from '../data/site.js';
 
 const approach = [
   {
+    tone: 'teal',
+    icon: 'i-check',
     title: 'We work through institutions',
     text: 'Colleges, schools, and employers already have the learners and the premises. We supply the programme, not a parallel system.',
   },
   {
+    tone: 'indigo',
+    icon: 'i-chart',
     title: 'Learning is judged by what follows it',
     text: 'A course that does not change what someone can do, or get hired for, has not worked. Every vertical is designed backwards from that test.',
   },
   {
+    tone: 'saffron',
+    icon: 'i-globe',
     title: 'We say what stage we are at',
     text: 'The organisation was registered in 2026. Every focus area on this site is labelled with its real status, and none of them claims to be running yet.',
   },
 ];
+
+const features = [
+  { title: 'Verified before visible', text: 'Every factual claim on this site has a source and an owner. Where we do not yet have the document, we say so.' },
+  { title: 'Built with institutions', text: 'We are not trying to replace colleges, training providers, or employers. Our work runs through them.' },
+  { title: 'Named leadership', text: 'Each area of work sits with a named person, not the organisation in general.' },
+  { title: 'No delivery claims yet', text: 'Nothing here says a programme is running before it is. Status labels are real, not aspirational.' },
+];
 ---
-<Base description={site.blurb}>
-  <section class="hero hero--plain">
+<Base headerVariant="overlay" description={site.blurb}>
+  <section class="hero">
+    <div class="hero__bg"><div class="hero__bg-graphic" aria-hidden="true"></div></div>
     <div class="wrap hero__inner">
       <Eyebrow text="Indo-Global Skills & Edu Foundation" />
-      <h1>{positioning.proposition}</h1>
+      <h1>Building practical <Swoosh text="pathways" /> between learning, skills, institutions, and opportunity.</h1>
       <p class="hero__sub">{site.blurb}</p>
       <div class="hero__actions">
-        <Button href="/partner" variant="indigo">Discuss a partnership</Button>
-        <Button href="/focus-areas" variant="white">See our focus areas</Button>
+        <Button href="/partner" variant="white">Discuss a partnership</Button>
+        <Button href="/focus-areas" variant="indigo">See our focus areas</Button>
       </div>
     </div>
   </section>
 
-  <section class="section section--white" id="focus">
-    <div class="wrap">
-      <div class="sec-head reveal" style="margin-bottom:44px">
-        <div>
-          <Eyebrow text="Focus areas" />
-          <h2>Six areas of work</h2>
-        </div>
-        <p style="max-width:420px">
-          Each one is a distinct body of work with its own audience and delivery model.
-          All six are proposed: scoped and ready to start, not yet running.
-        </p>
-      </div>
-      <div class="vgrid">
-        {verticals.map((v) => <ProgramCard vertical={v} />)}
-      </div>
-    </div>
-  </section>
+  <Marquee text="Learning, skills, and opportunity" />
 
-  <section class="section section--canvas">
+  <section class="section section--white" id="about">
     <div class="wrap">
-      <div class="reveal" style="max-width:760px">
-        <Eyebrow text="Our approach" />
-        <h2>How we intend to work</h2>
+      <div class="about__grid reveal">
+        <Eyebrow text="About us" />
+        <h2 class="about__statement">A young foundation built to close the gap between what people learn and the opportunities they can actually reach</h2>
       </div>
-      <div class="steps reveal" style="margin-top:40px">
-        {approach.map((a, i) => (
-          <div class="step"><b>{i + 1}</b><h3>{a.title}</h3><p>{a.text}</p></div>
+
+      <div class="about__cards reveal">
+        {approach.map((a) => (
+          <div class={`acard acard--${a.tone}`}>
+            <div class="acard__icon"><svg><use href={`#${a.icon}`} /></svg></div>
+            <div>
+              <h3>{a.title}</h3>
+              <p>{a.text}</p>
+            </div>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
+  <section class="section section--canvas">
+    <div class="wrap why reveal">
+      <div class="why__photo"><div class="why__graphic" aria-hidden="true"></div></div>
+      <div>
+        <Eyebrow text="Why work with us" />
+        <h2>What makes the<br />approach different</h2>
+        <p class="lede">We are not a delivery organisation pretending to be a strategy — we are a strategy that says plainly it has not delivered anything yet, and shows exactly how it plans to.</p>
+        <div class="why__feats">
+          <div class="feat"><h3>{features[0].title}</h3><p>{features[0].text}</p></div>
+          <svg class="feat__sep"><use href="#i-ast" /></svg>
+          <div class="feat"><h3>{features[1].title}</h3><p>{features[1].text}</p></div>
+        </div>
+        <div class="why__feats">
+          <div class="feat"><h3>{features[2].title}</h3><p>{features[2].text}</p></div>
+          <svg class="feat__sep"><use href="#i-ast" /></svg>
+          <div class="feat"><h3>{features[3].title}</h3><p>{features[3].text}</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <div class="showcase__graphic" aria-hidden="true"></div>
+    <div class="showcase__in">
+      <Eyebrow text="How we work" />
+      <h2>Six areas, one<br />standard of honesty</h2>
+    </div>
+  </section>
+
+  <Marquee text="Every area labelled with its real status" repeat={3} />
+
+  <section class="section section--canvas" id="focus">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <Eyebrow text="Focus areas" />
+          <h2>Six areas of work</h2>
+        </div>
+        <Button href="/focus-areas" variant="indigo">View all focus areas</Button>
+      </div>
+      {verticals.map((v) => <ProgramCard vertical={v} />)}
+    </div>
+  </section>
+
   <section class="section section--white">
+    <div class="wrap feats reveal">
+      <div>
+        <Eyebrow text="Get involved" />
+        <h2>A closer look at<br />how we operate</h2>
+        <p style="margin:18px 0 28px;font-size:15px;max-width:44ch">If you run an institution, hire at entry level, or direct social spending toward education, we would like to hear what you are trying to do.</p>
+        <Button href="/partner" variant="indigo">Discuss a partnership</Button>
+        <div class="feats__photo"><div class="feats__graphic" aria-hidden="true"></div></div>
+      </div>
+      <div class="feats__grid">
+        {features.map((f) => (
+          <div class="fcard">
+            <svg><use href="#i-ast" /></svg>
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--canvas">
     <div class="wrap mission reveal">
       <h2 style="grid-column:1 / -1; margin-bottom:8px">Purpose and direction</h2>
       <div>
