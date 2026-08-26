@@ -4,7 +4,7 @@ const { eyebrow, title, lede } = Astro.props;
 ---
 <section class="page-hero">
   <svg class="page-hero__blob" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-    <path d="M-10 140C50 80 90 160 150 100s60-90 110-60" stroke="#fff" stroke-width="16" stroke-linecap="round" />
+    <path d="M-10 140C50 80 90 160 150 100s60-90 110-60" style="stroke:var(--saffron)" stroke-width="16" stroke-linecap="round" />
   </svg>
   <div class="wrap">
     {eyebrow && <Eyebrow text={eyebrow} />}
