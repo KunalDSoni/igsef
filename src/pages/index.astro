@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Button from '../components/Button.astro';
-import VerticalCard from '../components/VerticalCard.astro';
+import ProgramCard from '../components/ProgramCard.astro';
 import CTA from '../components/CTA.astro';
 import { verticals } from '../data/verticals.js';
 import { positioning, site } from '../data/site.js';
@@ -48,7 +48,7 @@ const approach = [
         </p>
       </div>
       <div class="vgrid">
-        {verticals.map((v) => <VerticalCard vertical={v} />)}
+        {verticals.map((v) => <ProgramCard vertical={v} />)}
       </div>
     </div>
   </section>

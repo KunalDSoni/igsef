@@ -1,0 +1,17 @@
+---
+import { url } from '../lib/url.js';
+import StatusBadge from './StatusBadge.astro';
+const { vertical } = Astro.props;
+---
+<article class={`prog prog--${vertical.tone} reveal`}>
+  <div class="prog__body">
+    <div class="prog__num">{vertical.number}</div>
+    <h3>{vertical.title}</h3>
+    <p>{vertical.summary}</p>
+    <div class="prog__foot">
+      <StatusBadge status={vertical.status} />
+      <a href={url(`/focus-areas/${vertical.slug}`)} class="link-arrow">View details <svg><use href="#i-arrow" /></svg></a>
+    </div>
+  </div>
+  <div class="prog__media"><div class="prog__graphic" aria-hidden="true"></div></div>
+</article>
