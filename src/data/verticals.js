@@ -28,9 +28,9 @@ export const verticals = [
     status: 'Proposed',
     tone: 'indigo',
     summary:
-      'Structured routes for students moving between Indian and international institutions — course selection, admissions, and the language readiness that sits underneath both.',
+      'Structured routes for students moving between Indian and international institutions - course selection, admissions, and the language readiness that sits underneath both.',
     intro:
-      'Studying abroad rarely fails on ability. It fails on process — the wrong course, a missed deadline, a language score that arrives too late. This vertical exists to make that process legible.',
+      'Studying abroad rarely fails on ability. It fails on process - the wrong course, a missed deadline, a language score that arrives too late. This vertical exists to make that process legible.',
     activities: [
       'Guidance on foreign university admissions, alongside career counselling that starts from where the student actually wants to end up',
       'Language academies covering IELTS, TOEFL, and foreign-language instruction',
@@ -52,12 +52,12 @@ export const verticals = [
     status: 'Proposed',
     tone: 'teal',
     summary:
-      'Training that closes the distance between what someone has studied and what a workplace actually asks of them — for students entering work, and for professionals already in it.',
+      'Training that closes the distance between what someone has studied and what a workplace actually asks of them - for students entering work, and for professionals already in it.',
     intro:
       'Employers describe the same gap repeatedly: graduates who know the subject and not the job. This vertical addresses both sides of that gap, from either direction.',
     activities: [
-      'For students — finishing schools, professional grooming, and job-ready certification programmes',
-      'For professionals — upskilling workshops, leadership modules, and industry-specific technical training',
+      'For students - finishing schools, professional grooming, and job-ready certification programmes',
+      'For professionals - upskilling workshops, leadership modules, and industry-specific technical training',
     ],
     audiences: [
       'Final-year students and recent graduates',
@@ -77,10 +77,10 @@ export const verticals = [
     summary:
       'Age-appropriate AI and computing education for schools and colleges, together with the lab infrastructure needed to teach it rather than talk about it.',
     intro:
-      'Most institutions want to teach AI and have no realistic route to doing it — no curriculum, no equipment, and no one on staff who has built a model. This vertical supplies all three.',
+      'Most institutions want to teach AI and have no realistic route to doing it - no curriculum, no equipment, and no one on staff who has built a model. This vertical supplies all three.',
     activities: [
-      'For schools — basic coding, logic building, and AI-awareness programmes',
-      'For colleges — advanced machine learning, data science, and ethics-in-AI modules',
+      'For schools - basic coding, logic building, and AI-awareness programmes',
+      'For colleges - advanced machine learning, data science, and ethics-in-AI modules',
       'AI Innovation Labs established inside partner institutions',
     ],
     audiences: [
@@ -99,7 +99,7 @@ export const verticals = [
     status: 'Proposed',
     tone: 'indigo',
     summary:
-      'Support for student projects with commercial potential — finding them, developing them, and introducing them to people who can fund them.',
+      'Support for student projects with commercial potential - finding them, developing them, and introducing them to people who can fund them.',
     intro:
       'A good student project usually dies at submission. This vertical is about the year after that, when an idea either becomes a product or quietly stops.',
     activities: [
@@ -161,7 +161,7 @@ export const verticals = [
       'Scholarship applicants and recipients',
     ],
     // States the general legal requirement, which is true and checkable, and
-    // commits to disclosure — without asserting anything about this
+    // commits to disclosure - without asserting anything about this
     // organisation's own registration status, which we have no source for.
     engagement:
       'Delivered as scoped projects for corporate partners. Indian corporate social responsibility rules require an implementing agency to hold specific statutory registrations; we set out our current standing in writing before any project is contracted.',

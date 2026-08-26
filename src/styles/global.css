@@ -1,36 +1,36 @@
 /* ============================================================
-   Indo-Global Skills & Edu Foundation — design system
+   Indo-Global Skills & Edu Foundation - design system
    Cloned from the Kidora template's visual language.
    Tokens below were read off the live template, not guessed.
    ============================================================ */
 
 :root {
-  /* palette — derived from the organisation's logo */
-  --canvas:       #FBFAF7;  /* warm off-white page ground */
-  --indigo:       #173B70;  /* primary: actions, headings on light */
-  --indigo-deep:  #0E2549;  /* darker indigo for gradient depth */
-  --teal:         #138A8A;  /* secondary: large text 24px+ and graphics only */
-  --teal-deep:    #0E6B6B;  /* secondary at body text sizes (6.2:1 on white) */
-  --mist:         #A8D5D3;  /* pale teal from the logo's network lines */
-  --saffron:      #E69A2E;  /* accent: rules and graphics only, never small text */
-  --tint-indigo:  #E7ECF5;
-  --tint-teal:    #E8F4F3;
-  --tint-saffron: #FBF0DE;
-  --grey:         #4A5568;
-  --ink:          #18222F;
-  --white:        #FFFFFF;
-  --line:         rgba(23,59,112,.12);
+  /* palette - derived from the organisation's logo */
+ --canvas:       #FBFAF7;  /* warm off-white page ground */
+ --indigo:       #173B70;  /* primary: actions, headings on light */
+ --indigo-deep:  #0E2549;  /* darker indigo for gradient depth */
+ --teal:         #138A8A;  /* secondary: large text 24px+ and graphics only */
+ --teal-deep:    #0E6B6B;  /* secondary at body text sizes (6.2:1 on white) */
+ --mist:         #A8D5D3;  /* pale teal from the logo's network lines */
+ --saffron:      #E69A2E;  /* accent: rules and graphics only, never small text */
+ --tint-indigo:  #E7ECF5;
+ --tint-teal:    #E8F4F3;
+ --tint-saffron: #FBF0DE;
+ --grey:         #4A5568;
+ --ink:          #18222F;
+ --white:        #FFFFFF;
+ --line:         rgba(23,59,112,.12);
 
   /* type */
-  --display: "Plus Jakarta Sans", system-ui, sans-serif;
-  --body:    "Nunito Sans", system-ui, sans-serif;
+ --display: "Plus Jakarta Sans", system-ui, sans-serif;
+ --body:    "Nunito Sans", system-ui, sans-serif;
 
   /* geometry */
-  --r-card: 20px;
-  --r-lg:   40px;
-  --r-pill: 100px;
-  --maxw:   1240px;
-  --gutter: 24px;
+ --r-card: 20px;
+ --r-lg:   40px;
+ --r-pill: 100px;
+ --maxw:   1240px;
+ --gutter: 24px;
 }
 
 * { box-sizing: border-box; }
@@ -43,7 +43,7 @@ body {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+ -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -256,7 +256,7 @@ p  { margin: 0; color: var(--grey); }
 .vdetail__aside h2 { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--indigo); }
 .vdetail__aside ul { margin: 8px 0 0; padding-left: 18px; color: var(--grey); font-size: 15px; }
 .vdetail__aside li { margin-bottom: 7px; }
-/* Main-column heading pairing with the aside's h2s — sized to sit alongside
+/* Main-column heading pairing with the aside's h2s - sized to sit alongside
    .prose h3 (30px) and .empty h3 (26px) rather than the global clamp(32–56px)
    h2, which is set for hero-scale section titles. */
 .vdetail__heading { font-size: 28px; font-weight: 700; line-height: 1.2; margin: 0; }

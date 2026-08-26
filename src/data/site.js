@@ -9,7 +9,7 @@ export const site = {
   fullName: 'Indo-Global Skills & Edu Foundation',
   tagline: 'Learning, skills, and opportunity',
   blurb:
-    'We build practical pathways between learning, skills, institutions, and opportunity — working with colleges, employers, and communities across India and beyond.',
+    'We build practical pathways between learning, skills, institutions, and opportunity - working with colleges, employers, and communities across India and beyond.',
 
   // Each entry declares a value even when we do not have one yet. A null value
   // renders as a route to the enquiry form, never as an invented detail.
