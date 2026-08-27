@@ -208,6 +208,8 @@ p  { margin: 0; color: var(--grey); }
 .cfact__icon svg { width: 18px; height: 18px; color: var(--indigo); }
 .cfact b { display: block; font-family: var(--display); font-size: 16px; }
 .cfact span { font-size: 14px; color: var(--grey); }
+.cfact a { font-size: 14px; color: var(--teal-deep); font-weight: 700; }
+.cfact a:hover { text-decoration: underline; }
 .form { background: var(--canvas); border-radius: var(--r-card); padding: 34px; display: grid; gap: 16px; }
 .form label { font-size: 13px; font-weight: 800; }
 .form input, .form textarea, .form select {

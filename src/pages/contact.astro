@@ -7,6 +7,12 @@ import { site } from '../data/site.js';
 
 const known = site.contact.filter((c) => c.value !== null);
 const pending = site.contact.filter((c) => c.value === null);
+
+// Email and phone become actionable links; everything else is plain text.
+const hrefFor = (c) =>
+  c.label === 'Email' ? `mailto:${c.value}`
+  : c.label === 'Phone' ? `tel:${c.value.replace(/\s+/g, '')}`
+  : null;
 ---
 <Base
   title="Contact"
@@ -35,7 +41,10 @@ const pending = site.contact.filter((c) => c.value === null);
           {known.map((c) => (
             <div class="cfact">
               <span class="cfact__icon"><svg><use href={`#${c.icon}`} /></svg></span>
-              <span><b>{c.label}</b><span>{c.value}</span></span>
+              <span>
+                <b>{c.label}</b>
+                {hrefFor(c) ? <a href={hrefFor(c)}>{c.value}</a> : <span>{c.value}</span>}
+              </span>
             </div>
           ))}
         </div>

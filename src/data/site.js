@@ -13,10 +13,16 @@ export const site = {
 
   // Each entry declares a value even when we do not have one yet. A null value
   // renders as a route to the enquiry form, never as an invented detail.
+  // Values below are taken from the organisation's official letterhead.
   contact: [
-    { label: 'Email',   icon: 'i-mail',  value: null, status: 'pending' },
-    { label: 'Phone',   icon: 'i-phone', value: null, status: 'pending' },
-    { label: 'Office',  icon: 'i-pin',   value: null, status: 'pending' },
+    { label: 'Email',   icon: 'i-mail',  value: 'igsef2026@gmail.com', status: 'confirmed' },
+    { label: 'Phone',   icon: 'i-phone', value: '+91 98335 14702', status: 'confirmed' },
+    {
+      label: 'Office',
+      icon: 'i-pin',
+      value: 'Sagar CHS, Building F-27, 102, Sector-10, Airoli, Navi Mumbai 400 708',
+      status: 'confirmed',
+    },
   ],
 
   // Deliberately makes no claim about legal form or tax status.
