@@ -1,5 +1,5 @@
 ---
-import { nav, site } from '../data/site.js';
+import { nav } from '../data/site.js';
 import Button from './Button.astro';
 import { url } from '../lib/url.js';
 // "overlay" sits transparent over a dark hero; "solid" is for every other page.
@@ -7,8 +7,6 @@ const { variant = 'solid' } = Astro.props;
 ---
 <header class={`header ${variant === 'solid' ? 'header--solid' : ''}`} id="header" data-variant={variant}>
   <div class="wrap header__inner">
-    <a class="logo" href={url('/')}><svg><use href="#i-logo" /></svg> {site.name}</a>
-
     <nav class="nav" aria-label="Primary">
       {nav.filter((item) => item.href !== '/partner').map((item) => <a href={url(item.href)}>{item.label}</a>)}
     </nav>
