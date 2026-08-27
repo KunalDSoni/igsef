@@ -34,9 +34,9 @@
 
   /* logo sizing - single control point for the whole site.
      Change these three values to resize the logo everywhere. */
- --logo-h:        64px;  /* header, at the top of the page */
- --logo-h-stuck:  46px;  /* header, after it shrinks on scroll */
- --logo-h-footer: 88px;  /* footer */
+ --logo-h:        60px;  /* header, at the top of the page */
+ --logo-h-stuck:  44px;  /* header, after it shrinks on scroll */
+ --logo-h-footer: 104px; /* footer */
 }
 
 * { box-sizing: border-box; }
@@ -118,6 +118,7 @@ p  { margin: 0; color: var(--grey); }
 .logo .logo__light { display: none; }
 .header[data-variant="overlay"]:not(.is-stuck) .logo .logo__dark { display: none; }
 .header[data-variant="overlay"]:not(.is-stuck) .logo .logo__light { display: block; }
+.header[data-variant="overlay"]:not(.is-stuck) .logo .logo__light { filter: drop-shadow(0 2px 10px rgba(0,0,0,.35)); }
 .footer .logo .logo__light { display: block; }
 .nav { display: flex; gap: 30px; }
 .nav a { font-size: 14px; font-weight: 700; color: var(--white); opacity: .9; }
