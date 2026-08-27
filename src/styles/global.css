@@ -313,10 +313,9 @@ p  { margin: 0; color: var(--grey); }
 
 /* ---- hero: overlay variant (photo/graphic background, dark nav sits on top) ---- */
 .hero { position: relative; min-height: 620px; display: flex; align-items: center; padding: 170px 0 90px; overflow: hidden; }
-.hero__bg { position: absolute; inset: 0; }
-.hero__bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero__bg-graphic { position: absolute; inset: 0; background: rgba(14,37,73,.45); }
-.hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,37,73,.12), rgba(14,37,73,.5)); }
+.hero__bg { position: absolute; inset: 0; background: var(--indigo-deep); }
+.hero__bg-graphic { position: absolute; inset: 0; background: linear-gradient(160deg, var(--indigo-deep) 0%, var(--indigo) 55%, #1b4a8c 100%); }
+.hero__bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 85% 0%, rgba(255,255,255,.10), transparent 60%); }
 .hero__inner { position: relative; z-index: 2; width: 100%; color: var(--white); text-shadow: 0 2px 12px rgba(0,0,0,.45); }
 .hero h1 { color: var(--white); }
 .hero__sub { color: rgba(255,255,255,.88); max-width: 46ch; margin: 20px 0 30px; font-size: 15px; }
