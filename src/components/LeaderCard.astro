@@ -4,7 +4,11 @@ const { leader, titleFor } = Astro.props;
 const initial = leader.name.replace(/^Dr\.\s*/, '').trim().charAt(0);
 ---
 <article class="tmember">
-  <div class="tmember__avatar"><span>{initial}</span></div>
+  <div class="tmember__avatar">
+    {leader.photo
+      ? <img class="tmember__photo" src={url(leader.photo)} alt={leader.name} loading="lazy" decoding="async" />
+      : <span>{initial}</span>}
+  </div>
   <div class="tmember__body">
     <h3>{leader.name}</h3>
     <div class="tmember__role">{leader.role}</div>
