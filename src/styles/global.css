@@ -31,6 +31,12 @@
  --r-pill: 100px;
  --maxw:   1240px;
  --gutter: 24px;
+
+  /* logo sizing - single control point for the whole site.
+     Change these three values to resize the logo everywhere. */
+ --logo-h:        64px;  /* header, at the top of the page */
+ --logo-h-stuck:  46px;  /* header, after it shrinks on scroll */
+ --logo-h-footer: 88px;  /* footer */
 }
 
 * { box-sizing: border-box; }
@@ -104,12 +110,15 @@ p  { margin: 0; color: var(--grey); }
 .logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 22px; color: var(--white); }
 .header.is-stuck .logo { color: var(--ink); }
 .logo svg { width: 26px; height: 26px; }
-.logo img { height: 46px; width: auto; }
+.logo img { height: var(--logo-h); width: auto; transition: height .3s ease; }
+.header.is-stuck .logo img { height: var(--logo-h-stuck); }
+.footer .logo img { height: var(--logo-h-footer); }
 /* Light logo only over the transparent dark header; dark logo everywhere else. */
 .logo .logo__dark { display: block; }
 .logo .logo__light { display: none; }
 .header[data-variant="overlay"]:not(.is-stuck) .logo .logo__dark { display: none; }
 .header[data-variant="overlay"]:not(.is-stuck) .logo .logo__light { display: block; }
+.footer .logo .logo__light { display: block; }
 .nav { display: flex; gap: 30px; }
 .nav a { font-size: 14px; font-weight: 700; color: var(--white); opacity: .9; }
 .header.is-stuck .nav a { color: var(--ink); }
