@@ -7,6 +7,10 @@ const { variant = 'solid' } = Astro.props;
 ---
 <header class={`header ${variant === 'solid' ? 'header--solid' : ''}`} id="header" data-variant={variant}>
   <div class="wrap header__inner">
+    <a class="logo" href={url('/')} aria-label="Indo-Global Skills & Edu Foundation — home">
+      <img src={url('/images/logo.png')} alt="Indo-Global Skills & Edu Foundation" width="640" height="541" />
+    </a>
+
     <nav class="nav" aria-label="Primary">
       {nav.filter((item) => item.href !== '/partner').map((item) => <a href={url(item.href)}>{item.label}</a>)}
     </nav>
