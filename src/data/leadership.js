@@ -28,7 +28,7 @@ export const leadership = [
   {
     key: 'vice-chairman',
     name: 'Prof. V. N. Rajasekharan Pillai',
-    role: 'Vice Chairman',
+    role: 'Founder and Vice Chairman',
     photo: '/images/rajshekaran-pillai.png',
     remit:
       'Provides academic direction across international affiliations, AI curriculum standards, and the innovation portfolio.',
