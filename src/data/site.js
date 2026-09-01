@@ -15,14 +15,9 @@ export const site = {
   // renders as a route to the enquiry form, never as an invented detail.
   // Values below are taken from the organisation's official letterhead.
   contact: [
-    { label: 'Email',   icon: 'i-mail',  value: 'igsef2026@gmail.com', status: 'confirmed' },
-    { label: 'Phone',   icon: 'i-phone', value: '+91 98335 14702', status: 'confirmed' },
-    {
-      label: 'Office',
-      icon: 'i-pin',
-      value: 'Sagar CHS, Building F-27, 102, Sector-10, Airoli, Navi Mumbai 400 708',
-      status: 'confirmed',
-    },
+    { label: 'Email',   icon: 'i-mail',  value: null, status: 'pending' },
+    { label: 'Phone',   icon: 'i-phone', value: '+91 9323802631', status: 'confirmed' },
+    { label: 'Office',  icon: 'i-pin',   value: '102, Ackruti Star, MIDC Central Road, Andheri (E), Mumbai - 400 093', status: 'confirmed' },
   ],
 
   // Deliberately makes no claim about legal form or tax status.
