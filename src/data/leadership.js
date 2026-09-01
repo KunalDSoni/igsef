@@ -27,7 +27,7 @@ export const leadership = [
   },
   {
     key: 'vice-chairman',
-    name: 'Dr. V. R. Rajshekaran Pillai',
+    name: 'Prof. V. N. Rajasekharan Pillai',
     role: 'Vice Chairman',
     photo: '/images/rajshekaran-pillai.png',
     remit:
