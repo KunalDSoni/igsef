@@ -19,11 +19,7 @@ export const leadership = [
     photo: '/images/ashok-chavan.jpg',
     remit:
       'Leads execution across corporate training, industry partnerships, and corporate social responsibility programmes.',
-    verticalSlugs: [
-      'corporate-and-industry-training',
-      'industry-academia-integration',
-      'strategic-csr-and-social-impact',
-    ],
+    verticalSlugs: [],
   },
   {
     key: 'vice-chairman',
@@ -45,6 +41,6 @@ export const leadership = [
     photo: '/images/Mahesh Ahuja.png',
     remit:
       'Drives strategic partnerships and advisory initiatives across corporate training and industry collaborations. Leverages 20+ years of experience in banking and financial services to cultivate high-performing teams and drive organizational success.',
-    verticalSlugs: ['corporate-and-industry-training', 'industry-academia-integration'],
+    verticalSlugs: ['corporate-and-industry-training', 'industry-academia-integration', 'strategic-csr-and-social-impact'],
   },
 ];
