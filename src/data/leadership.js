@@ -9,13 +9,14 @@
 //   - A third director appears on the company record with no vertical assigned.
 //     Add an entry here if they hold a public role.
 //
-// No `bio` or `photo` field: we have neither, and inventing one is the exact
-// failure mode this rebuild exists to correct.
+// `photo` is optional: supply it only when the organisation has provided a real
+// portrait. Cards without one fall back to the person's initial.
 export const leadership = [
   {
     key: 'cmd',
     name: 'Dr. Ashok Digambarrao Chavan',
     role: 'Chairman and Managing Director',
+    photo: '/images/ashok-chavan.jpg',
     remit:
       'Leads execution across corporate training, industry partnerships, and corporate social responsibility programmes.',
     verticalSlugs: [
@@ -26,8 +27,9 @@ export const leadership = [
   },
   {
     key: 'vice-chairman',
-    name: 'Dr. V. R. Rajshekaran Pillai',
-    role: 'Vice Chairman',
+    name: 'Prof. V. N. Rajasekharan Pillai',
+    role: 'Founder and Vice Chairman',
+    photo: '/images/rajshekaran-pillai.png',
     remit:
       'Provides academic direction across international affiliations, AI curriculum standards, and the innovation portfolio.',
     verticalSlugs: [

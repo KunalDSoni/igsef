@@ -46,17 +46,15 @@ const operating = [
 ---
 <Base headerVariant="overlay" description={site.blurb}>
   <section class="hero">
-    <div class="hero__bg">
-      <img src={url('/images/hero.jpg')} alt="" class="hero__bg-img" />
-      <div class="hero__bg-graphic" aria-hidden="true"></div>
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__bg-graphic"></div>
     </div>
     <div class="wrap hero__inner">
-      <Eyebrow text="Indo-Global Skills & Edu Foundation" />
       <h1>Building practical <span class="hero__accent">pathways</span> between learning, skills, institutions, and opportunity.</h1>
       <p class="hero__sub">{site.blurb}</p>
       <div class="hero__actions">
         <Button href="/partner" variant="white">Discuss a partnership</Button>
-        <Button href="/focus-areas" variant="indigo">See our focus areas</Button>
+        <Button href="/work" variant="indigo">See our work</Button>
       </div>
     </div>
   </section>
@@ -115,25 +113,14 @@ const operating = [
     </div>
   </section>
 
-  <section class="showcase">
-    <img src={url('/images/showcase.jpg')} alt="" class="showcase__img" />
-    <div class="showcase__graphic" aria-hidden="true"></div>
-    <div class="showcase__in">
-      <Eyebrow text="How we work" />
-      <h2>Six areas, one<br />standard of honesty</h2>
-    </div>
-  </section>
-
-  <Marquee text="Every area labelled with its real status" repeat={3} />
-
   <section class="section section--canvas" id="focus">
     <div class="wrap">
       <div class="sec-head reveal">
         <div>
-          <Eyebrow text="Focus areas" />
+          <Eyebrow text="Work" />
           <h2>Six areas of work</h2>
         </div>
-        <Button href="/focus-areas" variant="indigo">View all focus areas</Button>
+        <Button href="/work" variant="indigo">View all work</Button>
       </div>
       {verticals.map((v) => <ProgramCard vertical={v} />)}
     </div>

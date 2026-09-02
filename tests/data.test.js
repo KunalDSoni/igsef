@@ -46,7 +46,7 @@ test('registration line makes no status claim', () => {
 
 test('navigation points at the real routes', () => {
   const hrefs = nav.map((n) => n.href);
-  assert.deepEqual(hrefs, ['/', '/about', '/focus-areas', '/partner', '/contact']);
+  assert.deepEqual(hrefs, ['/', '/about', '/work', '/partner', '/contact']);
 });
 
 test('positioning lines exist and avoid superlatives', () => {
@@ -116,9 +116,16 @@ test('leadership entries cross-reference real verticals', () => {
   }
 });
 
-test('leadership carries no invented biography or photo', () => {
+test('leadership carries no invented biography, and any photo is a real file', () => {
   for (const l of leadership) {
-    assert.ok(!('photo' in l), `${l.key} must not carry a photo until one is supplied`);
     assert.ok(!('bio' in l), `${l.key} must not carry a biography until one is approved`);
+    if ('photo' in l) {
+      assert.ok(
+        typeof l.photo === 'string' && l.photo.startsWith('/images/'),
+        `${l.key} photo must be a /images/ path`,
+      );
+      const file = new URL(`../public${l.photo}`, import.meta.url);
+      assert.ok(readFileSync(file).length > 0, `${l.key} photo file ${l.photo} is missing`);
+    }
   }
 });

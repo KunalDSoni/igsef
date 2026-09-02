@@ -13,10 +13,11 @@ export const site = {
 
   // Each entry declares a value even when we do not have one yet. A null value
   // renders as a route to the enquiry form, never as an invented detail.
+  // Values below are taken from the organisation's official letterhead.
   contact: [
     { label: 'Email',   icon: 'i-mail',  value: null, status: 'pending' },
-    { label: 'Phone',   icon: 'i-phone', value: null, status: 'pending' },
-    { label: 'Office',  icon: 'i-pin',   value: null, status: 'pending' },
+    { label: 'Phone',   icon: 'i-phone', value: '+91 9323802631', status: 'confirmed' },
+    { label: 'Office',  icon: 'i-pin',   value: '102, Ackruti Star, MIDC Central Road, Andheri (E), Mumbai - 400 093', status: 'confirmed' },
   ],
 
   // Deliberately makes no claim about legal form or tax status.
@@ -34,7 +35,7 @@ export const positioning = {
 export const nav = [
   { label: 'Home',         href: '/' },
   { label: 'About',        href: '/about' },
-  { label: 'Focus areas',  href: '/focus-areas' },
+  { label: 'Work',         href: '/work' },
   { label: 'Partner with us', href: '/partner' },
   { label: 'Contact',      href: '/contact' },
 ];

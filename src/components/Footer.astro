@@ -7,7 +7,9 @@ import { url } from '../lib/url.js';
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <a class="logo" href={url('/')}><svg><use href="#i-logo" /></svg> {site.name}</a>
+        <a class="logo" href={url('/')} aria-label={`${site.fullName} — home`}>
+          <img class="logo__light" src={url('/images/logo-light.png')} alt={site.fullName} width="640" height="541" />
+        </a>
         <p>{site.blurb}</p>
       </div>
 
@@ -25,8 +27,8 @@ import { url } from '../lib/url.js';
           {nav.map((l) => <a href={url(l.href)}>{l.label}</a>)}
         </div>
         <div class="footer__col">
-          <strong>Focus areas</strong>
-          {verticals.map((v) => <a href={url(`/focus-areas/${v.slug}`)}>{v.title}</a>)}
+          <strong>Work</strong>
+          {verticals.map((v) => <a href={url(`/work/${v.slug}`)}>{v.title}</a>)}
         </div>
       </div>
     </div>
