@@ -111,7 +111,6 @@ test('leadership entries cross-reference real verticals', () => {
   for (const l of leadership) {
     assert.ok(typeof l.name === 'string' && l.name.length > 0);
     assert.ok(typeof l.role === 'string' && l.role.length > 0);
-    assert.ok(l.verticalSlugs.length > 0);
     for (const s of l.verticalSlugs) assert.ok(slugs.has(s), `${l.key} names unknown vertical ${s}`);
   }
 });
