@@ -26,7 +26,7 @@ Critical/high-severity failures block launch.
 | Evidence folder/ticket | TBD |
 | Previous production version/rollback reference | TBD |
 
-## 2. Corporate identity and claims — launch blockers
+## 2. Corporate identity and claims - launch blockers
 
 - [ ] Exact registered legal name matches the Certificate of Incorporation and current MCA data.
 - [ ] CIN matches the authoritative document character for character.
@@ -164,7 +164,7 @@ Test at 1440, 1280, 1024, 768, 390, 360, and 320 CSS px, plus representative rea
 - [ ] Tasks, participants/segments, observations, severity, fixes, and accepted limitations are recorded without putting participant personal data in analytics or public artifacts.
 - [ ] Material comprehension or primary-journey failures are fixed and retested before launch.
 
-## 6. Accessibility QA — WCAG 2.2 AA target
+## 6. Accessibility QA - WCAG 2.2 AA target
 
 ### Automated baseline
 
@@ -288,7 +288,7 @@ Test at 1440, 1280, 1024, 768, 390, 360, and 320 CSS px, plus representative rea
 
 ## 9. Performance QA
 
-- [ ] Production site—not only Framer preview—is tested.
+- [ ] Production site-not only Framer preview-is tested.
 - [ ] Core page initial compressed transfer target is approximately 1.5 MB or lower, excluding user-requested media/downloads, or exception is recorded.
 - [ ] Hero image is correctly sized/compressed in a modern format; target approximately 250 KB or lower.
 - [ ] Responsive images serve appropriate sizes.

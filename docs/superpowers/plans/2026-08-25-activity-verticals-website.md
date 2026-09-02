@@ -4,7 +4,7 @@
 
 **Goal:** Replace the placeholder preschool content in this Astro site with the organisation's real six activity verticals, leadership, and positioning, rebranded to the supplied logo, with a machine-enforced guard that keeps unverified corporate facts out of the build.
 
-**Architecture:** Keep the existing Astro static-site architecture — data modules in `src/data/` feeding `.astro` pages through shared components, all styling in one token-driven `src/styles/global.css`. The work is a content-and-brand replacement, not a framework change. Three things are new: a `src/data/verticals.js` module that is the single source of truth for the six activity verticals, a `/focus-areas` route pair that replaces `/programs`, and a `scripts/content-guard.mjs` gate that scans built HTML for forbidden claims and fails the build if any appear.
+**Architecture:** Keep the existing Astro static-site architecture - data modules in `src/data/` feeding `.astro` pages through shared components, all styling in one token-driven `src/styles/global.css`. The work is a content-and-brand replacement, not a framework change. Three things are new: a `src/data/verticals.js` module that is the single source of truth for the six activity verticals, a `/focus-areas` route pair that replaces `/programs`, and a `scripts/content-guard.mjs` gate that scans built HTML for forbidden claims and fails the build if any appear.
 
 **Tech Stack:** Astro 5.18.2 (already installed) · Node 20+ · `node:test` built-in test runner (no new dependencies) · plain CSS custom properties · GitHub Pages via the existing Actions workflow.
 
@@ -12,16 +12,16 @@
 
 ## Source documents
 
-- `~/Downloads/3_Comprehensive Activity Verticals of the company.docx` — the six verticals, their activities, and leadership assignments. **This is the primary content source for this plan.** Its text is reproduced verbatim in Task 3 so you do not need to open it.
-- `~/Downloads/indo.svg` — the official logo. Task 2 copies it into the repo and derives the palette from it.
-- `Requirement.md`, `project-controls.md`, `content.md`, `research-notes.md` — inherited governance rules. Their status vocabulary, prohibited-claims list, and CTA map are carried into this plan's Global Constraints.
+- `~/Downloads/3_Comprehensive Activity Verticals of the company.docx` - the six verticals, their activities, and leadership assignments. **This is the primary content source for this plan.** Its text is reproduced verbatim in Task 3 so you do not need to open it.
+- `~/Downloads/indo.svg` - the official logo. Task 2 copies it into the repo and derives the palette from it.
+- `Requirement.md`, `project-controls.md`, `content.md`, `research-notes.md` - inherited governance rules. Their status vocabulary, prohibited-claims list, and CTA map are carried into this plan's Global Constraints.
 
 ## Decisions taken (stated, not asked)
 
 Brainstorming did not close on a written spec before this plan, so these calls were made here. Change the plan if any is wrong.
 
 1. **The site is retargeted from preschool to adult and institutional education services.** Nothing in the verticals document concerns children aged 3–12. Age-banded programmes, "Teachers", "Admissions", and child sponsorship are removed.
-2. **Positioning is "credibility first, with enough service detail to be useful in a meeting."** Each vertical gets a public page describing what it does, who it is for, and what an engagement looks like — but no price list and no fee amounts.
+2. **Positioning is "credibility first, with enough service detail to be useful in a meeting."** Each vertical gets a public page describing what it does, who it is for, and what an engagement looks like - but no price list and no fee amounts.
 3. **The document's "Revenue & Strategic Value" column is internal and is not published verbatim.** "Revenue: recruitment success fees from corporates" is business strategy, not website copy. Each vertical instead carries an `engagement` line describing the delivery model in public-facing terms. The underlying facts survive; the internal framing does not.
 4. **Every vertical publishes with status `Proposed`.** The organisation was incorporated on 12 August 2026 and nothing is operating yet.
 5. **Leadership names and roles are published; corporate registry facts are not.** The names and titles come from the organisation's own strategy document, which is theirs to publish. The CIN, incorporation date, Section 8 status, and registered address come from a scraped third-party registry and stay out of the build until verified.
@@ -30,7 +30,7 @@ Brainstorming did not close on a written spec before this plan, so these calls w
 
 ## Inputs still needed from the user
 
-The build degrades honestly without these — it renders an enquiry route instead of inventing a value. Collect them and fill in `src/data/site.js`:
+The build degrades honestly without these - it renders an enquiry route instead of inventing a value. Collect them and fill in `src/data/site.js`:
 
 | Input | Why it is blocked | Where it lands |
 |---|---|---|
@@ -49,11 +49,11 @@ Every task's requirements implicitly include this section.
 
 - **No new runtime dependencies.** Astro 5.18.2 only. Tests use the built-in `node:test` module.
 - **Every internal `href` and `src` goes through `url()`** from `src/lib/url.js`. The site is served from the `/igsef` base path; a bare `/about` breaks in production.
-- **Never publish, in any file that reaches `dist/`:** the CIN `U85499MR2026NPL479632`; the exact incorporation date (the year alone is permitted, and the home and About copy use it — confirm the year with the user first); the phrase "Section 8"; any 12A, 12AB, 80G, CSR-1, or FCRA claim; a registered office address; beneficiary counts, placement rates, or completion rates; partner or client logos; testimonials; the words "leading", "largest", "best", "official", or "national" as self-description.
+- **Never publish, in any file that reaches `dist/`:** the CIN `U85499MR2026NPL479632`; the exact incorporation date (the year alone is permitted, and the home and About copy use it - confirm the year with the user first); the phrase "Section 8"; any 12A, 12AB, 80G, CSR-1, or FCRA claim; a registered office address; beneficiary counts, placement rates, or completion rates; partner or client logos; testimonials; the words "leading", "largest", "best", "official", or "national" as self-description.
 - **Programme status vocabulary is exactly these eight values, spelled exactly this way:** `Proposed`, `In development`, `Pilot`, `Open`, `In delivery`, `Completed`, `Paused`, `Archived`. Every vertical ships as `Proposed`.
 - **No image may load from `framerusercontent.com`.** Those assets belong to the Kidora template and are not licensed for this site.
-- **British English throughout:** "programme", "organisation", "specialise", "centre". The one exception is the proper noun "Twin Programme", which the source document spells "Twin Program" — use the British spelling for consistency.
-- **Colour contrast:** `--teal` `#138A8A` measures 4.17:1 on white, below the 4.5:1 threshold for normal text. Use it only for text at 24px+, or 18.66px+ bold, or for non-text graphics. For body-size text use `--teal-deep` `#0E6B6B` (6.2:1). `--saffron` `#E69A2E` is for graphics and rules only — never text on a light background.
+- **British English throughout:** "programme", "organisation", "specialise", "centre". The one exception is the proper noun "Twin Programme", which the source document spells "Twin Program" - use the British spelling for consistency.
+- **Colour contrast:** `--teal` `#138A8A` measures 4.17:1 on white, below the 4.5:1 threshold for normal text. Use it only for text at 24px+, or 18.66px+ bold, or for non-text graphics. For body-size text use `--teal-deep` `#0E6B6B` (6.2:1). `--saffron` `#E69A2E` is for graphics and rules only - never text on a light background.
 - **Commit after every task**, using the exact message given in the task's final step.
 
 ## File structure
@@ -65,13 +65,13 @@ Every task's requirements implicitly include this section.
 | `scripts/content-guard.mjs` | Pure function `findViolations(text, rules)` plus a CLI that scans `dist/` and exits non-zero on a hit. No Astro imports. |
 | `tests/content-guard.test.js` | Unit tests for `findViolations`. |
 | `tests/data.test.js` | Shape and vocabulary tests for the data modules. |
-| `src/data/verticals.js` | The six activity verticals — the site's core content. |
+| `src/data/verticals.js` | The six activity verticals - the site's core content. |
 | `src/data/leadership.js` | Named leaders, their roles, and which verticals they lead. |
 | `src/components/StatusBadge.astro` | Renders one of the eight status values with consistent styling. |
 | `src/components/VerticalCard.astro` | Card for one vertical on the home and focus-areas pages. |
 | `src/pages/focus-areas/index.astro` | Lists all six verticals. |
 | `src/pages/focus-areas/[slug].astro` | Detail page per vertical. |
-| `src/pages/partner.astro` | The primary conversion — partnership enquiry. |
+| `src/pages/partner.astro` | The primary conversion - partnership enquiry. |
 | `src/pages/updates/index.astro` | Updates listing; renders an honest empty state until content exists. |
 | `public/logo.svg` | The supplied logo, copied into the repo. |
 
@@ -178,7 +178,7 @@ test('reports every distinct match, not just the first', () => {
 - [ ] **Step 2: Run the test to verify it fails**
 
 Run: `node --test tests/content-guard.test.js`
-Expected: FAIL — `Cannot find module '../scripts/content-guard.mjs'`
+Expected: FAIL - `Cannot find module '../scripts/content-guard.mjs'`
 
 - [ ] **Step 3: Write the implementation**
 
@@ -194,28 +194,28 @@ import { join } from 'node:path';
 export const RULES = [
   {
     id: 'cin',
-    label: 'Company identification number — unverified, sourced from a third-party registry',
+    label: 'Company identification number - unverified, sourced from a third-party registry',
     pattern: /U\d{5}[A-Z]{2}\d{4}[A-Z]{3}\d{6}/gi,
   },
   {
     id: 'section-8',
-    label: 'Section 8 status — the licence has never been reviewed',
+    label: 'Section 8 status - the licence has never been reviewed',
     pattern: /section\s*8\b/gi,
   },
   {
     id: 'tax-status',
-    label: 'Tax exemption or CSR registration claim — no registration confirmed',
+    label: 'Tax exemption or CSR registration claim - no registration confirmed',
     pattern: /\b(80\s?-?G|12\s?-?A[AB]?|CSR-?1|FCRA)\b/gi,
   },
   {
     id: 'template-assets',
-    label: 'Kidora template asset — not licensed for this site',
+    label: 'Kidora template asset - not licensed for this site',
     pattern: /framerusercontent\.com/gi,
   },
   {
     id: 'preschool',
     label: 'Leftover preschool vocabulary from the template',
-    pattern: /\b(ages?\s*\d+\s*[–—-]\s*\d+|preschool|kindergarten|nursery|toddler|sponsor a child)\b/gi,
+    pattern: /\b(ages?\s*\d+\s*[–--]\s*\d+|preschool|kindergarten|nursery|toddler|sponsor a child)\b/gi,
   },
   {
     id: 'placeholder-contact',
@@ -224,7 +224,7 @@ export const RULES = [
   },
   {
     id: 'superlative',
-    label: 'Superiority claim — prohibited until evidenced',
+    label: 'Superiority claim - prohibited until evidenced',
     // Matched against a following noun on purpose: a bare /the\s+best/ fires on
     // ordinary phrases like "the best interests of learners".
     pattern: /\b(?:leading|largest|best|foremost|official|number[- ]one)\s+(?:skills?|education(?:al)?|training|foundation|organisation|provider|institute|academy|ngo)\b/gi,
@@ -267,7 +267,7 @@ if (process.argv[1] && process.argv[1].endsWith('content-guard.mjs')) {
   let failures = 0;
   for (const file of htmlFiles(dir)) {
     for (const v of findViolations(readFileSync(file, 'utf8'), RULES)) {
-      console.error(`${file}: [${v.id}] ${v.label} — found "${v.match}"`);
+      console.error(`${file}: [${v.id}] ${v.label} - found "${v.match}"`);
       failures += 1;
     }
   }
@@ -275,7 +275,7 @@ if (process.argv[1] && process.argv[1].endsWith('content-guard.mjs')) {
     console.error(`\nContent guard failed: ${failures} forbidden claim(s) in ${dir}/.`);
     process.exit(1);
   }
-  console.log(`Content guard passed — no forbidden claims in ${dir}/.`);
+  console.log(`Content guard passed - no forbidden claims in ${dir}/.`);
 }
 ```
 
@@ -296,7 +296,7 @@ In `package.json`, replace the `"scripts"` block with:
 - [ ] **Step 5: Run the tests to verify they pass**
 
 Run: `npm test`
-Expected: PASS — 10 passing tests, 0 failing.
+Expected: PASS - 10 passing tests, 0 failing.
 
 - [ ] **Step 6: Commit**
 
@@ -320,7 +320,7 @@ Swap the Kidora nursery palette for the supplied logo's indigo, teal, and saffro
 
 **Interfaces:**
 - Consumes: nothing.
-- Produces: CSS custom properties `--canvas`, `--indigo`, `--teal`, `--teal-deep`, `--mist`, `--saffron`, `--tint-indigo`, `--tint-teal`, `--tint-saffron`, `--ink`, `--grey`, `--line`, `--white`. The old `--cream`, `--peach`, `--mint`, `--lavender`, `--amber`, `--purple` are gone; every later task uses the new names. Also produces `site`, `nav`, `socials`, and `positioning` from `src/data/site.js` — note `allPages` and `stats` are removed.
+- Produces: CSS custom properties `--canvas`, `--indigo`, `--teal`, `--teal-deep`, `--mist`, `--saffron`, `--tint-indigo`, `--tint-teal`, `--tint-saffron`, `--ink`, `--grey`, `--line`, `--white`. The old `--cream`, `--peach`, `--mint`, `--lavender`, `--amber`, `--purple` are gone; every later task uses the new names. Also produces `site`, `nav`, `socials`, and `positioning` from `src/data/site.js` - note `allPages` and `stats` are removed.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -386,7 +386,7 @@ test('positioning lines exist and avoid superlatives', () => {
 - [ ] **Step 2: Run the test to verify it fails**
 
 Run: `node --test tests/data.test.js`
-Expected: FAIL — `global.css defines the logo palette` fails on the missing `--indigo` token, and `navigation points at the real routes` fails because `nav` is still Home/About/Contact.
+Expected: FAIL - `global.css defines the logo palette` fails on the missing `--indigo` token, and `navigation points at the real routes` fails because `nav` is still Home/About/Contact.
 
 - [ ] **Step 3: Install the logo**
 
@@ -413,7 +413,7 @@ Then replace the `#i-logo` symbol in `src/components/Icons.astro` (currently lin
 In `src/styles/global.css`, replace the `/* palette */` block (lines 8–20) with:
 
 ```css
-  /* palette — derived from the organisation's logo */
+  /* palette - derived from the organisation's logo */
   --canvas:       #FBFAF7;  /* warm off-white page ground */
   --indigo:       #173B70;  /* primary: actions, headings on light */
   --teal:         #138A8A;  /* secondary: large text 24px+ and graphics only */
@@ -449,7 +449,7 @@ sed -i '' -e 's/--cream\b/--canvas/g' -e 's/--purple\b/--indigo/g' src/styles/gl
 grep -rn 'section--cream\|btn--purple\|prog--mint\|prog--lav\|prog--peach\|pcard--mint\|pcard--lav\|pcard--peach\|plan--' src/ || true
 ```
 
-Every hit that grep prints is markup a later task rewrites or deletes. Update `global.css` so the class names become `.section--canvas`, `.btn--indigo`, `.pcard--teal`, `.pcard--indigo`, `.pcard--saffron`, and leave the `.prog--*` and `.plan--*` rules alone — Task 10 deletes them along with their components.
+Every hit that grep prints is markup a later task rewrites or deletes. Update `global.css` so the class names become `.section--canvas`, `.btn--indigo`, `.pcard--teal`, `.pcard--indigo`, `.pcard--saffron`, and leave the `.prog--*` and `.plan--*` rules alone - Task 10 deletes them along with their components.
 
 - [ ] **Step 5: Rewrite the identity data**
 
@@ -467,7 +467,7 @@ export const site = {
   fullName: 'Indo-Global Skills & Edu Foundation',
   tagline: 'Learning, skills, and opportunity',
   blurb:
-    'We build practical pathways between learning, skills, institutions, and opportunity — working with colleges, employers, and communities across India and beyond.',
+    'We build practical pathways between learning, skills, institutions, and opportunity - working with colleges, employers, and communities across India and beyond.',
 
   // Each entry declares a value even when we do not have one yet. A null value
   // renders as a route to the enquiry form, never as an invented detail.
@@ -502,11 +502,11 @@ export const nav = [
 export const socials = [];
 
 // ---------------------------------------------------------------------------
-// DEPRECATED — deleted in Task 10.
+// DEPRECATED - deleted in Task 10.
 // Header.astro, Footer.astro, index.astro, and about.astro still import these
 // until Tasks 4, 5, and 7 rewrite them. They stay here only so the repo builds
 // at every step. Nothing new may import them, and the figures in `stats` are
-// invented — they must never reach a page that survives this rebuild.
+// invented - they must never reach a page that survives this rebuild.
 // ---------------------------------------------------------------------------
 export const allPages = [];
 export const stats = [];
@@ -517,9 +517,9 @@ Emptying `stats` rather than deleting it is deliberate: `index.astro` and `about
 - [ ] **Step 6: Run the tests to verify they pass**
 
 Run: `npm test`
-Expected: PASS — all `content-guard` and `data` tests green.
+Expected: PASS - all `content-guard` and `data` tests green.
 
-Then confirm the repo still builds: `npm run build`. It must succeed. The deprecated empty `allPages` and `stats` exports exist precisely so it does — every task in this plan leaves the repo in a buildable state.
+Then confirm the repo still builds: `npm run build`. It must succeed. The deprecated empty `allPages` and `stats` exports exist precisely so it does - every task in this plan leaves the repo in a buildable state.
 
 - [ ] **Step 7: Commit**
 
@@ -532,7 +532,7 @@ git commit -m "feat: rebrand to the organisation's logo palette and real identit
 
 ### Task 3: The six activity verticals and leadership
 
-This is the content the whole site exists to carry. Every field below is derived from the organisation's own strategy document. The `engagement` field is the public-facing rewrite of that document's internal "Revenue & Strategic Value" column — see Decision 3 in the header.
+This is the content the whole site exists to carry. Every field below is derived from the organisation's own strategy document. The `engagement` field is the public-facing rewrite of that document's internal "Revenue & Strategic Value" column - see Decision 3 in the header.
 
 **Files:**
 - Create: `src/data/verticals.js`
@@ -542,9 +542,9 @@ This is the content the whole site exists to carry. Every field below is derived
 **Interfaces:**
 - Consumes: nothing.
 - Produces:
-  - `verticals` — an array of six objects, each `{ slug, number, title, status, tone, summary, intro, activities, audiences, engagement, leadKey }`. `tone` is one of `'indigo' | 'teal' | 'saffron'`. `leadKey` matches a `key` in `leadership`.
-  - `STATUSES` — the frozen array of the eight permitted status values.
-  - `leadership` — an array of `{ key, name, role, remit, verticalSlugs }`.
+  - `verticals` - an array of six objects, each `{ slug, number, title, status, tone, summary, intro, activities, audiences, engagement, leadKey }`. `tone` is one of `'indigo' | 'teal' | 'saffron'`. `leadKey` matches a `key` in `leadership`.
+  - `STATUSES` - the frozen array of the eight permitted status values.
+  - `leadership` - an array of `{ key, name, role, remit, verticalSlugs }`.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -630,7 +630,7 @@ test('leadership carries no invented biography or photo', () => {
 - [ ] **Step 2: Run the test to verify it fails**
 
 Run: `node --test tests/data.test.js`
-Expected: FAIL — `Cannot find module '../src/data/verticals.js'`
+Expected: FAIL - `Cannot find module '../src/data/verticals.js'`
 
 - [ ] **Step 3: Write the verticals module**
 
@@ -672,9 +672,9 @@ export const verticals = [
     status: 'Proposed',
     tone: 'indigo',
     summary:
-      'Structured routes for students moving between Indian and international institutions — course selection, admissions, and the language readiness that sits underneath both.',
+      'Structured routes for students moving between Indian and international institutions - course selection, admissions, and the language readiness that sits underneath both.',
     intro:
-      'Studying abroad rarely fails on ability. It fails on process — the wrong course, a missed deadline, a language score that arrives too late. This vertical exists to make that process legible.',
+      'Studying abroad rarely fails on ability. It fails on process - the wrong course, a missed deadline, a language score that arrives too late. This vertical exists to make that process legible.',
     activities: [
       'Guidance on foreign university admissions, alongside career counselling that starts from where the student actually wants to end up',
       'Language academies covering IELTS, TOEFL, and foreign-language instruction',
@@ -696,12 +696,12 @@ export const verticals = [
     status: 'Proposed',
     tone: 'teal',
     summary:
-      'Training that closes the distance between what someone has studied and what a workplace actually asks of them — for students entering work, and for professionals already in it.',
+      'Training that closes the distance between what someone has studied and what a workplace actually asks of them - for students entering work, and for professionals already in it.',
     intro:
       'Employers describe the same gap repeatedly: graduates who know the subject and not the job. This vertical addresses both sides of that gap, from either direction.',
     activities: [
-      'For students — finishing schools, professional grooming, and job-ready certification programmes',
-      'For professionals — upskilling workshops, leadership modules, and industry-specific technical training',
+      'For students - finishing schools, professional grooming, and job-ready certification programmes',
+      'For professionals - upskilling workshops, leadership modules, and industry-specific technical training',
     ],
     audiences: [
       'Final-year students and recent graduates',
@@ -721,10 +721,10 @@ export const verticals = [
     summary:
       'Age-appropriate AI and computing education for schools and colleges, together with the lab infrastructure needed to teach it rather than talk about it.',
     intro:
-      'Most institutions want to teach AI and have no realistic route to doing it — no curriculum, no equipment, and no one on staff who has built a model. This vertical supplies all three.',
+      'Most institutions want to teach AI and have no realistic route to doing it - no curriculum, no equipment, and no one on staff who has built a model. This vertical supplies all three.',
     activities: [
-      'For schools — basic coding, logic building, and AI-awareness programmes',
-      'For colleges — advanced machine learning, data science, and ethics-in-AI modules',
+      'For schools - basic coding, logic building, and AI-awareness programmes',
+      'For colleges - advanced machine learning, data science, and ethics-in-AI modules',
       'AI Innovation Labs established inside partner institutions',
     ],
     audiences: [
@@ -743,7 +743,7 @@ export const verticals = [
     status: 'Proposed',
     tone: 'indigo',
     summary:
-      'Support for student projects with commercial potential — finding them, developing them, and introducing them to people who can fund them.',
+      'Support for student projects with commercial potential - finding them, developing them, and introducing them to people who can fund them.',
     intro:
       'A good student project usually dies at submission. This vertical is about the year after that, when an idea either becomes a product or quietly stops.',
     activities: [
@@ -805,7 +805,7 @@ export const verticals = [
       'Scholarship applicants and recipients',
     ],
     // States the general legal requirement, which is true and checkable, and
-    // commits to disclosure — without asserting anything about this
+    // commits to disclosure - without asserting anything about this
     // organisation's own registration status, which we have no source for.
     engagement:
       'Delivered as scoped projects for corporate partners. Indian corporate social responsibility rules require an implementing agency to hold specific statutory registrations; we set out our current standing in writing before any project is contracted.',
@@ -863,7 +863,7 @@ export const leadership = [
 - [ ] **Step 5: Run the tests to verify they pass**
 
 Run: `npm test`
-Expected: PASS — all tests green, including the nine new data tests.
+Expected: PASS - all tests green, including the nine new data tests.
 
 - [ ] **Step 6: Commit**
 
@@ -876,7 +876,7 @@ git commit -m "feat: add the six activity verticals and leadership data"
 
 ### Task 4: Shared components
 
-Two new components carry the verticals; four existing ones are retoned. The nursery-specific components are left in place for now — Task 10 deletes them once nothing imports them.
+Two new components carry the verticals; four existing ones are retoned. The nursery-specific components are left in place for now - Task 10 deletes them once nothing imports them.
 
 **Files:**
 - Create: `src/components/StatusBadge.astro`
@@ -890,9 +890,9 @@ Two new components carry the verticals; four existing ones are retoned. The nurs
 **Interfaces:**
 - Consumes: `verticals`, `STATUSES` from `src/data/verticals.js`; `site`, `nav` from `src/data/site.js`.
 - Produces:
-  - `StatusBadge.astro` — props `{ status }`.
-  - `VerticalCard.astro` — props `{ vertical }`.
-  - `CTA.astro` — props `{ title, text, cta, href }`, all optional, defaulting to the partnership CTA.
+  - `StatusBadge.astro` - props `{ status }`.
+  - `VerticalCard.astro` - props `{ vertical }`.
+  - `CTA.astro` - props `{ title, text, cta, href }`, all optional, defaulting to the partnership CTA.
 
 - [ ] **Step 1: Write StatusBadge**
 
@@ -1017,7 +1017,7 @@ Append to `src/styles/global.css`:
 
 - [ ] **Step 4: Rewrite the header**
 
-Replace `src/components/Header.astro`. The "All Pages" dropdown goes — it was a template artefact that exposed the 404 page as a navigation item.
+Replace `src/components/Header.astro`. The "All Pages" dropdown goes - it was a template artefact that exposed the 404 page as a navigation item.
 
 ```astro
 ---
@@ -1061,7 +1061,7 @@ const { variant = 'solid' } = Astro.props;
 
 - [ ] **Step 5: Rewrite the footer**
 
-Replace `src/components/Footer.astro`. The newsletter form goes — `project-controls.md` puts a newsletter outside the MVP, and a signup box that acknowledges without subscribing is a dead control.
+Replace `src/components/Footer.astro`. The newsletter form goes - `project-controls.md` puts a newsletter outside the MVP, and a signup box that acknowledges without subscribing is a dead control.
 
 ```astro
 ---
@@ -1142,7 +1142,7 @@ In `src/layouts/Base.astro`, delete the `--- monthly / yearly toggle ---` block 
 - [ ] **Step 8: Verify the build and tests**
 
 Run: `npm test && npm run build`
-Expected: both PASS. The stale pages (`index`, `about`, `programs`, `teachers`, `admissions`, `donate`, `blog`) still build — they are rewritten or deleted in Tasks 5 through 10. If the build fails, a page is referencing a CSS class or button variant renamed in Task 2; fix that reference rather than reinstating the old token.
+Expected: both PASS. The stale pages (`index`, `about`, `programs`, `teachers`, `admissions`, `donate`, `blog`) still build - they are rewritten or deleted in Tasks 5 through 10. If the build fails, a page is referencing a CSS class or button variant renamed in Task 2; fix that reference rather than reinstating the old token.
 
 - [ ] **Step 9: Commit**
 
@@ -1280,7 +1280,7 @@ Append to `src/styles/global.css`:
 }
 ```
 
-The header sits over this hero, so pass no `headerVariant` — the default `solid` styling is correct against a light background. Confirm `.header--solid .logo` and `.header--solid .nav a` resolve to `var(--ink)`; if the existing rule still assumes a dark photographic hero, change those two colours in the `/* ---------- header ---------- */` block.
+The header sits over this hero, so pass no `headerVariant` - the default `solid` styling is correct against a light background. Confirm `.header--solid .logo` and `.header--solid .nav a` resolve to `var(--ink)`; if the existing rule still assumes a dark photographic hero, change those two colours in the `/* ---------- header ---------- */` block.
 
 - [ ] **Step 3: Build and inspect**
 
@@ -1290,7 +1290,7 @@ Expected: the full build succeeds, including `dist/index.html`.
 Then check the compiled home page against the guard:
 
 Run: `node scripts/content-guard.mjs dist/index.html 2>&1 | grep -c 'dist/index.html' || true`
-Expected: `0` — the home page itself contributes no violations. The command still reports violations from the stale routes (`dist/programs`, `dist/donate`, `dist/teachers`); those are cleared in Task 10.
+Expected: `0` - the home page itself contributes no violations. The command still reports violations from the stale routes (`dist/programs`, `dist/donate`, `dist/teachers`); those are cleared in Task 10.
 
 - [ ] **Step 4: Look at it**
 
@@ -1440,7 +1440,7 @@ const lead = leadership.find((l) => l.key === vertical.leadKey);
 - [ ] **Step 3: Build and verify every route exists**
 
 Run: `npm run build && ls dist/focus-areas`
-Expected: an `index.html` plus one directory per slug — `international-academic-pathway`, `corporate-and-industry-training`, `ai-and-emerging-tech-education`, `innovation-and-incubation`, `industry-academia-integration`, `strategic-csr-and-social-impact`.
+Expected: an `index.html` plus one directory per slug - `international-academic-pathway`, `corporate-and-industry-training`, `ai-and-emerging-tech-education`, `innovation-and-incubation`, `industry-academia-integration`, `strategic-csr-and-social-impact`.
 
 - [ ] **Step 4: Run the guard over the new pages**
 
@@ -1527,7 +1527,7 @@ const titleFor = (slug) => verticals.find((v) => v.slug === slug)?.title ?? slug
             The gap is not talent. It is the absence of a route between one and the other.
           </p>
           <p>
-            Indo-Global Skills & Edu Foundation was set up to build those routes — between school
+            Indo-Global Skills & Edu Foundation was set up to build those routes - between school
             and college, between college and work, between an Indian institution and an
             international one, and between a student project and something that can be funded.
           </p>
@@ -1605,7 +1605,7 @@ const titleFor = (slug) => verticals.find((v) => v.slug === slug)?.title ?? slug
           <p>
             We do not publish beneficiary numbers, placement rates, or partner names we cannot
             evidence. We do not describe a proposed programme as an operating one. We do not
-            claim affiliation with any similarly named institution, college, or summit — no such
+            claim affiliation with any similarly named institution, college, or summit - no such
             relationship exists.
           </p>
           <p>{site.regNote}</p>
@@ -1641,7 +1641,7 @@ git commit -m "feat: rewrite About around the real organisation and its leadersh
 
 ### Task 8: Partner with us
 
-The primary conversion. Everything else on the site routes here. The form has no backend yet, so it must say so rather than pretending to submit — a form that silently discards an enquiry is worse than no form.
+The primary conversion. Everything else on the site routes here. The form has no backend yet, so it must say so rather than pretending to submit - a form that silently discards an enquiry is worse than no form.
 
 **Files:**
 - Create: `src/pages/partner.astro`
@@ -1736,7 +1736,7 @@ const routes = [
         <p class="form__consent">
           We use what you send here only to reply to your enquiry. We do not add you to a
           mailing list and we do not share it with anyone else. This form is for adults
-          aged 18 and over — please do not send us anyone else’s personal details.
+          aged 18 and over - please do not send us anyone else’s personal details.
         </p>
         <button class="btn btn--indigo" type="submit" style="justify-self:start">
           Send enquiry<span class="btn__dot"><svg><use href="#i-arrow" /></svg></span>
@@ -1757,7 +1757,7 @@ const routes = [
       const note = document.getElementById('partnerNote');
       if (note) {
         note.textContent =
-          'Not sent — this form still needs a backend connected. Nothing you typed has been transmitted or stored.';
+          'Not sent - this form still needs a backend connected. Nothing you typed has been transmitted or stored.';
         note.style.color = 'var(--indigo)';
         note.style.fontWeight = '700';
       }
@@ -1794,7 +1794,7 @@ git commit -m "feat: add the partner-with-us page as the primary conversion rout
 
 ### Task 9: Contact, updates, and 404
 
-Three smaller pages that share a test cycle. The updates listing exists as a working template with no content — `Requirement.md` §7.1 requires exactly this: build the route, keep it out of navigation until an approved item exists.
+Three smaller pages that share a test cycle. The updates listing exists as a working template with no content - `Requirement.md` §7.1 requires exactly this: build the route, keep it out of navigation until an approved item exists.
 
 **Files:**
 - Modify: `src/pages/contact.astro` (full rewrite)
@@ -1908,7 +1908,7 @@ const updates = [];
           <Button href="/focus-areas" variant="indigo">See what we are planning</Button>
         </div>
       ) : (
-        <p>Listing template — render the update cards here.</p>
+        <p>Listing template - render the update cards here.</p>
       )}
     </div>
   </section>
@@ -1917,7 +1917,7 @@ const updates = [];
 
 - [ ] **Step 3: Retone the 404**
 
-Replace the body copy in `src/pages/404.astro` — "This page went out to play" is nursery voice:
+Replace the body copy in `src/pages/404.astro` - "This page went out to play" is nursery voice:
 
 ```astro
 ---
@@ -1957,7 +1957,7 @@ git commit -m "feat: rewrite contact, add empty updates template, retone 404"
 
 ### Task 10: Remove the placeholder site
 
-Every route that replaces a deleted one now exists, so the preschool build can go. This task is deletion only — if anything here breaks the build, it means a link was missed in an earlier task, and the fix belongs in that page rather than in a reinstated file.
+Every route that replaces a deleted one now exists, so the preschool build can go. This task is deletion only - if anything here breaks the build, it means a link was missed in an earlier task, and the fix belongs in that page rather than in a reinstated file.
 
 **Files:**
 - Delete: `src/pages/donate.astro`, `src/pages/teachers.astro`, `src/pages/admissions.astro`, `src/pages/programs/index.astro`, `src/pages/programs/[slug].astro`, `src/pages/blog/index.astro`, `src/pages/blog/[slug].astro`
@@ -1977,7 +1977,7 @@ Run:
 grep -rn "programs\.js\|teachers\.js\|testimonials\.js\|tiers\.js\|posts\.js\|images\.js\|GivingTiers\|ProgramCard\|Testimonials\|Marquee\|Swoosh\|BlogCard" src/
 ```
 
-Expected: no output. Any hit is a live import — fix that file before deleting.
+Expected: no output. Any hit is a live import - fix that file before deleting.
 
 - [ ] **Step 2: Delete the files**
 
@@ -2019,7 +2019,7 @@ Run: `npm run build && ls dist`
 Expected: `index.html`, `404.html`, and directories `about`, `focus-areas`, `partner`, `contact`, `updates`. No `programs`, `blog`, `donate`, `teachers`, or `admissions`.
 
 Run: `node scripts/content-guard.mjs dist`
-Expected: `Content guard passed — no forbidden claims in dist/.`
+Expected: `Content guard passed - no forbidden claims in dist/.`
 
 If the guard still reports violations, fix the offending page copy. Do not weaken a rule in `scripts/content-guard.mjs` to make the build pass.
 
@@ -2048,7 +2048,7 @@ The guard is worthless if it only runs when someone remembers. This task makes i
 
 **Interfaces:**
 - Consumes: `scripts/content-guard.mjs` from Task 1.
-- Produces: `npm run verify` — the single command that proves the site is publishable.
+- Produces: `npm run verify` - the single command that proves the site is publishable.
 
 - [ ] **Step 1: Add the verify script**
 
@@ -2070,7 +2070,7 @@ In `package.json`, replace the `"scripts"` block with:
 Run: `npm run verify`
 Expected: tests pass, build succeeds, guard prints `Content guard passed`. Exit code 0.
 
-Confirm the guard actually fails the command when it should — this proves the gate is wired, not decorative:
+Confirm the guard actually fails the command when it should - this proves the gate is wired, not decorative:
 
 ```bash
 printf '<p>Registered under Section 8 with 80G approval.</p>' > dist/canary.html
@@ -2095,7 +2095,7 @@ In `.github/workflows/deploy.yml`, replace the single `- run: npm run build` lin
 Replace `README.md`:
 
 ```markdown
-# Indo-Global Skills & Edu Foundation — website
+# Indo-Global Skills & Edu Foundation - website
 
 A static site for Indo-Global Skills & Edu Foundation, built with [Astro](https://astro.build).
 It presents the organisation's six activity verticals, its leadership, and a single
@@ -2105,7 +2105,7 @@ partnership enquiry route.
 
     npm install
     npm run dev       # dev server
-    npm run verify    # tests + build + content guard — run this before pushing
+    npm run verify    # tests + build + content guard - run this before pushing
 
 ## Content lives in `src/data/`
 
@@ -2126,7 +2126,7 @@ It blocks: the company identification number, "Section 8", any 80G / 12A / CSR-1
 claim, Kidora template image URLs, leftover preschool vocabulary, the placeholder contact
 details, superiority claims, and the fabricated impact figures from the earlier build.
 
-**If the guard fails, fix the copy — do not weaken the rule.** Each rule corresponds to a
+**If the guard fails, fix the copy - do not weaken the rule.** Each rule corresponds to a
 claim that has no verified source. Remove a rule only when the underlying document has been
 verified and an authorised owner has approved publication.
 
@@ -2148,20 +2148,20 @@ verified and an authorised owner has approved publication.
    scrape. Check them against the Certificate of Incorporation and current MCA master data.
    See `research-notes.md`.
 6. **Decide on photography.** The site currently uses no photographs at all. That is a
-   deliberate improvement over the unlicensed template imagery, not an oversight — but real,
+   deliberate improvement over the unlicensed template imagery, not an oversight - but real,
    licensed photography of actual work would strengthen it once such work exists.
 
 ## Governance documents
 
 These predate this build and still govern it. They describe a Next.js architecture that no
-longer exists — read them for the requirements and rules, not as a map of this codebase.
+longer exists - read them for the requirements and rules, not as a map of this codebase.
 
 | File | Purpose |
 |---|---|
 | [Requirement.md](./Requirement.md) | Product requirements, audiences, sitemap, governance, launch gates |
 | [project-controls.md](./project-controls.md) | Canonical decisions, CTA map, status vocabulary, owners |
 | [content.md](./content.md) | Claim-safety rules and draft copy |
-| [research-notes.md](./research-notes.md) | Corporate and design source log — internal only, never publish |
+| [research-notes.md](./research-notes.md) | Corporate and design source log - internal only, never publish |
 | [design.md](./design.md) | Brand direction and accessibility rules |
 | [qa-launch-checklist.md](./qa-launch-checklist.md) | Pre-launch review |
 | [implementation-plan.md](./implementation-plan.md), [traceability-matrix.md](./traceability-matrix.md), [IMPLEMENTATION_NOTES.md](./IMPLEMENTATION_NOTES.md) | Delivery notes from the previous build |
@@ -2202,7 +2202,7 @@ The plan is complete when all of these hold:
 
 Stated so nobody assumes otherwise:
 
-- **No backend.** The enquiry form still cannot deliver a message. Wiring it needs a form handler, a routing decision, a response SLA, and a retention policy — a separate piece of work.
+- **No backend.** The enquiry form still cannot deliver a message. Wiring it needs a form handler, a routing decision, a response SLA, and a retention policy - a separate piece of work.
 - **No photography.** The site ships with no photographs. Replacing unlicensed template images with nothing is the honest interim state.
 - **No corporate disclosures page.** `Requirement.md` §10.7 specifies one; it stays blocked until the Certificate of Incorporation has been checked.
 - **No analytics.** `project-controls.md` requires a consent-aware, no-personal-data setup. Out of scope here.

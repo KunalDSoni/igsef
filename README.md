@@ -1,4 +1,4 @@
-# Indo-Global Skills & Edu Foundation — website
+# Indo-Global Skills & Edu Foundation - website
 
 Live site: [kunaldsoni.github.io/igsef](https://kunaldsoni.github.io/igsef/)
 
@@ -10,7 +10,7 @@ partnership enquiry route.
 
     npm install
     npm run dev       # dev server
-    npm run verify    # tests + build + content guard — run this before pushing
+    npm run verify    # tests + build + content guard - run this before pushing
 
 ## Content lives in `src/data/`
 
@@ -31,7 +31,7 @@ It blocks: the company identification number, "Section 8", any 80G / 12A / CSR-1
 claim, Kidora template image URLs, leftover preschool vocabulary, the placeholder contact
 details, superiority claims, and the fabricated impact figures from the earlier build.
 
-**If the guard fails, fix the copy — do not weaken the rule.** Each rule corresponds to a
+**If the guard fails, fix the copy - do not weaken the rule.** Each rule corresponds to a
 claim that has no verified source. Remove a rule only when the underlying document has been
 verified and an authorised owner has approved publication.
 
@@ -53,20 +53,20 @@ verified and an authorised owner has approved publication.
    scrape. Check them against the Certificate of Incorporation and current MCA master data.
    See `research-notes.md`.
 6. **Decide on photography.** The site currently uses no photographs at all. That is a
-   deliberate improvement over the unlicensed template imagery, not an oversight — but real,
+   deliberate improvement over the unlicensed template imagery, not an oversight - but real,
    licensed photography of actual work would strengthen it once such work exists.
 
 ## Governance documents
 
 These predate this build and still govern it. They describe a Next.js architecture that no
-longer exists — read them for the requirements and rules, not as a map of this codebase.
+longer exists - read them for the requirements and rules, not as a map of this codebase.
 
 | File | Purpose |
 |---|---|
 | [Requirement.md](./Requirement.md) | Product requirements, audiences, sitemap, governance, launch gates |
 | [project-controls.md](./project-controls.md) | Canonical decisions, CTA map, status vocabulary, owners |
 | [content.md](./content.md) | Claim-safety rules and draft copy |
-| [research-notes.md](./research-notes.md) | Corporate and design source log — internal only, never publish |
+| [research-notes.md](./research-notes.md) | Corporate and design source log - internal only, never publish |
 | [design.md](./design.md) | Brand direction and accessibility rules |
 | [qa-launch-checklist.md](./qa-launch-checklist.md) | Pre-launch review |
 | [implementation-plan.md](./implementation-plan.md), [traceability-matrix.md](./traceability-matrix.md), [IMPLEMENTATION_NOTES.md](./IMPLEMENTATION_NOTES.md) | Delivery notes from the previous build |

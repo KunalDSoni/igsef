@@ -203,11 +203,11 @@ Use responsive `clamp()`-style sizing where Framer supports it; the table gives 
 | H1 | 60 px | 38 px | 1.08–1.15 | 16 words |
 | H2 | 44 px | 32 px | 1.12–1.2 | 2 lines |
 | H3 | 28 px | 24 px | 1.2–1.3 | 2 lines |
-| H4 | 22 px | 20 px | 1.3 | — |
+| H4 | 22 px | 20 px | 1.3 | - |
 | Lead | 22 px | 19 px | 1.5 | 60 characters |
 | Body large | 18 px | 18 px | 1.55–1.65 | 65–75 characters |
 | Body | 16 px | 16 px | 1.55–1.65 | 65–75 characters |
-| Small/meta | 14 px | 14 px | 1.45 | — |
+| Small/meta | 14 px | 14 px | 1.45 | - |
 | Button | 16 px semibold | 16 px semibold | 1.2 | 2–4 words preferred |
 
 ### 5.3 Typography rules
@@ -276,7 +276,7 @@ Prioritise real documentary images of learning, making, mentoring, collaboration
 
 - Show agency and participation, not pity or staged charity.
 - Represent different genders, disabilities, geographies, ages, and socioeconomic contexts naturally.
-- Capture hands-on work, peer exchange, educators, tools, and environments—not rows of posed certificate holders alone.
+- Capture hands-on work, peer exchange, educators, tools, and environments-not rows of posed certificate holders alone.
 - Obtain model/property releases and specific guardian/safeguarding approval for minors.
 - Do not use a photograph as evidence of a programme it did not depict.
 - Record photographer/source, rights, consent scope, alt text, people/programme/date, and expiry/withdrawal route.
@@ -439,7 +439,7 @@ Use only for factual, time-bound information such as an open intake or published
 
 Four logical groups: organisation; explore; work with us; disclosures/legal. Include approved contact, exact verified legal identity block, copyright, accessibility/privacy links, and content-correction route. Avoid a newsletter field unless the process exists.
 
-#### Privacy preferences — conditional
+#### Privacy preferences - conditional
 
 Do not show a banner when no optional service requires a choice under the approved legal design. When required, provide a bottom sheet/banner and a preferences panel with equal-access Accept optional, Reject optional, and Manage choices actions; labelled categories; Essential always-on explanation; saved confirmation; keyboard/focus management; and a persistent footer link to reopen choices. Use the copy in `content.md` §16.
 

@@ -4,7 +4,7 @@
 
 **Goal:** Bring back the original template's visual richness (hero, marquee, about-cards, why-choose-us split, showcase band, rich two-column program cards, team grid, FAQ) that a prior rebuild wrongly stripped out, and fill every section with real Indo-Global Skills & Edu Foundation content instead of preschool copy or invented numbers.
 
-**Architecture:** Additive CSS restoration (Task 1) brings back the original template's section styles, recoloured from the preschool palette (mint/lavender/peach/amber/purple) to the real brand palette (teal/indigo/saffron) already defined in `src/styles/global.css`. Component restoration (Tasks 2-3, 6) brings back `Marquee`, `Swoosh`, and a richer `ProgramCard`, plus a new `LeaderCard`. Page rewrites (Tasks 4-5, 7-9) slot real content — the six verticals, the two leaders, the honest positioning language already written in a prior session — into the restored layout. No stock photography anywhere: every original photo slot becomes an abstract brand-colour graphic, because the organisation has no real campus or programme photography yet.
+**Architecture:** Additive CSS restoration (Task 1) brings back the original template's section styles, recoloured from the preschool palette (mint/lavender/peach/amber/purple) to the real brand palette (teal/indigo/saffron) already defined in `src/styles/global.css`. Component restoration (Tasks 2-3, 6) brings back `Marquee`, `Swoosh`, and a richer `ProgramCard`, plus a new `LeaderCard`. Page rewrites (Tasks 4-5, 7-9) slot real content - the six verticals, the two leaders, the honest positioning language already written in a prior session - into the restored layout. No stock photography anywhere: every original photo slot becomes an abstract brand-colour graphic, because the organisation has no real campus or programme photography yet.
 
 **Tech Stack:** Astro 5.18.2, plain CSS custom properties, no new dependencies.
 
@@ -15,26 +15,26 @@
 - Contrast: `--teal` only for text ≥24px or ≥18.66px bold, or for graphics; `--teal-deep` for body-size teal text; `--saffron` is graphics-only, never text on a light background. `--indigo` is safe as text at any size (it is the existing primary action/heading colour).
 - Every internal `href`/`src` goes through `url()` from `src/lib/url.js`.
 - Never publish: a registration number, an incorporation date beyond the year, "Section 8", any 80G/12A/CSR-1/FCRA claim, a registered office address, beneficiary counts, placement rates, partner logos, testimonials, or superiority claims. No fabricated statistics of any kind (no "2,400 children", no invented percentages).
-- No newsletter/subscribe form and no individual-donation ask anywhere — the real conversion action is the partnership enquiry (`/partner`), already built and working.
+- No newsletter/subscribe form and no individual-donation ask anywhere - the real conversion action is the partnership enquiry (`/partner`), already built and working.
 - Heading levels must not skip (h2 → h3 only, never h2 → h4) on every page touched.
 - No horizontal scroll at 375px viewport.
 - `npm test` → 26/26 tests pass throughout (the data modules being tested are not touched).
 - `npm run build` → succeeds; `node scripts/content-guard.mjs dist` → zero violations; `npm run verify` → succeeds.
-- Source of truth for real content: `src/data/verticals.js` (six verticals), `src/data/leadership.js` (two leaders), `src/data/site.js` (`positioning`, `site.blurb`, `nav`). These files are correct and already verified against the source strategy paper — do not modify their content, only reference them.
+- Source of truth for real content: `src/data/verticals.js` (six verticals), `src/data/leadership.js` (two leaders), `src/data/site.js` (`positioning`, `site.blurb`, `nav`). These files are correct and already verified against the source strategy paper - do not modify their content, only reference them.
 
 ---
 
-### Task 1: CSS foundation — restore and recolour the original template's section styles
+### Task 1: CSS foundation - restore and recolour the original template's section styles
 
 **Files:**
 - Modify: `src/styles/global.css` (append new rule blocks; do not touch the existing `:root` token block or any currently-used rule)
 
 **Interfaces:**
-- Produces: the following classes, all consumed by later tasks — `.hero` (photo/overlay variant, distinct from the existing `.hero--plain`), `.hero__bg`, `.hero__bg-graphic`, `.marquee`, `.marquee__track`, `.marquee__item`, `.about__grid`, `.about__statement`, `.about__faces`, `.acard`, `.acard--teal`, `.acard--indigo`, `.acard--saffron`, `.acard__icon`, `.acard__wave`, `.why`, `.why__photo`, `.why__graphic`, `.why__feats`, `.feat`, `.feat__sep`, `.showcase`, `.showcase__graphic`, `.showcase__in`, `.feats`, `.feats__photo`, `.feats__graphic`, `.feats__grid`, `.fcard`, `.prog`, `.prog--teal`, `.prog--indigo`, `.prog--saffron`, `.prog__body`, `.prog__num`, `.prog__foot`, `.prog__media`, `.prog__graphic`, `.team`, `.tmember`, `.tmember__avatar`, `.tmember__body`, `.tmember__role`, `.faq`.
+- Produces: the following classes, all consumed by later tasks - `.hero` (photo/overlay variant, distinct from the existing `.hero--plain`), `.hero__bg`, `.hero__bg-graphic`, `.marquee`, `.marquee__track`, `.marquee__item`, `.about__grid`, `.about__statement`, `.about__faces`, `.acard`, `.acard--teal`, `.acard--indigo`, `.acard--saffron`, `.acard__icon`, `.acard__wave`, `.why`, `.why__photo`, `.why__graphic`, `.why__feats`, `.feat`, `.feat__sep`, `.showcase`, `.showcase__graphic`, `.showcase__in`, `.feats`, `.feats__photo`, `.feats__graphic`, `.feats__grid`, `.fcard`, `.prog`, `.prog--teal`, `.prog--indigo`, `.prog--saffron`, `.prog__body`, `.prog__num`, `.prog__foot`, `.prog__media`, `.prog__graphic`, `.team`, `.tmember`, `.tmember__avatar`, `.tmember__body`, `.tmember__role`, `.faq`.
 
 - [ ] **Step 1: Append the hero (overlay/photo variant) rules**
 
-The current file only has `.hero--plain` (flat gradient, used by the interim homepage). This restores the original rich hero — same structure as `f9d1125`'s `.hero`, but the background is an abstract gradient graphic instead of a stock photo, and the headline no longer clamps to a cramped `12ch` (a bug flagged in a prior review of this project — the original template's `max-width: 12ch` squeezed a 12-word headline into 6 lines).
+The current file only has `.hero--plain` (flat gradient, used by the interim homepage). This restores the original rich hero - same structure as `f9d1125`'s `.hero`, but the background is an abstract gradient graphic instead of a stock photo, and the headline no longer clamps to a cramped `12ch` (a bug flagged in a prior review of this project - the original template's `max-width: 12ch` squeezed a 12-word headline into 6 lines).
 
 Append to `src/styles/global.css`:
 
@@ -213,12 +213,12 @@ The original `.tmember` card held a photo. Since there are no real leadership ph
 
 Run: `grep -n "var(--teal)" src/styles/global.css`
 
-Confirm every match added in this task is either a graphic/icon usage (an `svg` selector, or a background on a dark card) — never plain text under 24px. The additions in this task use `--teal` only for the marquee icon (22px svg) and `.feat__sep` (22px svg icon) — both graphics, both compliant. `--indigo` is used for text at every size, which is compliant (it's the existing primary text colour).
+Confirm every match added in this task is either a graphic/icon usage (an `svg` selector, or a background on a dark card) - never plain text under 24px. The additions in this task use `--teal` only for the marquee icon (22px svg) and `.feat__sep` (22px svg icon) - both graphics, both compliant. `--indigo` is used for text at every size, which is compliant (it's the existing primary text colour).
 
 - [ ] **Step 11: Build to confirm no CSS errors**
 
 Run: `npm run build`
-Expected: succeeds (no page yet references the new classes, so this only confirms the CSS itself is valid — Astro doesn't lint unused CSS).
+Expected: succeeds (no page yet references the new classes, so this only confirms the CSS itself is valid - Astro doesn't lint unused CSS).
 
 - [ ] **Step 12: Commit**
 
@@ -236,9 +236,9 @@ git commit -m "feat: restore original template's section styles, recoloured to t
 - Create: `src/components/Swoosh.astro`
 
 **Interfaces:**
-- Produces: `<Marquee text={string} repeat={number}>` (default `repeat=4`), `<Swoosh text={string}>` — both consumed by Task 4 (homepage).
+- Produces: `<Marquee text={string} repeat={number}>` (default `repeat=4`), `<Swoosh text={string}>` - both consumed by Task 4 (homepage).
 
-These are pure presentational components with no data dependency — restored verbatim from the original template, since there's nothing preschool-specific in them to change.
+These are pure presentational components with no data dependency - restored verbatim from the original template, since there's nothing preschool-specific in them to change.
 
 - [ ] **Step 1: Create Marquee.astro**
 
@@ -275,12 +275,12 @@ const { text } = Astro.props;
   </svg></span>
 ```
 
-Note: `stroke="currentColor"` (not a hardcoded hex) so the `.hero .swoosh { color: var(--saffron); }` rule from Task 1 controls its colour — this avoids a literal colour value outside the token system.
+Note: `stroke="currentColor"` (not a hardcoded hex) so the `.hero .swoosh { color: var(--saffron); }` rule from Task 1 controls its colour - this avoids a literal colour value outside the token system.
 
 - [ ] **Step 3: Verify the icon sprite has `i-ast`**
 
 Run: `grep -n "i-ast" src/components/Icons.astro`
-Expected: a match. If there is no match, add an asterisk/sparkle symbol to `Icons.astro`'s `<defs>` following the existing symbols' pattern (each is a `<symbol id="i-name" viewBox="...">` with an inline path) — asterisks are already used elsewhere on the site (the `Eyebrow` component), so the same symbol can likely be reused; check `Eyebrow.astro` for its existing icon reference before adding a duplicate.
+Expected: a match. If there is no match, add an asterisk/sparkle symbol to `Icons.astro`'s `<defs>` following the existing symbols' pattern (each is a `<symbol id="i-name" viewBox="...">` with an inline path) - asterisks are already used elsewhere on the site (the `Eyebrow` component), so the same symbol can likely be reused; check `Eyebrow.astro` for its existing icon reference before adding a duplicate.
 
 - [ ] **Step 4: Build to confirm no errors**
 
@@ -299,20 +299,20 @@ git commit -m "feat: restore Marquee and Swoosh components"
 ### Task 3: Rebuild ProgramCard as the rich two-column vertical card, retire VerticalCard
 
 **Files:**
-- Modify: `src/components/ProgramCard.astro` (does not currently exist — create it)
+- Modify: `src/components/ProgramCard.astro` (does not currently exist - create it)
 - Delete: `src/components/VerticalCard.astro`
-- Modify: `src/pages/index.astro` — import swap only (full rewrite happens in Task 4)
-- Modify: `src/pages/focus-areas/index.astro` — import swap only (full content in Task 7)
+- Modify: `src/pages/index.astro` - import swap only (full rewrite happens in Task 4)
+- Modify: `src/pages/focus-areas/index.astro` - import swap only (full content in Task 7)
 
 **Interfaces:**
-- Consumes: a `vertical` object matching `src/data/verticals.js`'s shape — `{ slug, number, title, status, tone, summary }` (only these four fields are used by the card; `intro`/`activities`/`audiences`/`engagement`/`leadKey` are used on the detail page, not the card).
+- Consumes: a `vertical` object matching `src/data/verticals.js`'s shape - `{ slug, number, title, status, tone, summary }` (only these four fields are used by the card; `intro`/`activities`/`audiences`/`engagement`/`leadKey` are used on the detail page, not the card).
 - Produces: `<ProgramCard vertical={v} />`, rendering the `.prog`/`.prog--{tone}` two-column card from Task 1's CSS, with `<StatusBadge status={vertical.status} />` in place of the original template's invented "ages" badge.
 
 - [ ] **Step 1: Read the current VerticalCard for reference, then delete it**
 
 Run: `cat src/components/VerticalCard.astro`
 
-This shows the simpler card being replaced. Once you've noted its prop shape (it should match — both consume `vertical`), delete it:
+This shows the simpler card being replaced. Once you've noted its prop shape (it should match - both consume `vertical`), delete it:
 
 Run: `rm src/components/VerticalCard.astro`
 
@@ -348,7 +348,7 @@ with:
 ```astro
 import ProgramCard from '../components/ProgramCard.astro';
 ```
-and replace the render call `<VerticalCard vertical={v} />` with `<ProgramCard vertical={v} />` (Task 4 rewrites this page's surrounding markup fully — this step only keeps the build green in the meantime).
+and replace the render call `<VerticalCard vertical={v} />` with `<ProgramCard vertical={v} />` (Task 4 rewrites this page's surrounding markup fully - this step only keeps the build green in the meantime).
 
 In `src/pages/focus-areas/index.astro`, make the identical swap (Task 7 rewrites the rest of this page).
 
@@ -362,7 +362,7 @@ Expected: succeeds, 13 pages built.
 
 - [ ] **Step 5: Check contrast of the status badge on the new card background**
 
-`StatusBadge` renders `.status--proposed` (the only status currently in use). Check its defined colours in `src/components/StatusBadge.astro` and confirm they remain legible against `--tint-teal`, `--tint-indigo`, and `--tint-saffron` card backgrounds (all light backgrounds, and the badge was already contrast-verified against a canvas background in a prior session — light-on-light-tint should still pass, but verify by reading the computed rule, not by assumption).
+`StatusBadge` renders `.status--proposed` (the only status currently in use). Check its defined colours in `src/components/StatusBadge.astro` and confirm they remain legible against `--tint-teal`, `--tint-indigo`, and `--tint-saffron` card backgrounds (all light backgrounds, and the badge was already contrast-verified against a canvas background in a prior session - light-on-light-tint should still pass, but verify by reading the computed rule, not by assumption).
 
 - [ ] **Step 6: Commit**
 
@@ -382,7 +382,7 @@ git commit -m "feat: rebuild ProgramCard as the rich two-column vertical card, r
 **Interfaces:**
 - Consumes: `Marquee` (Task 2), `Swoosh` (Task 2), `ProgramCard` (Task 3), `positioning`/`site` from `src/data/site.js`, `verticals` from `src/data/verticals.js`, existing `Eyebrow`/`Button`/`CTA` components.
 
-This restores the original section order — hero, marquee, about-statement-with-cards, why-choose-us split, showcase band, marquee again, the six-verticals grid (now the rich `ProgramCard`), features grid, mission/vision, final CTA — filled with real content. The stats block, testimonials, and giving tiers from the original are not restored (per the approved design spec: no fabricated numbers, no testimonials without a track record, no individual-donation ask). The existing "how we intend to work" numbered-steps block is folded into the new `.acard` three-card section below so the same message isn't said twice in two different visual styles.
+This restores the original section order - hero, marquee, about-statement-with-cards, why-choose-us split, showcase band, marquee again, the six-verticals grid (now the rich `ProgramCard`), features grid, mission/vision, final CTA - filled with real content. The stats block, testimonials, and giving tiers from the original are not restored (per the approved design spec: no fabricated numbers, no testimonials without a track record, no individual-donation ask). The existing "how we intend to work" numbered-steps block is folded into the new `.acard` three-card section below so the same message isn't said twice in two different visual styles.
 
 - [ ] **Step 1: Replace the full contents of `src/pages/index.astro`**
 
@@ -469,7 +469,7 @@ const features = [
       <div>
         <Eyebrow text="Why work with us" />
         <h2>What makes the<br />approach different</h2>
-        <p class="lede">We are not a delivery organisation pretending to be a strategy — we are a strategy that says plainly it has not delivered anything yet, and shows exactly how it plans to.</p>
+        <p class="lede">We are not a delivery organisation pretending to be a strategy - we are a strategy that says plainly it has not delivered anything yet, and shows exactly how it plans to.</p>
         <div class="why__feats">
           <div class="feat"><h4>{features[0].title}</h4><p>{features[0].text}</p></div>
           <svg class="feat__sep"><use href="#i-ast" /></svg>
@@ -546,7 +546,7 @@ const features = [
 </Base>
 ```
 
-Note: this uses icons `i-check`, `i-chart`, `i-globe`, `i-ast` — all of which were already in use before this rebuild (per the earlier `about.astro` "three commitments" section and the restored `Marquee`). Verify each exists with `grep -n "i-check\|i-chart\|i-globe\|i-ast" src/components/Icons.astro` before running the build; if any is missing, add it to `Icons.astro` following that file's existing `<symbol>` pattern.
+Note: this uses icons `i-check`, `i-chart`, `i-globe`, `i-ast` - all of which were already in use before this rebuild (per the earlier `about.astro` "three commitments" section and the restored `Marquee`). Verify each exists with `grep -n "i-check\|i-chart\|i-globe\|i-ast" src/components/Icons.astro` before running the build; if any is missing, add it to `Icons.astro` following that file's existing `<symbol>` pattern.
 
 - [ ] **Step 2: Run tests and build**
 
@@ -556,16 +556,16 @@ Expected: 26/26 tests pass; build succeeds with 13 pages.
 - [ ] **Step 3: Check the built heading structure**
 
 Run: `grep -o '<h[1-6][^>]*>[^<]*' dist/index.html | sed 's/<h\([1-6]\)[^>]*>/h\1: /'`
-Expected: `h1` once, then only `h2`/`h3`/`h4` in descending order with no skip. (`.acard h4` and `.feat h4` sit inside a section whose preceding heading is `h2` — since there is no intermediate `h3` on the page at those points, using `h4` directly under `h2` would be a skip. Fix this by rendering those specific headings as `h3`, not `h4`, in the template above — i.e. change `<h4>{a.title}</h4>` inside the `.acard` loop and `<h4>{f.title}</h4>` inside `.feat`/`.fcard` loops to `<h3>`. The CSS classes (`.acard h4`, `.feat h4`, `.fcard h4`) select by tag, so after this edit also update those three CSS selectors in Task 1's output to `h3` instead of `h4` before re-running this check.)
+Expected: `h1` once, then only `h2`/`h3`/`h4` in descending order with no skip. (`.acard h4` and `.feat h4` sit inside a section whose preceding heading is `h2` - since there is no intermediate `h3` on the page at those points, using `h4` directly under `h2` would be a skip. Fix this by rendering those specific headings as `h3`, not `h4`, in the template above - i.e. change `<h4>{a.title}</h4>` inside the `.acard` loop and `<h4>{f.title}</h4>` inside `.feat`/`.fcard` loops to `<h3>`. The CSS classes (`.acard h4`, `.feat h4`, `.fcard h4`) select by tag, so after this edit also update those three CSS selectors in Task 1's output to `h3` instead of `h4` before re-running this check.)
 
 - [ ] **Step 4: Check for horizontal scroll at 375px**
 
-This needs a browser. Start the dev server, resize to 375×812, and confirm no element overflows — pay particular attention to `.about__cards` (3-column grid) and `.feats__grid` (2-column grid), which need a `grid-template-columns: 1fr` override under a mobile breakpoint if one doesn't already exist in the surrounding responsive rules. Check `grep -n "@media" src/styles/global.css` for the existing breakpoint pattern and match it.
+This needs a browser. Start the dev server, resize to 375×812, and confirm no element overflows - pay particular attention to `.about__cards` (3-column grid) and `.feats__grid` (2-column grid), which need a `grid-template-columns: 1fr` override under a mobile breakpoint if one doesn't already exist in the surrounding responsive rules. Check `grep -n "@media" src/styles/global.css` for the existing breakpoint pattern and match it.
 
 - [ ] **Step 5: Guard check**
 
 Run: `node scripts/content-guard.mjs dist`
-Expected: "Content guard passed" — this page now carries significantly more copy volume than before, so this is the highest-risk check in this task.
+Expected: "Content guard passed" - this page now carries significantly more copy volume than before, so this is the highest-risk check in this task.
 
 - [ ] **Step 6: Commit**
 
@@ -583,7 +583,7 @@ git commit -m "feat: rebuild homepage with restored template sections and real c
 - Modify: `src/pages/about.astro`
 
 **Interfaces:**
-- Consumes: `leadership` from `src/data/leadership.js` — `{ key, name, role, remit, verticalSlugs }` — and `verticals` from `src/data/verticals.js` for the `titleFor` lookup already used in the current `about.astro`.
+- Consumes: `leadership` from `src/data/leadership.js` - `{ key, name, role, remit, verticalSlugs }` - and `verticals` from `src/data/verticals.js` for the `titleFor` lookup already used in the current `about.astro`.
 - Produces: `<LeaderCard leader={l} titleFor={fn} />`, rendering the `.tmember` card from Task 1's CSS with an icon-avatar (the leader's initial) instead of a photo.
 
 - [ ] **Step 1: Create LeaderCard.astro**
@@ -646,7 +646,7 @@ Add the import at the top of the file alongside the other component imports:
 import LeaderCard from '../components/LeaderCard.astro';
 ```
 
-The existing `url` import may now be unused in this file if `titleFor` was the only other consumer — check with `grep -n "url(" src/pages/about.astro` before removing the import; if `url()` is still used elsewhere in the file (it is, in `titleFor`'s lookup is not a `url()` call, but other parts of the page may use it), leave the import in place.
+The existing `url` import may now be unused in this file if `titleFor` was the only other consumer - check with `grep -n "url(" src/pages/about.astro` before removing the import; if `url()` is still used elsewhere in the file (it is, in `titleFor`'s lookup is not a `url()` call, but other parts of the page may use it), leave the import in place.
 
 - [ ] **Step 4: Also restore the why-split layout for the founding-context section**
 
@@ -676,7 +676,7 @@ with:
         <div class="prose" style="margin-top:20px">
 ```
 
-Find the matching closing tags for this section (the original had `</div></div></section>`; after this edit it needs one additional closing `</div>` for the new `.why` wrapper's second column) and adjust the closing tags to balance — read the full section first with `sed -n '/The gap we are built to close/,/<\/section>/p' src/pages/about.astro` to see exactly which closing tags need the extra `</div>`.
+Find the matching closing tags for this section (the original had `</div></div></section>`; after this edit it needs one additional closing `</div>` for the new `.why` wrapper's second column) and adjust the closing tags to balance - read the full section first with `sed -n '/The gap we are built to close/,/<\/section>/p' src/pages/about.astro` to see exactly which closing tags need the extra `</div>`.
 
 - [ ] **Step 5: Run tests and build**
 
@@ -686,7 +686,7 @@ Expected: 26/26 pass; build succeeds.
 - [ ] **Step 6: Check heading structure**
 
 Run: `grep -o '<h[1-6][^>]*>[^<]*' dist/about/index.html | sed 's/<h\([1-6]\)[^>]*>/h\1: /'`
-Expected: h1 once, then h2/h3/h4 descending with no skip. `LeaderCard`'s `<h4>` sits under the page's "Who leads the work" `<h2>` with no intervening `<h3>` — same skip risk as Task 4. Fix by using `<h3>` in `LeaderCard.astro` instead of `<h4>` (and update the `.tmember h4`/`.tmember__role` CSS selectors in Task 1's block to target `h3` instead — the `.tmember__role` selector targets a `<div>`, not a heading, so only `.tmember h4` needs the tag change).
+Expected: h1 once, then h2/h3/h4 descending with no skip. `LeaderCard`'s `<h4>` sits under the page's "Who leads the work" `<h2>` with no intervening `<h3>` - same skip risk as Task 4. Fix by using `<h3>` in `LeaderCard.astro` instead of `<h4>` (and update the `.tmember h4`/`.tmember__role` CSS selectors in Task 1's block to target `h3` instead - the `.tmember__role` selector targets a `<div>`, not a heading, so only `.tmember h4` needs the tag change).
 
 - [ ] **Step 7: Guard check**
 
@@ -718,13 +718,13 @@ Run: `cat src/pages/focus-areas/index.astro`
 
 - [ ] **Step 2: Confirm the h2 added in a prior fix round is still needed**
 
-The current file has `<h2 style="font-size:28px; font-weight:700; margin-bottom:32px">Our six areas</h2>` — this was added specifically to fix an h1→h3 heading skip when the page used the plain `VerticalCard` (which renders an `<h3>`). `ProgramCard` (Task 3) renders an `<h3>` too, so this heading is still required — do not remove it. Only remove the inline `style` attribute if the surrounding CSS already provides equivalent sizing for a bare `<h2>` in this section (check by rendering and comparing visually); otherwise leave it as-is.
+The current file has `<h2 style="font-size:28px; font-weight:700; margin-bottom:32px">Our six areas</h2>` - this was added specifically to fix an h1→h3 heading skip when the page used the plain `VerticalCard` (which renders an `<h3>`). `ProgramCard` (Task 3) renders an `<h3>` too, so this heading is still required - do not remove it. Only remove the inline `style` attribute if the surrounding CSS already provides equivalent sizing for a bare `<h2>` in this section (check by rendering and comparing visually); otherwise leave it as-is.
 
 - [ ] **Step 3: Build and check**
 
 Run: `npm run build`
 Run: `grep -o '<h[1-6][^>]*>[^<]*' dist/focus-areas/index.html | sed 's/<h\([1-6]\)[^>]*>/h\1: /'`
-Expected: h1, h2, then h3×6, then the CTA's h2 — no skip.
+Expected: h1, h2, then h3×6, then the CTA's h2 - no skip.
 
 - [ ] **Step 4: Guard check**
 
@@ -738,7 +738,7 @@ git add src/pages/focus-areas/index.astro
 git commit -m "chore: confirm focus-areas index works with the restored ProgramCard"
 ```
 
-If Step 2 required no edit, skip this commit — there's nothing to commit, and an empty commit is not useful.
+If Step 2 required no edit, skip this commit - there's nothing to commit, and an empty commit is not useful.
 
 ---
 
@@ -795,12 +795,12 @@ Then change the existing `<div class="wrap vdetail reveal">` wrapper to `<div cl
 
 Run: `npm test && npm run build`
 Run: `grep -o '<h[1-6][^>]*>[^<]*' "dist/focus-areas/ai-and-emerging-tech-education/index.html" | sed 's/<h\([1-6]\)[^>]*>/h\1: /'`
-Expected: 26/26 tests pass; build succeeds; heading order is h1, h2, h2, h2 (this page's existing structure — verified clean in a prior review, unaffected by this task's layout change since no headings were added or removed).
+Expected: 26/26 tests pass; build succeeds; heading order is h1, h2, h2, h2 (this page's existing structure - verified clean in a prior review, unaffected by this task's layout change since no headings were added or removed).
 
 - [ ] **Step 5: Check the CTA fix landed on every vertical**
 
 Run: `grep -r "toLowerCase" dist/focus-areas/`
-Expected: no output — confirms the bug is gone from every one of the six built detail pages, not just the one checked above.
+Expected: no output - confirms the bug is gone from every one of the six built detail pages, not just the one checked above.
 
 - [ ] **Step 6: Guard check**
 
@@ -822,9 +822,9 @@ git commit -m "fix: correct CTA capitalisation bug, restore pdetail-style layout
 - Modify: `src/pages/partner.astro`
 
 **Interfaces:**
-- No new data dependencies — the FAQ content below is authored fresh for this task, answering the questions a real prospective partner would actually have given the organisation's current stage.
+- No new data dependencies - the FAQ content below is authored fresh for this task, answering the questions a real prospective partner would actually have given the organisation's current stage.
 
-The existing 4-step "who we work with" section and the working enquiry form are correct and untouched. This task only adds the restored `.faq` section, in the same position the original template placed it (after the process explanation, before the final CTA — here, appended after the "Three steps" section and before the form, since the form is this page's actual conversion point and should stay last).
+The existing 4-step "who we work with" section and the working enquiry form are correct and untouched. This task only adds the restored `.faq` section, in the same position the original template placed it (after the process explanation, before the final CTA - here, appended after the "Three steps" section and before the form, since the form is this page's actual conversion point and should stay last).
 
 - [ ] **Step 1: Read the current file**
 
@@ -832,7 +832,7 @@ Run: `cat src/pages/partner.astro`
 
 - [ ] **Step 2: Insert the FAQ section**
 
-Insert a new section immediately after the closing `</section>` of the "What happens next / Three steps" section (identify it by its `id="enquiry"` — insert this new section *before* that one, since the FAQ answers objections that come before someone fills out the form):
+Insert a new section immediately after the closing `</section>` of the "What happens next / Three steps" section (identify it by its `id="enquiry"` - insert this new section *before* that one, since the FAQ answers objections that come before someone fills out the form):
 
 ```astro
   <section class="section section--white">
@@ -844,11 +844,11 @@ Insert a new section immediately after the closing `</section>` of the "What hap
       <div class="faq reveal">
         <details>
           <summary>Is the organisation formally registered?</summary>
-          <p>Yes — as a non-profit company in Maharashtra, India, registered in 2026. Full registration details are available on request once we've confirmed them against the official record.</p>
+          <p>Yes - as a non-profit company in Maharashtra, India, registered in 2026. Full registration details are available on request once we've confirmed them against the official record.</p>
         </details>
         <details>
           <summary>What stage is each focus area actually at?</summary>
-          <p>Every one of the six areas is currently labelled Proposed: scoped and ready to start, with no delivery under way. The status on each focus area's page is kept accurate — it will change the day real delivery starts, not before.</p>
+          <p>Every one of the six areas is currently labelled Proposed: scoped and ready to start, with no delivery under way. The status on each focus area's page is kept accurate - it will change the day real delivery starts, not before.</p>
         </details>
         <details>
           <summary>Is there a cost to a first conversation?</summary>
@@ -872,12 +872,12 @@ Expected: 26/26 pass; build succeeds.
 - [ ] **Step 4: Check heading structure**
 
 Run: `grep -o '<h[1-6][^>]*>[^<]*' dist/partner/index.html | sed 's/<h\([1-6]\)[^>]*>/h\1: /'`
-Expected: h1, then h2 "Four kinds of conversation", h3×4, the new h2 "Before you write in" (no h3 needed under it since `<details><summary>` is not a heading — this doesn't create a skip), h2 "Three steps".
+Expected: h1, then h2 "Four kinds of conversation", h3×4, the new h2 "Before you write in" (no h3 needed under it since `<details><summary>` is not a heading - this doesn't create a skip), h2 "Three steps".
 
 - [ ] **Step 5: Guard check**
 
 Run: `node scripts/content-guard.mjs dist`
-Expected: "Content guard passed" — check specifically that "registered in 2026" and "Maharashtra" pass the guard's rules the same way the existing `site.js` `regNote` does, since this is new copy stating the same fact in different words.
+Expected: "Content guard passed" - check specifically that "registered in 2026" and "Maharashtra" pass the guard's rules the same way the existing `site.js` `regNote` does, since this is new copy stating the same fact in different words.
 
 - [ ] **Step 6: Commit**
 
@@ -891,16 +891,16 @@ git commit -m "feat: restore FAQ section on the partnership page"
 ### Task 9: Restyle contact.astro, updates/index.astro, and 404.astro against the restored palette, remove dead CSS
 
 **Files:**
-- Modify: `src/pages/contact.astro` (verification only — see Step 1)
-- Modify: `src/pages/updates/index.astro` (verification only — see Step 1)
-- Modify: `src/pages/404.astro` (verification only — see Step 1)
+- Modify: `src/pages/contact.astro` (verification only - see Step 1)
+- Modify: `src/pages/updates/index.astro` (verification only - see Step 1)
+- Modify: `src/pages/404.astro` (verification only - see Step 1)
 - Modify: `src/styles/global.css` (remove dead classes identified in Step 3)
 
-**Interfaces:** none — this task touches no data or component contracts.
+**Interfaces:** none - this task touches no data or component contracts.
 
 - [ ] **Step 1: Confirm these three pages need no structural change**
 
-These pages already use the current brand tokens (`--indigo`, `--canvas`, etc.) rather than any of the removed preschool tokens — they were rebuilt from scratch in a prior session, not restored-and-recoloured like the rest of this plan. `updates/index.astro` in particular is the original template's `/blog` slot: its honest empty-state ("nothing published yet") is correct and stays exactly as-is — do not wire up `BlogCard` or invent a post, since no real update exists yet. Run:
+These pages already use the current brand tokens (`--indigo`, `--canvas`, etc.) rather than any of the removed preschool tokens - they were rebuilt from scratch in a prior session, not restored-and-recoloured like the rest of this plan. `updates/index.astro` in particular is the original template's `/blog` slot: its honest empty-state ("nothing published yet") is correct and stays exactly as-is - do not wire up `BlogCard` or invent a post, since no real update exists yet. Run:
 
 `grep -n "var(--mint)\|var(--lav\|var(--peach)\|var(--amber)\|var(--purple)\|var(--cream)" src/pages/contact.astro src/pages/updates/index.astro src/pages/404.astro`
 
@@ -908,7 +908,7 @@ Expected: no output. If there is output, replace each match using Task 1's mappi
 
 - [ ] **Step 2: Visual check in the browser**
 
-Start the dev server, load `/contact`, `/updates`, and `/404`, and confirm they read as visually consistent with the newly-richer other pages (same fonts, same button style, same section rhythm) — not jarringly plainer. If any page reads as flat compared to its neighbours, that's a judgement call for a small enhancement (e.g. the `.aside`-style card treatment already used elsewhere for the contact facts block), but do not invent new content or sections — this task is about consistency, not expansion.
+Start the dev server, load `/contact`, `/updates`, and `/404`, and confirm they read as visually consistent with the newly-richer other pages (same fonts, same button style, same section rhythm) - not jarringly plainer. If any page reads as flat compared to its neighbours, that's a judgement call for a small enhancement (e.g. the `.aside`-style card treatment already used elsewhere for the contact facts block), but do not invent new content or sections - this task is about consistency, not expansion.
 
 - [ ] **Step 3: Find and remove dead CSS**
 
@@ -916,11 +916,11 @@ The homepage and About page no longer use `VerticalCard`'s old grid classes or t
 
 Run: `grep -rn "\.vgrid\b" src/pages/ src/components/`
 
-If `.vgrid` still appears in `focus-areas/index.astro` (it does — that page still uses it as a grid wrapper around `ProgramCard`s), keep the CSS rule. Then check the now-fully-unused ones:
+If `.vgrid` still appears in `focus-areas/index.astro` (it does - that page still uses it as a grid wrapper around `ProgramCard`s), keep the CSS rule. Then check the now-fully-unused ones:
 
 Run: `grep -rn "\bleaders\b\|\.leader\b\|\.leader__" src/pages/ src/components/`
 
-Expected: no output (Task 5 removed the only usage). If clean, remove the corresponding `.leaders`/`.leader`/`.leader__role`/`.leader__areas` rules from `src/styles/global.css` — but first check whether `.leader__areas` is still referenced by the new `LeaderCard.astro` (it is, reused deliberately for the linked-verticals list) — keep that one rule, remove only `.leaders` and the bare `.leader` (not `.leader__areas`).
+Expected: no output (Task 5 removed the only usage). If clean, remove the corresponding `.leaders`/`.leader`/`.leader__role`/`.leader__areas` rules from `src/styles/global.css` - but first check whether `.leader__areas` is still referenced by the new `LeaderCard.astro` (it is, reused deliberately for the linked-verticals list) - keep that one rule, remove only `.leaders` and the bare `.leader` (not `.leader__areas`).
 
 - [ ] **Step 4: Full regression pass**
 
@@ -938,7 +938,7 @@ git commit -m "chore: verify contact/404 palette consistency, remove dead leader
 
 ### Task 10: Final whole-branch audit
 
-**Files:** none created or modified directly — this task verifies and fixes whatever the audit finds.
+**Files:** none created or modified directly - this task verifies and fixes whatever the audit finds.
 
 - [ ] **Step 1: Full test and build pass**
 
@@ -964,32 +964,32 @@ List every place `var(--teal)`, `var(--saffron)`, or `var(--indigo)` is used as 
 
 Run: `grep -n "color: var(--teal)\|color: var(--saffron)" src/styles/global.css`
 
-Expected: every match is on a selector targeting an `svg` (icon/graphic), never a text element. If any match targets text, either the colour is wrong (should be `--teal-deep` or `--indigo`) or the text needs to be resized to qualify — fix the CSS, don't just note the violation.
+Expected: every match is on a selector targeting an `svg` (icon/graphic), never a text element. If any match targets text, either the colour is wrong (should be `--teal-deep` or `--indigo`) or the text needs to be resized to qualify - fix the CSS, don't just note the violation.
 
 - [ ] **Step 4: No-horizontal-scroll check at 375px**
 
-Using the browser, resize to 375×812 and load each of: `/`, `/about`, `/focus-areas`, `/focus-areas/international-academic-pathway`, `/partner`, `/contact`. Confirm no page scrolls horizontally. Pay attention to `.about__cards` (3-col), `.feats__grid` (2-col), `.why`/`.feats` (2-col split), `.team` (2-col), `.vdetail--rich` (3-col) — these are the grids most likely to need a `grid-template-columns: 1fr` mobile override. Check the existing breakpoint pattern with `grep -n "@media (max-width" src/styles/global.css` and add matching rules for any grid that overflows.
+Using the browser, resize to 375×812 and load each of: `/`, `/about`, `/focus-areas`, `/focus-areas/international-academic-pathway`, `/partner`, `/contact`. Confirm no page scrolls horizontally. Pay attention to `.about__cards` (3-col), `.feats__grid` (2-col), `.why`/`.feats` (2-col split), `.team` (2-col), `.vdetail--rich` (3-col) - these are the grids most likely to need a `grid-template-columns: 1fr` mobile override. Check the existing breakpoint pattern with `grep -n "@media (max-width" src/styles/global.css` and add matching rules for any grid that overflows.
 
 - [ ] **Step 5: Confirm no stock photography or fabricated claims slipped in**
 
 Run: `grep -rn "framerusercontent\|<img" src/pages/ src/components/`
-Expected: no output (or only the favicon/logo `<img>` if either page legitimately displays the organisation's own logo mark — check any match individually; it should never be a photo of a person or place).
+Expected: no output (or only the favicon/logo `<img>` if either page legitimately displays the organisation's own logo mark - check any match individually; it should never be a photo of a person or place).
 
 Run: `node scripts/content-guard.mjs dist`
-Expected: "Content guard passed" — this is the authoritative check for fabricated numbers, testimonials, and unverified registration claims; the manual checks above are a supplement, not a replacement.
+Expected: "Content guard passed" - this is the authoritative check for fabricated numbers, testimonials, and unverified registration claims; the manual checks above are a supplement, not a replacement.
 
 - [ ] **Step 6: Confirm nav and footer still reflect the real site structure**
 
-Run: `grep -n "nav\s*=" src/data/site.js` and re-read the array — confirm it still lists exactly Home, About, Focus areas, Partner with us, Contact (no `/donate`, no `/teachers`, no separate `/leadership` route, since leadership lives inside `/about`).
+Run: `grep -n "nav\s*=" src/data/site.js` and re-read the array - confirm it still lists exactly Home, About, Focus areas, Partner with us, Contact (no `/donate`, no `/teachers`, no separate `/leadership` route, since leadership lives inside `/about`).
 
 Run: `ls src/pages/ dist/`
-Expected: no `donate.astro`/`dist/donate`, no `teachers.astro`/`dist/teachers`, no `admissions.astro`/`dist/admissions`, no `programs/`/`dist/programs`, no `blog/`/`dist/blog` — these were already removed in a prior session's cleanup and must not have been reintroduced by this plan's restoration work.
+Expected: no `donate.astro`/`dist/donate`, no `teachers.astro`/`dist/teachers`, no `admissions.astro`/`dist/admissions`, no `programs/`/`dist/programs`, no `blog/`/`dist/blog` - these were already removed in a prior session's cleanup and must not have been reintroduced by this plan's restoration work.
 
 - [ ] **Step 7: Report and commit any final fixes found in Steps 2-6**
 
 ```bash
 git add -A
-git commit -m "fix: whole-branch audit — heading levels, contrast, mobile overflow"
+git commit -m "fix: whole-branch audit - heading levels, contrast, mobile overflow"
 ```
 
 If the audit found nothing to fix, skip this commit.

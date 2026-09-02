@@ -136,7 +136,7 @@ The sign-off table in `qa-launch-checklist.md` must use this role set. A role ma
 
 Aadhaar/PAN/government ID, exact date of birth, bank/payment data, income, caste, disability/health data, CV, education records, passwords, children’s data, identity documents, or programme application documents.
 
-### 6.3 Accidental child/sensitive data procedure — required before launch
+### 6.3 Accidental child/sensitive data procedure - required before launch
 
 1. Restrict the record immediately to the privacy/safeguarding owner and necessary responder.
 2. Do not copy it into chat, analytics, public CMS, general tickets, or broad email threads.
@@ -164,7 +164,7 @@ Final durations require legal/privacy and operational approval before launch. `T
 | Claim evidence | Substantiate public claim | Approval/withdrawal | TBD by corporate/legal record policy | Restricted evidence store | Corporate/legal | Blocked |
 | Incident record | Response/accountability | Incident closure | TBD by legal/security policy | Restricted archive/delete | Security/privacy | Blocked |
 
-Vendor auto-backups, email copies, exported files, and subprocessor deletion must be included—not only the primary interface.
+Vendor auto-backups, email copies, exported files, and subprocessor deletion must be included-not only the primary interface.
 
 ## 8. Privacy/data-rights and grievance operating procedure
 
@@ -210,17 +210,17 @@ Final domain is represented as `{domain}`. Social images require rights-approved
 | Page | Slug/canonical | Index at launch | Schema | Social image/content rule | Redirect/condition |
 |---|---|---:|---|---|---|
 | Home | `https://{domain}/` | Yes | Organisation/WebSite only with verified fields | Brand/proposition; no fake learner image | Canonical host redirect |
-| About | `/about` | Yes | AboutPage | Approved abstract/leadership visual | — |
+| About | `/about` | Yes | AboutPage | Approved abstract/leadership visual | - |
 | Focus Areas | `/focus-areas` | Yes | CollectionPage | Four-pillar abstract graphic | `#status` anchor works |
 | Focus/programme detail | `/focus-areas/{slug}` | Only when approved | WebPage; no Course schema unless genuinely supported | Programme-specific approved media/status | Draft/P1 hidden |
 | Partner With Us | `/partner-with-us` | Yes | WebPage | Collaboration visual | `#enquiry` anchor works |
 | Updates | `/updates` | Only with ≥1 approved item | CollectionPage | Latest/general brand visual | Otherwise unlinked/noindex as approved |
 | Update detail | `/updates/{slug}` | Per approved item | Article/NewsArticle only when accurate | Item image/title/date | Old slugs redirect |
-| Contact | `/contact` | Yes | ContactPage | Brand/contact visual; no address graphic needed | — |
+| Contact | `/contact` | Yes | ContactPage | Brand/contact visual; no address graphic needed | - |
 | Corporate Disclosures | `/corporate-disclosures` | Only after authoritative facts approved | WebPage/Organization fields only when verified | Restrained brand visual | Block until approved |
 | Privacy | `/privacy` | Yes when forms/public site launch | WebPage | Default legal social card | Previous versions archived internally |
-| Terms | `/terms` | Yes | WebPage | Default legal social card | — |
-| Accessibility | `/accessibility` | Yes | WebPage | Default legal social card | — |
+| Terms | `/terms` | Yes | WebPage | Default legal social card | - |
+| Accessibility | `/accessibility` | Yes | WebPage | Default legal social card | - |
 | Cookie information | `/cookies` or privacy section | According to implemented trackers | WebPage | Default legal social card | Omit separate page only if legal review approves |
 | 404 | Platform 404 | No | None | No social requirement | Must return correct not-found behavior where platform allows |
 
@@ -266,7 +266,7 @@ No price is assumed in this blueprint. The product owner must collect current qu
 | Translation | Terminology and initial translation | Editorial review per update/language | Content/product |
 | Maintenance | Training/handoff | Publishing, QA, fixes, backups, reviews | Product/publisher |
 
-Record plan limits, taxes, currency, billing owner, renewal date, cancellation/export terms, vendor lock-in, and minimum viable fallback—not price alone.
+Record plan limits, taxes, currency, billing owner, renewal date, cancellation/export terms, vendor lock-in, and minimum viable fallback-not price alone.
 
 ## 13. Lightweight threat and abuse review
 
@@ -284,7 +284,7 @@ Record plan limits, taxes, currency, billing owner, renewal date, cancellation/e
 | Dependency/vendor outage | Essential content native, form failure state, export/recovery, vendor contacts | Simulated outage/recovery review |
 | Scraped director/address data misuse | Publish only required/approved corporate information; no extra private details | Corporate/privacy review |
 
-Run a production security-header scan and document platform-controlled gaps. Review SPF, DKIM, and DMARC for any domain used to send acknowledgements. These controls complement—not replace—vendor security and legal review.
+Run a production security-header scan and document platform-controlled gaps. Review SPF, DKIM, and DMARC for any domain used to send acknowledgements. These controls complement-not replace-vendor security and legal review.
 
 ## 14. Copy-lock register format
 
