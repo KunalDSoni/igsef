@@ -38,4 +38,17 @@ export const leadership = [
       'innovation-and-incubation',
     ],
   },
+  {
+    key: 'executive-director',
+    name: 'Mahesh Ahuja',
+    role: 'Executive Director',
+    photo: '/images/Mahesh Ahuja.png',
+    remit:
+      'Drives strategic partnerships and advisory initiatives across corporate training and industry collaborations. Leverages 20+ years of experience in banking and financial services to cultivate high-performing teams and drive organizational success.',
+    verticalSlugs: [
+      'corporate-and-industry-training',
+      'industry-academia-integration',
+      'strategic-csr-and-social-impact',
+    ],
+  },
 ];
