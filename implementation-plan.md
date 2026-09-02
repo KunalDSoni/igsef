@@ -60,7 +60,7 @@ Expected total: approximately 3–5 working weeks, mainly dependent on content/l
 
 ## 5. Work breakdown
 
-### Phase 0 — verification and access
+### Phase 0 - verification and access
 
 #### 0.1 Project ownership
 
@@ -104,7 +104,7 @@ Prototype and record whether the chosen Framer plan/configuration can satisfy th
 
 Decision output: `Go`, `Go with recorded controls/exceptions`, or `No-go and select another platform`. A no-go pauses Framer page construction but does not invalidate the approved requirements, copy, or design direction.
 
-### Phase 1 — content and design lock
+### Phase 1 - content and design lock
 
 #### 1.1 Decision workshop
 
@@ -137,13 +137,13 @@ Approve:
 - Approve component and motion rules, including reduced motion.
 - Test long names, empty collections, no open programme, missing photo, expired item, and long translation-like content.
 
-### Phase 2 — Framer foundations
+### Phase 2 - Framer foundations
 
 #### 2.1 Duplicate and protect source
 
 - Duplicate the licensed template into the organisation workspace.
 - Rename the working project clearly.
-- Keep the untouched source page/group unlinked and label it `Template Source — Do Not Publish` if permitted.
+- Keep the untouched source page/group unlinked and label it `Template Source - Do Not Publish` if permitted.
 - Remove sample domains and public preview links that could cause confusion.
 
 #### 2.2 Foundations
@@ -180,7 +180,7 @@ Build or clean shared components:
 
 Each component requires named variants and default/hover/focus/active/disabled/loading/error/success states as applicable.
 
-### Phase 3 — pages and CMS
+### Phase 3 - pages and CMS
 
 #### 3.1 Static page build
 
@@ -230,7 +230,7 @@ Configure conditional visibility and empty states so blank fields do not leave b
 - Add owner and review/expiry information to the external editorial log even if not all fields are public.
 - Preview every CMS item at desktop, tablet, mobile, and long-content edge cases.
 
-### Phase 4 — forms, SEO, privacy, analytics
+### Phase 4 - forms, SEO, privacy, analytics
 
 #### 4.1 Form flow
 
@@ -291,7 +291,7 @@ Implementation tasks:
 - Ensure rejection/withdrawal is available and does not block essential content.
 - Make the Privacy Notice and cookie information match the final inventory.
 
-### Phase 5 — QA and remediation
+### Phase 5 - QA and remediation
 
 Run the complete `qa-launch-checklist.md`.
 
@@ -319,7 +319,7 @@ Issue severity:
 - **Medium:** material usability/content/performance issue with workaround. Fix or obtain recorded exception.
 - **Low:** cosmetic or minor editorial issue. Can enter post-launch backlog with owner/date.
 
-### Phase 6 — launch and handoff
+### Phase 6 - launch and handoff
 
 #### 6.1 Pre-launch freeze
 
@@ -367,7 +367,7 @@ Provide:
 
 ## 6. Backlog by priority
 
-### P0 — launch
+### P0 - launch
 
 - `BLD-001` Organisation-owned project and domain access
 - `BLD-002` Template licence/source/asset audit
@@ -387,7 +387,7 @@ Provide:
 - `BLD-016` Accessibility/responsive/performance/browser QA
 - `BLD-017` Launch, ownership, backup, monitoring, training
 
-### P1 — after operating content exists
+### P1 - after operating content exists
 
 - `BLD-101` Approved programme detail and intake
 - `BLD-102` Leadership profiles
@@ -397,7 +397,7 @@ Provide:
 - `BLD-106` Hindi/Marathi localisation
 - `BLD-107` Verified case studies/testimonials
 
-### P2 — separate discovery
+### P2 - separate discovery
 
 - `BLD-201` Application/case-management workflow
 - `BLD-202` CRM automation

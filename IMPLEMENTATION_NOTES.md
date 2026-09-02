@@ -63,18 +63,18 @@ markup is used, and a build-output scan enforces that.
 Resolved in favour of the higher-precedence document in each case, as the brief
 requires. None changed the scope of the build.
 
-**1. Focus-area card grid — `design.md` §8.1 vs §8.3.**
+**1. Focus-area card grid - `design.md` §8.1 vs §8.3.**
 The Home wireframe shows four focus-area cards across one row; the Focus Areas
 page specifies three columns at desktop. With exactly four records, either rule
 alone strands the fourth card alone on a second row.
 
 *Resolution:* a deliberate two-by-two layout for the four pillars on both pages.
-It honours the intent of both rules — the set reads as one balanced group, and
+It honours the intent of both rules - the set reads as one balanced group, and
 each card keeps an editorial measure. The three-column rule applies once the
 collection grows beyond four. `Requirement.md` §10.1 requires "four focus-area
 cards", which is satisfied.
 
-**2. Header primary CTA — `Requirement.md` §8.1 vs `project-controls.md` §3.**
+**2. Header primary CTA - `Requirement.md` §8.1 vs `project-controls.md` §3.**
 The requirements list "Discuss a partnership" as part of the standing primary
 navigation; the controls document permits that exact label and its
 `/partner-with-us#enquiry` destination **only after form routing and the response
@@ -85,9 +85,9 @@ call to action resolves through `primaryAction()` to "Explore partnership
 routes" → `/partner-with-us`, which works and leads somewhere meaningful. The
 canonical CTA activates everywhere at once when `features.publishedSla` opens.
 `project-controls.md` §3 is explicit about the availability rule, and
-`Requirement.md` §8.1 does not contradict it — it describes the launched state.
+`Requirement.md` §8.1 does not contradict it - it describes the launched state.
 
-**3. Contact page structure — `Requirement.md` §10.6 vs `content.md` §11.2.**
+**3. Contact page structure - `Requirement.md` §10.6 vs `content.md` §11.2.**
 The requirements list a response expectation and public contact details as
 required sections; the copy deck renders them as bracketed placeholders awaiting
 approval.
@@ -102,7 +102,7 @@ live copy.
 
 *Resolution:* programme and governance questions on Focus Areas; partnership and
 funding questions on Partner With Us. The registration question is gated on
-verified corporate facts. The safeguarding question is not built at all — no
+verified corporate facts. The safeguarding question is not built at all - no
 safeguarding policy exists, and a reassuring answer with nothing behind it would
 be worse than its absence.
 
@@ -126,7 +126,7 @@ be worse than its absence.
 See the final section of `website/README.md` for the commands. All of the
 following were run against this build:
 
-- Prettier format check, ESLint, strict TypeScript — clean.
+- Prettier format check, ESLint, strict TypeScript - clean.
 - 85 unit and component tests.
 - 152 end-to-end and accessibility tests across three Playwright projects
   (desktop default, mobile, and a demo-mode server), all against production
@@ -139,7 +139,7 @@ following were run against this build:
 - Screenshots at 1440, 1280, 768, 390 and 320 pixels, with an automated
   horizontal-overflow check at each width.
 
-Not performed, and not performable in code — listed in
+Not performed, and not performable in code - listed in
 `website/NEEDS_CLIENT_INPUT.md` §11: independent accessibility review, testing
 with assistive-technology users, formative usability testing, production Core Web
 Vitals field data, a security-header scan against a real domain, and a tested

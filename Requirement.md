@@ -39,7 +39,7 @@ Intended platform: Framer, subject to final feasibility and ownership approval
 
 Create a mobile-first institutional website that introduces Indo-Global Skills & Edu Foundation, explains its approved education-and-skills focus, establishes legitimacy, and converts relevant visitors into qualified enquiries.
 
-Because the organisation is newly registered, the first release must communicate ambition without presenting planned work as completed work. Trust will come from precise language, transparent disclosures, approved leadership information where available, clear contact routes, and evidence-backed updates—not invented statistics, generic partner logos, or implied affiliations.
+Because the organisation is newly registered, the first release must communicate ambition without presenting planned work as completed work. Trust will come from precise language, transparent disclosures, approved leadership information where available, clear contact routes, and evidence-backed updates-not invented statistics, generic partner logos, or implied affiliations.
 
 ### 2.1 Product principles
 
@@ -114,10 +114,10 @@ The board/programme owner must approve or replace this before launch.
 
 Use “focus areas” or “proposed work” until operating programmes are approved and live.
 
-1. **Future-ready skills** — digital, workplace, entrepreneurial, communication, and professional-readiness capability.
-2. **Educator and institutional capacity** — tools, curriculum support, and peer learning for education and training providers.
-3. **Education–industry pathways** — collaboration that makes learning more relevant to real opportunities.
-4. **Inclusive access** — approaches designed to reduce barriers for underserved learners and communities.
+1. **Future-ready skills** - digital, workplace, entrepreneurial, communication, and professional-readiness capability.
+2. **Educator and institutional capacity** - tools, curriculum support, and peer learning for education and training providers.
+3. **Education–industry pathways** - collaboration that makes learning more relevant to real opportunities.
+4. **Inclusive access** - approaches designed to reduce barriers for underserved learners and communities.
 
 Each pillar is a proposal, not a statement of existing delivery.
 
@@ -190,7 +190,7 @@ Design and content must support:
 
 ## 7. Scope and priorities
 
-### 7.1 P0 — required for launch
+### 7.1 P0 - required for launch
 
 - Global header, accessible navigation, footer, skip link, and mobile menu
 - Home
@@ -207,7 +207,7 @@ Design and content must support:
 - Consent-aware analytics configuration with no personal data
 - Editorial, review, backup/export, and access-control procedure
 
-### 7.2 P1 — add when real content/processes exist
+### 7.2 P1 - add when real content/processes exist
 
 - Approved programme-detail pages and intake status
 - Leadership profiles and Team Member CMS collection
@@ -218,7 +218,7 @@ Design and content must support:
 - Downloads and reports with accessible HTML summaries
 - Hindi and/or Marathi localisation
 
-### 7.3 P2 — conditional/future
+### 7.3 P2 - conditional/future
 
 - Applications with case management
 - CRM automation
@@ -267,7 +267,7 @@ Avoid separate “Impact” navigation until verified outcomes exist. Use “Our
 
 ## 9. Priority journeys
 
-### J-01 — Institutional partnership
+### J-01 - Institutional partnership
 
 1. Visitor lands on Home or Partner With Us.
 2. Visitor identifies their pathway: institution, employer/industry, or CSR/funder.
@@ -280,7 +280,7 @@ Avoid separate “Impact” navigation until verified outcomes exist. Use “Our
 Success: a qualified, consented enquiry reaches the correct owner and is acknowledged.  
 Failure handling: preserve entered non-sensitive data where safe, show specific accessible errors, and provide a monitored email alternative.
 
-### J-02 — Learner explores opportunities
+### J-02 - Learner explores opportunities
 
 1. Visitor lands on Focus Areas.
 2. Live opportunities are clearly distinguished from proposed areas.
@@ -289,7 +289,7 @@ Failure handling: preserve entered non-sensitive data where safe, show specific 
 
 Success: the visitor knows whether an opportunity is live and what to do next.
 
-### J-03 — Trust and verification
+### J-03 - Trust and verification
 
 1. Visitor opens About or Corporate Disclosures.
 2. Visitor sees approved legal name, legal form, verified CIN, incorporation date, registered office disclosure level, approved leadership where published, and current certificates/policies.
@@ -298,7 +298,7 @@ Success: the visitor knows whether an opportunity is live and what to do next.
 
 Success: the visitor can verify the organisation without relying on marketing claims.
 
-### J-04 — Content publishing
+### J-04 - Content publishing
 
 1. Author drafts a CMS item using the approved template.
 2. Author supplies owner, evidence, alt text, SEO fields, and review/expiry date.
@@ -493,7 +493,7 @@ Legal counsel must provide or approve:
 | Partner | Name, relationship type, approved logo + alt, proof/consent reference, URL, active dates, owner; hide collection until real partners exist |
 | Global Settings | Public contacts, social links, legal name, verified CIN, address, announcement, default SEO/social image, footer text |
 
-CMS evidence fields store opaque claim IDs only. Source documents, signatures, identity data, private contact details, internal notes, and other non-public evidence remain in the restricted evidence register—not in Framer CMS or public assets.
+CMS evidence fields store opaque claim IDs only. Source documents, signatures, identity data, private contact details, internal notes, and other non-public evidence remain in the restricted evidence register-not in Framer CMS or public assets.
 
 ### 12.2 Taxonomy
 
@@ -537,7 +537,7 @@ Maps, embedded video, chat, marketing pixels, heatmaps/session replay, CRM, news
 - **NFR-A06:** Motion honours `prefers-reduced-motion`; essential information never depends on animation.
 - **NFR-A07:** Touch targets target at least 44 × 44 CSS px, with adequate spacing.
 - **NFR-A08:** Public PDFs are accessible or have equivalent HTML.
-- **NFR-A09:** Test with keyboard, screen reader, zoom/reflow, high-contrast considerations, and real mobile devices—not automated tools alone.
+- **NFR-A09:** Test with keyboard, screen reader, zoom/reflow, high-contrast considerations, and real mobile devices-not automated tools alone.
 
 ### 14.2 Performance
 

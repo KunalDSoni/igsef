@@ -47,7 +47,7 @@ All three descriptions require confirmation against the organisation’s approve
 
 #### Learner first
 
-We begin with people’s goals, contexts, and barriers—not with a predetermined solution.
+We begin with people’s goals, contexts, and barriers-not with a predetermined solution.
 
 #### Practical relevance
 
@@ -110,7 +110,7 @@ Partner With Us · Contact
 **Transparency**  
 Corporate Disclosures · Privacy · Terms · Accessibility
 
-**Legal identity block — verification required**  
+**Legal identity block - verification required**  
 `[Exact registered legal name]`  
 `CIN: [verified CIN]`  
 `Registered office: [approved address]`  
@@ -321,7 +321,7 @@ Built to connect learning with opportunity.
 **Lead**  
 We intend to create a collaborative platform for practical education, future-ready skills, stronger institutions, and inclusive pathways.
 
-### 6.3 Founding statement — verification required
+### 6.3 Founding statement - verification required
 
 Draft after evidence approval:
 
@@ -347,7 +347,7 @@ Use the approved text from section 2. Display mission and vision in the Kidora s
 Our intended approach
 
 **Intro**  
-As a new organisation, our approach is a commitment to how we will design and assess work—not a claim of results already achieved.
+As a new organisation, our approach is a commitment to how we will design and assess work-not a claim of results already achieved.
 
 Use: Listen → Co-design → Deliver → Learn and improve.
 
@@ -436,21 +436,21 @@ Do not show an “Apply now” button that leads to a general contact form.
 
 Every live page must complete these headings:
 
-1. **Programme status** — one controlled status and last-updated date
-2. **Overview** — what it is, who it is for, and the intended outcome
-3. **Why this programme** — evidence-backed problem, with source links
-4. **What participants will learn/do** — specific modules or activities
-5. **Who can participate** — age, location, prerequisites, and exclusions stated respectfully
-6. **Dates and commitment** — application, selection, start/end, weekly hours
-7. **Format and location** — online/offline/hybrid and accessibility
-8. **Cost** — exact fee, “no participant fee,” or other verified arrangement
-9. **Selection** — steps, criteria, decision timing, appeals/contact if relevant
-10. **Completion/certificate** — issuer and recognition; never call participation a qualification
-11. **Employment/admission note** — no guarantee unless a legally supportable commitment exists
-12. **Safeguarding and support** — named route, especially for minors/vulnerable participants
-13. **Privacy** — link to programme-specific notice if personal data exceeds general contact data
-14. **Partners** — only signed, approved relationships
-15. **Questions** — monitored programme contact
+1. **Programme status** - one controlled status and last-updated date
+2. **Overview** - what it is, who it is for, and the intended outcome
+3. **Why this programme** - evidence-backed problem, with source links
+4. **What participants will learn/do** - specific modules or activities
+5. **Who can participate** - age, location, prerequisites, and exclusions stated respectfully
+6. **Dates and commitment** - application, selection, start/end, weekly hours
+7. **Format and location** - online/offline/hybrid and accessibility
+8. **Cost** - exact fee, “no participant fee,” or other verified arrangement
+9. **Selection** - steps, criteria, decision timing, appeals/contact if relevant
+10. **Completion/certificate** - issuer and recognition; never call participation a qualification
+11. **Employment/admission note** - no guarantee unless a legally supportable commitment exists
+12. **Safeguarding and support** - named route, especially for minors/vulnerable participants
+13. **Privacy** - link to programme-specific notice if personal data exceeds general contact data
+14. **Partners** - only signed, approved relationships
+15. **Questions** - monitored programme contact
 
 Recommended disclaimer:
 
@@ -597,7 +597,7 @@ Choose the reason for your enquiry so it reaches the right person. This form is 
 
 This is a policy self-attestation, not proof of age. Operations still needs the approved accidental-child-data procedure in `Requirement.md` FR-019.
 
-**Point-of-collection notice — legal review required**
+**Point-of-collection notice - legal review required**
 
 > We will use the information you provide to route and respond to this enquiry and to keep a limited record for follow-up and accountability. Do not include sensitive personal information. Read our Privacy Notice to understand retention, service providers, and how to contact us about your data.
 
@@ -663,23 +663,23 @@ This page brings together our verified legal identity, governance information, p
 
 > Our first programme reporting cycle will begin after approved delivery starts. We will not publish an impact number without a reporting period, definition, and source.
 
-### 12.4 Identity table — blocked until corporate approval
+### 12.4 Identity table - blocked until corporate approval
 
 Keep candidate values in the internal `research-notes.md`/evidence register, not in the builder-facing copy. Populate only from approved authoritative sources.
 
 | Public label | Production placeholder | Required source |
 |---|---|---|
-| Registered name | `[BLOCKED — exact approved legal name]` | Certificate of Incorporation + current MCA master data |
-| CIN | `[BLOCKED — exact verified CIN; do not manually normalise characters]` | Certificate of Incorporation/current MCA service |
-| Incorporated | `[BLOCKED — verified date]` | Certificate of Incorporation |
-| Status | `[BLOCKED — current status and last-checked date]` | Current MCA master data |
-| Legal form/category | `[BLOCKED — approved wording]` | Certificate, licence, Memorandum/Articles, MCA master data |
-| Registrar | `[BLOCKED — verified ROC]` | Current MCA master data |
-| Principal activity/objects | `[BLOCKED — approved plain-language wording]` | MCA activity/NIC and approved objects |
-| Registered office | `[BLOCKED — approved public address]` | Current MCA master data/filing |
-| Directors/leadership | `[BLOCKED — include only if approved for publication]` | Current MCA data and internal approval |
+| Registered name | `[BLOCKED - exact approved legal name]` | Certificate of Incorporation + current MCA master data |
+| CIN | `[BLOCKED - exact verified CIN; do not manually normalise characters]` | Certificate of Incorporation/current MCA service |
+| Incorporated | `[BLOCKED - verified date]` | Certificate of Incorporation |
+| Status | `[BLOCKED - current status and last-checked date]` | Current MCA master data |
+| Legal form/category | `[BLOCKED - approved wording]` | Certificate, licence, Memorandum/Articles, MCA master data |
+| Registrar | `[BLOCKED - verified ROC]` | Current MCA master data |
+| Principal activity/objects | `[BLOCKED - approved plain-language wording]` | MCA activity/NIC and approved objects |
+| Registered office | `[BLOCKED - approved public address]` | Current MCA master data/filing |
+| Directors/leadership | `[BLOCKED - include only if approved for publication]` | Current MCA data and internal approval |
 
-### 12.5 No-affiliation note — use only after legal/brand approval
+### 12.5 No-affiliation note - use only after legal/brand approval
 
 > Indo-Global Skills & Edu Foundation is an independent organisation. A similar name does not indicate an affiliation with any college, summit, foundation, trust, company, or government initiative unless this website identifies a documented partnership explicitly.
 
@@ -707,7 +707,7 @@ Do not upload documents containing personal signatures, private contact details,
 
 ### Is the foundation registered?
 
-**BLOCKED — corporate approval required.** After approval, use:  
+**BLOCKED - corporate approval required.** After approval, use:  
 “Yes. `[Exact legal name]` was incorporated on `[date]` under CIN `[verified CIN]`. View current details and the last verification date on our Corporate Disclosures page.”
 
 ### Are programmes currently open?
@@ -834,7 +834,7 @@ This opportunity is no longer accepting applications or expressions of interest.
 
 Do not show an application/contact CTA unless another live route is genuinely relevant.
 
-## 16. Cookie/consent UI copy — conditional
+## 16. Cookie/consent UI copy - conditional
 
 If the site has only essential platform storage and no optional tracker requiring a choice under the approved legal design, do not show a performative cookie banner. Document the inventory and explain essential storage in the Privacy/Cookie information.
 
@@ -854,9 +854,9 @@ We use essential technology to operate this website. With your permission, we ma
 
 **Preference categories**
 
-- Essential — required to operate and secure the website; always on
-- Measurement — helps us understand aggregate use without sending form answers or contact details
-- External media — loads approved third-party media only when present and selected
+- Essential - required to operate and secure the website; always on
+- Measurement - helps us understand aggregate use without sending form answers or contact details
+- External media - loads approved third-party media only when present and selected
 
 **Saved confirmation**  
 Your privacy choices have been saved.

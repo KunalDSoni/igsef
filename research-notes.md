@@ -34,7 +34,7 @@ These values are **candidate inputs, not approved website copy**. Confirm agains
 
 ### 1.2 `MR` versus `MH`
 
-Older government CIN-format guidance uses `MH` as its Maharashtra example. This initially makes the supplied `MR` segment look unusual. However, secondary registry profiles viewed in August 2026—including this exact record and other mid-2026 entities—use `MR` for entities mapped to ROC Mumbai II.
+Older government CIN-format guidance uses `MH` as its Maharashtra example. This initially makes the supplied `MR` segment look unusual. However, secondary registry profiles viewed in August 2026-including this exact record and other mid-2026 entities-use `MR` for entities mapped to ROC Mumbai II.
 
 Decision:
 

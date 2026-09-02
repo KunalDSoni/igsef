@@ -6,13 +6,13 @@
 
 **Architecture:** `Marquee.astro` gains an optional `items: string[]` prop. When present, it's used as the phrase list (each item followed by the `✳` separator icon); when absent, the component falls back to its current `text` + `repeat` behavior unchanged. Only the homepage hero call site switches to `items`.
 
-**Tech Stack:** Astro components (`.astro`), no client JS, no new test framework (project uses `node --test` against data files only — this change is verified via `npm run build` and a browser check, per existing project convention of not unit-testing markup).
+**Tech Stack:** Astro components (`.astro`), no client JS, no new test framework (project uses `node --test` against data files only - this change is verified via `npm run build` and a browser check, per existing project convention of not unit-testing markup).
 
 ## Global Constraints
 
 - Second marquee call in `index.astro` ("Every area labelled with its real status") must keep using `text` + `repeat` and must render identically to before.
 - No default call site should break: a call with neither `items` nor `text` must still render `text = 'Where growth begins'`, `repeat = 4` (the existing default).
-- Visual styling, the `✳` separator icon, and the scroll animation are unchanged — this is a content-source change only.
+- Visual styling, the `✳` separator icon, and the scroll animation are unchanged - this is a content-source change only.
 
 ---
 
@@ -22,11 +22,11 @@
 - Modify: `src/components/Marquee.astro`
 
 **Interfaces:**
-- Produces: `Marquee.astro` props — `items?: string[]`, `text?: string = 'Where growth begins'`, `repeat?: number = 4`. When `items` is a non-empty array, it is used as the phrase list. Otherwise the phrase list is `Array.from({ length: repeat }, () => text)`.
+- Produces: `Marquee.astro` props - `items?: string[]`, `text?: string = 'Where growth begins'`, `repeat?: number = 4`. When `items` is a non-empty array, it is used as the phrase list. Otherwise the phrase list is `Array.from({ length: repeat }, () => text)`.
 
 - [ ] **Step 1: Read the current file to confirm exact contents**
 
-Run: view `src/components/Marquee.astro` (already read during brainstorming — reconfirm before editing):
+Run: view `src/components/Marquee.astro` (already read during brainstorming - reconfirm before editing):
 
 ```astro
 ---
@@ -72,7 +72,7 @@ Run:
 ```bash
 grep -n "Marquee" src/pages/*.astro src/layouts/*.astro
 ```
-Expected: only the two calls in `src/pages/index.astro` (lines ~64 and ~120), both still passing `text` (no `items`) — confirms they'll hit the fallback branch and render exactly as before.
+Expected: only the two calls in `src/pages/index.astro` (lines ~64 and ~120), both still passing `text` (no `items`) - confirms they'll hit the fallback branch and render exactly as before.
 
 - [ ] **Step 4: Build the site to confirm no compile errors**
 
@@ -95,12 +95,12 @@ git commit -m "feat: let Marquee accept a list of phrases via items prop"
 
 **Interfaces:**
 - Consumes: `Marquee.astro`'s `items?: string[]` prop from Task 1.
-- Consumes: `site.tagline` from `src/data/site.js` (already imported in `index.astro` — confirm the import exists before editing).
+- Consumes: `site.tagline` from `src/data/site.js` (already imported in `index.astro` - confirm the import exists before editing).
 
 - [ ] **Step 1: Confirm `site` is imported in index.astro**
 
 Run: `grep -n "import.*site" src/pages/index.astro`
-Expected: a line importing `site` from `'../data/site.js'`. If missing, add `import { site } from '../data/site.js';` near the other imports at the top of the frontmatter — but do not add a duplicate if one already exists under a different name (e.g. destructured elsewhere).
+Expected: a line importing `site` from `'../data/site.js'`. If missing, add `import { site } from '../data/site.js';` near the other imports at the top of the frontmatter - but do not add a duplicate if one already exists under a different name (e.g. destructured elsewhere).
 
 - [ ] **Step 2: Replace the hero marquee call**
 
@@ -127,7 +127,7 @@ Replace with:
 - [ ] **Step 3: Confirm the second marquee call on the same page is untouched**
 
 Run: `grep -n "Marquee" src/pages/index.astro`
-Expected: two matches — the new `items={[...]}` call, and the unchanged `<Marquee text="Every area labelled with its real status" repeat={3} />`.
+Expected: two matches - the new `items={[...]}` call, and the unchanged `<Marquee text="Every area labelled with its real status" repeat={3} />`.
 
 - [ ] **Step 4: Build the site**
 
