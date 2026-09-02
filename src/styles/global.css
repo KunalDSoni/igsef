@@ -34,9 +34,9 @@
 
   /* logo sizing - single control point for the whole site.
      Change these three values to resize the logo everywhere. */
- --logo-h:        76px;  /* header, at the top of the page */
- --logo-h-stuck:  52px;  /* header, after it shrinks on scroll */
- --logo-h-footer: 124px; /* footer */
+ --logo-h:        110px;  /* header, at the top of the page */
+ --logo-h-stuck:  75px;  /* header, after it shrinks on scroll */
+ --logo-h-footer: 180px; /* footer */
 }
 
 * { box-sizing: border-box; }
