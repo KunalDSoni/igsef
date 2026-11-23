@@ -1,24 +1,34 @@
 ---
-// The named point of contact, with one-tap call and email buttons.
-// `person` and `actions` come from contactView() in src/lib/contact.js.
-const { person, actions = [] } = Astro.props;
+// The named point of contact: name and role, one-tap call and email buttons,
+// and the other details (such as the office address) inside the same card.
+// `person`, `actions` and `details` come from contactView() in src/lib/contact.js.
+const { person, actions = [], details = [] } = Astro.props;
 ---
 <div class="ccard">
   <div class="ccard__head">
     <span class="ccard__avatar" aria-hidden="true">{person.initials}</span>
     <div>
-      <span class="ccard__eyebrow">Your point of contact</span>
       <h3 class="ccard__name">{person.name}</h3>
       <span class="ccard__role">{person.role}</span>
     </div>
   </div>
-  {actions.length > 0 && (
-    <div class="ccard__actions">
-      {actions.map((a) => (
-        <a class={`ccard__btn ccard__btn--${a.kind}`} href={a.href}>
-          <svg aria-hidden="true"><use href={`#${a.icon}`} /></svg>
-          {a.label}
-        </a>
+  {(actions.length > 0 || details.length > 0) && (
+    <div class="ccard__body">
+      {actions.length > 0 && (
+        <div class="ccard__actions">
+          {actions.map((a) => (
+            <a class={`ccard__btn ccard__btn--${a.kind}`} href={a.href}>
+              <svg aria-hidden="true"><use href={`#${a.icon}`} /></svg>
+              {a.label}
+            </a>
+          ))}
+        </div>
+      )}
+      {details.map((d) => (
+        <div class="cfact">
+          <span class="cfact__icon"><svg><use href={`#${d.icon}`} /></svg></span>
+          <span><b>{d.label}</b><span>{d.value}</span></span>
+        </div>
       ))}
     </div>
   )}

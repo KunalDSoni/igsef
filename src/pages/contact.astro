@@ -7,7 +7,7 @@ import ContactCard from '../components/ContactCard.astro';
 import { site } from '../data/site.js';
 import { contactView, hrefFor } from '../lib/contact.js';
 
-const { person, actions, facts, pending } = contactView(site);
+const { person, actions, details, facts, pending } = contactView(site);
 ---
 <Base
   title="Contact"
@@ -33,7 +33,7 @@ const { person, actions, facts, pending } = contactView(site);
 
       {(person || facts.length > 0) && (
         <div class="contact__facts reveal" style="margin-top:56px">
-          {person && <ContactCard person={person} actions={actions} />}
+          {person && <ContactCard person={person} actions={actions} details={details} />}
           {facts.map((c) => (
             <div class="cfact">
               <span class="cfact__icon"><svg><use href={`#${c.icon}`} /></svg></span>

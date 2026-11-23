@@ -232,10 +232,10 @@ p  { margin: 0; color: var(--grey); }
   width: 64px; height: 64px; border-radius: 50%; flex: none; display: grid; place-items: center;
   background: var(--tint-indigo); color: var(--indigo); font-family: var(--display); font-weight: 800; font-size: 22px;
 }
-.ccard__eyebrow { display: block; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--teal-deep); }
-.ccard__name { font-size: 22px; font-weight: 700; line-height: 1.2; margin: 3px 0 4px; color: var(--ink); }
+.ccard__name { font-size: 22px; font-weight: 700; line-height: 1.2; margin: 0 0 4px; color: var(--ink); }
 .ccard__role { display: block; font-size: 13px; font-weight: 800; letter-spacing: .04em; color: var(--indigo); }
-.ccard__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.ccard__body { display: grid; gap: 20px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+.ccard__actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .ccard__btn {
   display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: var(--r-pill);
   font-family: var(--body); font-size: 14px; font-weight: 700; transition: transform .18s ease, box-shadow .18s ease;

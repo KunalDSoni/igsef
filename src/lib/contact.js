@@ -1,6 +1,7 @@
 // Turns the organisation's contact data into what the contact sections render:
 // the named contact person (shown as a card), the call and email buttons on
-// that card, the remaining detail rows, and any channels still pending.
+// that card, the other details shown inside it (such as the office address),
+// plain rows for when there is no contact person, and any channels pending.
 
 const HONORIFICS = new Set(['dr', 'prof', 'mr', 'mrs', 'ms']);
 
@@ -40,6 +41,10 @@ export function contactView(site) {
         .filter((a) => a.entry)
     : [];
 
+  // Everything else with a value sits inside the card, or stands alone as a
+  // row when there is no contact person to hold it.
+  const rest = contact.filter((c) => hasValue(c) && !onCard.some((a) => a.entry === c));
+
   return {
     person,
     actions: onCard.map(({ kind, icon, entry }) => ({
@@ -48,7 +53,8 @@ export function contactView(site) {
       href: hrefFor(entry),
       icon,
     })),
-    facts: contact.filter((c) => hasValue(c) && !onCard.some((a) => a.entry === c)),
+    details: person ? rest : [],
+    facts: person ? [] : rest,
     pending: contact.filter((c) => !hasValue(c)),
   };
 }

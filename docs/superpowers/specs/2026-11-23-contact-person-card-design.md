@@ -12,11 +12,11 @@ The contact person was added as one more row in the contact list. The bold text 
 
 - A contact card at the top of the contact details, showing:
   - a "KR" initials circle
-  - a small "Your point of contact" label
   - **Krishnakumar R.** in large display type
   - **Senior Vice President** below the name
 - The phone number and email move into the card as buttons. The phone is a filled indigo button that calls (`tel:`), and the email is a pale teal button that opens an email (`mailto:`).
-- The office address stays below the card as a plain row, in the current style.
+- The office address sits inside the card, below the buttons, in the current row style.
+- *Revised 2026-11-23 at the owner's request after launch:* the "Your point of contact" label was removed, and the office address moved from below the card into it.
 - Phone and email are no longer repeated as separate rows.
 - The same card appears on both the Contact page and the Partner page's "Contact us" box.
 
