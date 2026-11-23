@@ -3,9 +3,11 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Button from '../components/Button.astro';
+import ContactCard from '../components/ContactCard.astro';
 import { site } from '../data/site.js';
+import { contactView } from '../lib/contact.js';
 
-const known = site.contact.filter((c) => c.value !== null);
+const { person, actions, facts } = contactView(site);
 
 const routes = [
   {
@@ -87,9 +89,10 @@ const routes = [
           We reply within two working days with an honest read on fit.
         </p>
 
-        {known.length > 0 ? (
+        {(person || facts.length > 0) ? (
           <div class="contact__facts">
-            {known.map((c) => (
+            {person && <ContactCard person={person} actions={actions} />}
+            {facts.map((c) => (
               <div class="cfact">
                 <span class="cfact__icon"><svg><use href={`#${c.icon}`} /></svg></span>
                 <span><b>{c.label}</b><span>{c.value}</span></span>

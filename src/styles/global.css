@@ -226,6 +226,29 @@ p  { margin: 0; color: var(--grey); }
 .cfact span { font-size: 14px; color: var(--grey); }
 .cfact a { font-size: 14px; color: var(--teal-deep); font-weight: 700; }
 .cfact a:hover { text-decoration: underline; }
+.ccard { background: var(--white); border: 1px solid var(--line); border-radius: var(--r-card); padding: 26px; }
+.ccard__head { display: flex; gap: 18px; align-items: center; }
+.ccard__avatar {
+  width: 64px; height: 64px; border-radius: 50%; flex: none; display: grid; place-items: center;
+  background: var(--tint-indigo); color: var(--indigo); font-family: var(--display); font-weight: 800; font-size: 22px;
+}
+.ccard__eyebrow { display: block; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--teal-deep); }
+.ccard__name { font-size: 22px; font-weight: 700; line-height: 1.2; margin: 3px 0 4px; color: var(--ink); }
+.ccard__role { display: block; font-size: 13px; font-weight: 800; letter-spacing: .04em; color: var(--indigo); }
+.ccard__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.ccard__btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: var(--r-pill);
+  font-family: var(--body); font-size: 14px; font-weight: 700; transition: transform .18s ease, box-shadow .18s ease;
+}
+.ccard__btn svg { width: 16px; height: 16px; flex: none; }
+.ccard__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+.ccard__btn--call { background: var(--indigo); color: var(--white); }
+.ccard__btn--mail { background: var(--tint-teal); color: var(--teal-deep); }
+@media (max-width: 480px) {
+  .ccard { padding: 22px; }
+  .ccard__avatar { width: 56px; height: 56px; font-size: 19px; }
+  .ccard__btn { flex: 1 1 100%; justify-content: center; }
+}
 .form { background: var(--canvas); border-radius: var(--r-card); padding: 34px; display: grid; gap: 16px; }
 .form label { font-size: 13px; font-weight: 800; }
 .form input, .form textarea, .form select {
