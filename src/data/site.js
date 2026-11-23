@@ -15,6 +15,7 @@ export const site = {
   // renders as a route to the enquiry form, never as an invented detail.
   // Values below are taken from the organisation's official letterhead.
   contact: [
+    { label: 'Contact person', icon: 'i-user', value: 'Krishnakumar R., Senior Vice President', status: 'confirmed' },
     { label: 'Email',   icon: 'i-mail',  value: 'info@igsef.org', status: 'confirmed' },
     { label: 'Phone',   icon: 'i-phone', value: '+91 9323802631', status: 'confirmed' },
     { label: 'Office',  icon: 'i-pin',   value: '102, Ackruti Star, MIDC Central Road, Andheri (E), Mumbai - 400 093', status: 'confirmed' },
