@@ -128,3 +128,9 @@ test('leadership carries no invented biography, and any photo is a real file', (
     }
   }
 });
+
+test('contact person is declared once, outside the channel list', () => {
+  assert.deepEqual(site.contactPerson, { name: 'Krishnakumar R.', role: 'Senior Vice President' });
+  assert.ok(!site.contact.some((c) => c.label === 'Contact person'));
+  assert.equal(site.contact.find((c) => c.label === 'Phone').value, '+91 9323802631');
+});

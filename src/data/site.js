@@ -11,11 +11,14 @@ export const site = {
   blurb:
     'We build practical pathways between learning, skills, institutions, and opportunity - working with colleges, employers, and communities across India and beyond.',
 
+  // The named point of contact, shown as a card above the contact details.
+  // The card's call and email buttons read their values from `contact` below.
+  contactPerson: { name: 'Krishnakumar R.', role: 'Senior Vice President' },
+
   // Each entry declares a value even when we do not have one yet. A null value
   // renders as a route to the enquiry form, never as an invented detail.
   // Values below are taken from the organisation's official letterhead.
   contact: [
-    { label: 'Contact person', icon: 'i-user', value: 'Krishnakumar R., Senior Vice President', status: 'confirmed' },
     { label: 'Email',   icon: 'i-mail',  value: 'info@igsef.org', status: 'confirmed' },
     { label: 'Phone',   icon: 'i-phone', value: '+91 9323802631', status: 'confirmed' },
     { label: 'Office',  icon: 'i-pin',   value: '102, Ackruti Star, MIDC Central Road, Andheri (E), Mumbai - 400 093', status: 'confirmed' },
